@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TestController {
 
-    @GetMapping("registration")
+    @GetMapping("/")
     public String test() {
-        return "registration";
+        return "signup";
     }
 }
