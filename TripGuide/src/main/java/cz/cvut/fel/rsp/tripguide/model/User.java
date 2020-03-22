@@ -12,7 +12,6 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-
 /**
  * @author Tomen
  */
@@ -29,6 +28,9 @@ public class User extends AbstractEntity implements UserDetails {
     private String email;
 
     @NotNull
+    private long phoneNumber;
+
+    @NotNull
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
@@ -37,6 +39,27 @@ public class User extends AbstractEntity implements UserDetails {
     @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "userid"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "users")
+    private Set<Event> events = new HashSet<>();
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private Set<Message> messages = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "tourist")
+    private Set<Incident> incidents = new HashSet<>();
+
+    @JsonIgnore
+    @ManyToOne
+    private Tour tour;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "delegate")
+    private Tour tourToDelegate;
 
     private boolean active;
 
@@ -103,6 +126,58 @@ public class User extends AbstractEntity implements UserDetails {
         return roles;
     }
 
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Set<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
+
+    public Set<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Set<Message> messages) {
+        this.messages = messages;
+    }
+
+    public Set<Incident> getIncidents() {
+        return incidents;
+    }
+
+    public void setIncidents(Set<Incident> incidents) {
+        this.incidents = incidents;
+    }
+
+    public Tour getTour() {
+        return tour;
+    }
+
+    public void setTour(Tour tour) {
+        this.tour = tour;
+    }
+
+    public Tour getTourToDelegate() {
+        return tourToDelegate;
+    }
+
+    public void setTourToDelegate(Tour tourToDelegate) {
+        this.tourToDelegate = tourToDelegate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,12 +187,18 @@ public class User extends AbstractEntity implements UserDetails {
                 Objects.equals(username, user.username) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(password, user.password) &&
-                Objects.equals(roles, user.roles);
+                Objects.equals(phoneNumber, user.phoneNumber) &&
+                Objects.equals(roles, user.roles) &&
+                Objects.equals(events, user.events) &&
+                Objects.equals(messages, user.messages) &&
+                Objects.equals(incidents, user.incidents) &&
+                Objects.equals(tour, user.tour) &&
+                Objects.equals(tourToDelegate, user.tourToDelegate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, email, password, roles, active);
+        return Objects.hash(username, email, password, phoneNumber, roles, active);
     }
 
     @Override
@@ -126,8 +207,10 @@ public class User extends AbstractEntity implements UserDetails {
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", phoneNumber=" + phoneNumber +
                 ", roles=" + roles +
                 ", active=" + active +
                 '}';
     }
 }
+
