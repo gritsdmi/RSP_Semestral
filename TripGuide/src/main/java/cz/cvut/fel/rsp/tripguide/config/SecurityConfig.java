@@ -40,6 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources/**","/resources/**/**", "/static/**", "/static/**/**", "/", "/login**", "/registration", "/h2-console/**", "/api/**", "/api/**/**").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/tourist/**").hasAuthority("TOURIST")
+                .antMatchers("/delegate/**").hasAuthority("DELEGATE")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/topics/").failureUrl("/login?error").permitAll()
@@ -51,9 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authProvider);
         auth.inMemoryAuthentication()
-                .withUser("user").password("{noop}password").roles("USER")
+                .withUser("user").password("{noop}password").roles("TOURIST")
                 .and()
-                .withUser("admin").password("{noop}password").roles("USER", "ADMIN");
+                .withUser("admin").password("{noop}password").roles("TOURIST", "DELEGATE", "ADMIN");
 
     }
 

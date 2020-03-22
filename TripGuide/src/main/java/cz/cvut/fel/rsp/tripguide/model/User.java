@@ -27,8 +27,7 @@ public class User extends AbstractEntity implements UserDetails {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String email;
 
-    @NotNull
-    private long phoneNumber;
+    private String phoneNumber;
 
     @NotNull
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -43,7 +42,6 @@ public class User extends AbstractEntity implements UserDetails {
     @JsonIgnore
     @ManyToMany(mappedBy = "users")
     private Set<Event> events = new HashSet<>();
-
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
@@ -60,6 +58,9 @@ public class User extends AbstractEntity implements UserDetails {
     @JsonIgnore
     @OneToOne(mappedBy = "delegate")
     private Tour tourToDelegate;
+
+    @NotNull
+    private String fullName;
 
     private boolean active;
 
@@ -130,11 +131,11 @@ public class User extends AbstractEntity implements UserDetails {
         this.roles = roles;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -176,6 +177,14 @@ public class User extends AbstractEntity implements UserDetails {
 
     public void setTourToDelegate(Tour tourToDelegate) {
         this.tourToDelegate = tourToDelegate;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     @Override

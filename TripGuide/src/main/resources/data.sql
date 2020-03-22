@@ -1,0 +1,10 @@
+INSERT INTO PUBLIC.USER(ID, CREATEDAT, UPDATEDAT, USERNAME, EMAIL, PASSWORD,FULL_NAME, ACTIVE) VALUES
+(1, TIMESTAMP '2020-01-05 17:04:30.245', TIMESTAMP '2020-01-05 17:04:30.245', 'tourist', 'tourist@test.com' , '$2a$10$Sc0B3goljpMhTwmWj.FfmeFLCtGb3xoSX9N9aDN6UmL26FJVbJdHq','tourist tourist',  true),
+(2, TIMESTAMP '2020-01-05 17:06:48.689', TIMESTAMP '2020-01-05 17:06:48.689', 'delegate' , 'delegate@test.com' , '$2a$10$Lg4g7Y21m7Bz1NB2DKj/YO.NQ.FFhy9v6zmPYMVSJUrk0tgk8f/hi','delegate delegate', true),
+(3, TIMESTAMP '2020-01-05 17:06:48.689', TIMESTAMP '2020-01-05 17:06:48.689', 'admin', 'admin@test.com' , '$2a$10$Lg4g7Y21m7Bz1NB2DKj/YO.NQ.FFhy9v6zmPYMVSJUrk0tgk8f/hi','admin admin', true);
+
+
+INSERT INTO PUBLIC.USERS_ROLES(USERID, ROLES) VALUES
+(1, 'TOURIST'),
+(2, 'DELEGATE'),
+(3, 'ADMIN');
