@@ -30,5 +30,4 @@ public class Message extends AbstractEntity {
         this.user = user;
     }
 
-
 }

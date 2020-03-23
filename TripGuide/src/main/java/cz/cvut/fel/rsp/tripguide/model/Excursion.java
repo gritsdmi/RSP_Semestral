@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Excurtion extends AbstractEntity {
+public class Excursion extends AbstractEntity {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime arrivalTime;
 
@@ -105,5 +105,9 @@ public class Excurtion extends AbstractEntity {
 
     public void setTours(Set<Tour> tours) {
         this.tours = tours;
+    }
+
+    public void addTour(Tour tour) {
+        this.tours.add(tour);
     }
 }

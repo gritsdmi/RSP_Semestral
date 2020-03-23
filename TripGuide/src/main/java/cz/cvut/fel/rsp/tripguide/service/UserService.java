@@ -1,6 +1,9 @@
 package cz.cvut.fel.rsp.tripguide.service;
 
 import cz.cvut.fel.rsp.tripguide.dto.UserDto;
+import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
+import cz.cvut.fel.rsp.tripguide.model.Event;
+import cz.cvut.fel.rsp.tripguide.model.Message;
 import cz.cvut.fel.rsp.tripguide.model.Role;
 import cz.cvut.fel.rsp.tripguide.model.User;
 import cz.cvut.fel.rsp.tripguide.repository.UserRepository;
@@ -46,8 +49,36 @@ public class UserService implements UserDetailsService {
         user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
         user.setRoles(Collections.singleton(Role.TOURIST));
-        user = userRepository.save(user);
-        List<User> users = (List<User>) userRepository.findAll();
+        user = save(user);
         return user;
     }
+
+    public User addMessage(Integer userId, Integer messageId) {
+        Optional<User> user = userRepository.findById(userId);
+        if(!user.isPresent()) {
+            return null;
+        }
+        return null;
+    }
+
+    public User findUser(Integer id) {
+        Optional<User> user = userRepository.findById(id);
+        if (!user.isPresent()) {
+            throw new NotFoundException("User not found! ID: " + id);
+        }
+        return user.get();
+    }
+
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    public void remove(User user) {
+        userRepository.delete(user);
+    }
+
+    public void remove(Integer id) {
+        userRepository.deleteById(id);
+    }
+
 }

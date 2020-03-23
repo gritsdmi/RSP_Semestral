@@ -72,4 +72,8 @@ public class LocalAttraction extends AbstractEntity {
     public void setTours(Set<Tour> tours) {
         this.tours = tours;
     }
+
+    public void addTour(Tour tour) {
+        tours.add(tour);
+    }
 }
