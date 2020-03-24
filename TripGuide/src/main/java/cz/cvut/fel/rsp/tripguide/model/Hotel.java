@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -30,7 +31,9 @@ public class Hotel extends AbstractEntity {
 
     private String web;
 
-    private String country;
+    @JsonIgnore
+    @ManyToOne
+    private Destination destination;
 
     @JsonIgnore
     @OneToOne(mappedBy = "hotel")
@@ -100,12 +103,12 @@ public class Hotel extends AbstractEntity {
         this.web = web;
     }
 
-    public String getCountry() {
-        return country;
+    public Destination getDestination() {
+        return destination;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setDestination(Destination destination) {
+        this.destination = destination;
     }
 
     public Tour getTour() {

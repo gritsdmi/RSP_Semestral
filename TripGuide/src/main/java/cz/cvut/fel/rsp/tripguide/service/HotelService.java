@@ -64,8 +64,8 @@ public class HotelService {
         if(hotel.getBreakfastTime() != null) {
             hotelToUpdate.setBreakfastTime(hotel.getBreakfastTime());
         }
-        if(hotel.getCountry() != null) {
-            hotelToUpdate.setCountry(hotel.getCountry());
+        if(hotel.getDestination() != null) {
+            hotelToUpdate.setDestination(hotel.getDestination());
         }
         if(hotel.getDinnerTime() != null) {
             hotelToUpdate.setDinnerTime(hotel.getDinnerTime());
@@ -87,6 +87,9 @@ public class HotelService {
         }
         if(hotel.getWeb() != null) {
             hotelToUpdate.setWeb(hotel.getWeb());
+        }
+        if(hotel.getDestination() != null) {
+            hotelToUpdate.setDestination(hotel.getDestination());
         }
         hotelToUpdate = save(hotelToUpdate);
         return hotelToUpdate;
