@@ -43,7 +43,7 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-    var loginFormInput = $('validate-input .input101');
+    var loginFormInput = $('.validate-input .input101');
 
     $('.validate-form').on('submit',function(){
         var check = true;
@@ -62,6 +62,7 @@
         var check = true;
 
         for(var i=0; i<loginFormInput.length; i++) {
+
             if(validate(loginFormInput[i]) == false){
                 showValidate(loginFormInput[i]);
                 check=false;

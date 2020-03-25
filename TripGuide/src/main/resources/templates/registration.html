@@ -23,7 +23,7 @@
         
 
         <div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
-            <form class="login100-form validate-form-login">
+            <form class="login100-form validate-form-login" action="index.html" method="POST">
                 <span class="login100-form-title p-b-59">
                     Sign In
                 </span>
@@ -40,7 +40,7 @@
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
                             Sign In
                         </button>
                     </div>
@@ -115,7 +115,8 @@
                         </button>
                     </div>
 
-                    <a href="#" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+                    <a class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30"
+                    onclick='displaylogin()'>
                         Sign in
                         <i class="fa fa-long-arrow-right m-l-5"></i>
                     </a>
@@ -130,5 +131,24 @@
 <!--===============================================================================================-->
 <script src="../static/js/signup.js"></script>
 
+<script>
+function displaylogin() {
+  var loginform = document.getElementById("login-form");
+  loginform.classList.remove("display-none");
+
+  var x = document.getElementsByClassName('limiter')[0];
+  x.setAttribute("class", "blur-10");
+  document.getElementsByClassName("overlay")[0].classList.remove("display-none");
+}
+
+function hideLogin(){
+document.getElementById("login-form").setAttribute("class", "display-none");
+document.getElementsByClassName("limiter")[0].classList.remove("blur-10");
+document.getElementsByClassName("overlay")[0].setAttribute("class", "display-none");
+
+}
+</script>
+
 </body>
 </html>
+

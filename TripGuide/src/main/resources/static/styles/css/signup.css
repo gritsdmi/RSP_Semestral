@@ -282,7 +282,7 @@ iframe {
   padding-left: 2px;
 }
 
-.input100 {
+.input100, .input101 {
   display: block;
   width: 100%;
   height: 50px;
