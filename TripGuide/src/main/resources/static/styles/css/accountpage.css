@@ -22,7 +22,7 @@ header{
 main{
 	display: flex !important;
 	justify-content: center !important;
-	/*margin-top:50px; */
+	margin-top:130px; 
 }
 h1{
 	margin-bottom: 30px !important ;
@@ -129,7 +129,9 @@ a{
 	text-decoration: none;
 	cursor: default;
 	pointer-events: none;
-
+}
+a:hover{
+	text-decoration: none !important;;
 }
 a:visited{
 	color: #333;
