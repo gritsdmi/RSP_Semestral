@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Account page</title>
+	<link rel="icon" type="image/png" href="../static/styles/images/icons/favicon.ico"/>
+	<!-- <link rel="stylesheet" type="text/css" href="styles/css/main.css"> -->
+	<link rel="stylesheet" href="../static/styles/css/accountpage.css">
+	<link rel="stylesheet" href="../static/styles/css/destinations.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles/vendor/bootstrap4/bootstrap.min.css">
+
+
+</head>
+<body>
+		<!-- TODO header must be here -->
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+							<div class="logo"><a href="index.html">TripGuide</a></div>
+							<nav class="main_nav">
+								<ul class="d-flex flex-row align-items-start justify-content-start">
+									<li><a href="index.html">Home</a></li>
+									<li class="active"><a href="destinations.html">Destinations</a></li>
+									<li><a href="contact.html">Contact</a></li>
+								</ul>
+							</nav>
+							<!-- Hamburger -->
+							<div class="hamburger ml-auto">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header_social d-flex flex-row align-items-center justify-content-start">
+			<ul class="d-flex flex-row align-items-start justify-content-start">
+				<li><a href="#">
+					<button type="button" class="btn btn-outline-light">Sign in</button>
+				</a></li>
+				<li><a href="registration.html">
+					<button type="button" class="btn btn-outline-light">Registration</button>
+				</a></li>
+			</ul>
+		</div>
+	</header>
+
+
+	<main>
+		<div class="content">
+			<div class="about-user">
+				<div class="flex-column">
+					<h1>My Account</h1>
+					<div class="flex-row">
+						<div class="avatar">
+							<img src="../static/styles/images/admin_image.jpeg" alt="image">
+						</div>
+						<div class="info">
+							<div class="username">
+								<span>Username</span>
+								<div id="data-1"> Admin</div>
+							</div>
+							<div class="email">
+								<span>Email</span>
+								<div id="data-2">admin@admin.com</div>
+							</div>
+							<div class="date">
+								<span>Birthday date</span>
+								<div id="data-3">01.01.1970</div>
+							</div>
+							<div class="type">
+								<span>Account type</span>
+								<div id="data-4">god</div>
+							</div>
+						</div>	
+					</div>
+					<!-- <div class="edit-btn">
+						<button>Edit</button>
+					</div> -->
+				</div>
+			</div>
+			<div class="destinations flex-column">
+				<h2>Offers</h2>
+				<div class="data-tours flex-column">
+					<div class="bali-tour" id="tour01">
+						
+							<!-- 
+							TODO 
+							display block
+							 -->
+
+							<a href="#">
+							<div class="destination item">
+								<div class="destination_image">
+									<img src="../static/styles/images/destination_1.jpg" alt="">
+								</div>
+								<div class="destination_content">
+									<div class="destination_title"><h3>Bali</h3></div>
+									<div class="destination_subtitle"><p>Luxury vacation package. Just enjoy Your time here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem omnis distinctio quidem sit nemo eaque et temporibus, quam nobis quod! Similique labore, vero consectetur ipsum odit animi.</p></div>
+									<div class="destination_price">From $679</div>
+									<div class="destination_list">
+										<ul>
+											<li>5 Stars Hotel</li>
+											<li>All Inclusive</li>
+											<li>Flight tickets included</li>
+											<li>Guided visits</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</a>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+
+
+<script src="../static/js/jquery-3.2.1.min.js"></script>
+<script src="../static/js/destinations.js"></script>
+<script src="../static/styles/vendor/bootstrap4/popper.js"></script>
+<script src="../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
+
+	
+</body>
+</html>
