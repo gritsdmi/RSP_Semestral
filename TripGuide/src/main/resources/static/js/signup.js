@@ -47,6 +47,13 @@
         } return false;
     }
 
+    function isAdminPass(input){
+        if($(input).val() == "admin"){
+            console.log("admin pass correct");
+            return true;
+        } return false;
+    }
+
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
@@ -77,6 +84,10 @@
 
         if(isAdmin(loginFormInput[0]) == false){
             check = false;
+        } else {
+            if(isAdminPass(loginFormInput[1]) == false){
+                check = false;
+            }
         }
         return check;
     });
