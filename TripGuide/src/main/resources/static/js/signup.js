@@ -40,6 +40,13 @@
         })    
     })
 
+    function isAdmin(input){
+        if($(input).val() == "admin@admin.com"){
+            console.log("admin detected");
+            return true;
+        } return false;
+    }
+
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
@@ -47,12 +54,12 @@
 
     $('.validate-form').on('submit',function(){
         var check = true;
-
         for(var i=0; i<input.length; i++) {
             if(validate(input[i]) == false){
                 showValidate(input[i]);
                 check=false;
             }
+
         }
 
         return check;
@@ -62,13 +69,15 @@
         var check = true;
 
         for(var i=0; i<loginFormInput.length; i++) {
-
             if(validate(loginFormInput[i]) == false){
                 showValidate(loginFormInput[i]);
                 check=false;
             }
         }
 
+        if(isAdmin(loginFormInput[0]) == false){
+            check = false;
+        }
         return check;
     });
 
