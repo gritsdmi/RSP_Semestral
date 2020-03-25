@@ -29,9 +29,21 @@
         })    
     })
 
+    $('.validate-input .input101').each(function(){
+        $(this).on('blur', function(){
+            if(validate(this) == false){
+                showValidate(this);
+            }
+            else {
+                $(this).parent().addClass('true-validate');
+            }
+        })    
+    })
+
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
+    var loginFormInput = $('validate-input .input101');
 
     $('.validate-form').on('submit',function(){
         var check = true;
@@ -39,6 +51,19 @@
         for(var i=0; i<input.length; i++) {
             if(validate(input[i]) == false){
                 showValidate(input[i]);
+                check=false;
+            }
+        }
+
+        return check;
+    });
+
+    $('.validate-form-login').on('submit',function(){
+        var check = true;
+
+        for(var i=0; i<loginFormInput.length; i++) {
+            if(validate(loginFormInput[i]) == false){
+                showValidate(loginFormInput[i]);
                 check=false;
             }
         }
