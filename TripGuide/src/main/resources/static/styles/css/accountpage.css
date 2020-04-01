@@ -125,17 +125,6 @@ h1{
 .destination_title h3{
 	font-size: 2em !important;
 }
-a{
-	text-decoration: none;
-	cursor: default;
-	pointer-events: none;
-}
-a:hover{
-	text-decoration: none !important;;
-}
-a:visited{
-	color: #333;
-}
 
 ul {
 	list-style: none;
