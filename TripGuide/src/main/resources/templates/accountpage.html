@@ -5,12 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Account page</title>
 	<link rel="icon" type="image/png" href="../static/styles/images/icons/favicon.ico"/>
-	<!-- <link rel="stylesheet" type="text/css" href="styles/css/main.css"> -->
 	<link rel="stylesheet" href="../static/styles/css/accountpage.css">
 	<link rel="stylesheet" href="../static/styles/css/destinations.css">
 	<link rel="stylesheet" type="text/css" href="../static/styles/vendor/bootstrap4/bootstrap.min.css">
-
-
 </head>
 <body>
 		<!-- TODO header must be here -->
@@ -24,7 +21,7 @@
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li><a href="index.html">Home</a></li>
-									<li class="active"><a href="destinations.html">Destinations</a></li>
+									<li><a href="destinations.html">Destinations</a></li>
 									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</nav>
@@ -37,13 +34,13 @@
 				</div>
 			</div>
 		</div>
+		<!-- 
+			Sign out button just go to index page for now 
+		-->
 		<div class="header_social d-flex flex-row align-items-center justify-content-start">
 			<ul class="d-flex flex-row align-items-start justify-content-start">
-				<li><a href="#">
-					<button type="button" class="btn btn-outline-light">Sign in</button>
-				</a></li>
-				<li><a href="registration.html">
-					<button type="button" class="btn btn-outline-light">Registration</button>
+				<li><a href="index.html">
+					<button type="button" class="btn btn-outline-light">Sign out</button>
 				</a></li>
 			</ul>
 		</div>
@@ -83,43 +80,241 @@
 					</div> -->
 				</div>
 			</div>
-			<div class="destinations flex-column">
-				<h2>Offers</h2>
-				<div class="data-tours flex-column">
-					<div class="bali-tour" id="tour01">
-						
-							<!-- 
-							TODO 
-							display block
-							 -->
 
-							<a href="#">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../static/styles/images/destination_1.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Bali</h3></div>
-									<div class="destination_subtitle"><p>Luxury vacation package. Just enjoy Your time here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem omnis distinctio quidem sit nemo eaque et temporibus, quam nobis quod! Similique labore, vero consectetur ipsum odit animi.</p></div>
-									<div class="destination_price">From $679</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
+
+			<div class="destinations" id="destinations">
+				<div class="container">
+					<div class="row">
+						<div class="col text-center">
+							<div class="section_title"><h2>My Destinations</h2></div>
+						</div>
+					</div>
+					<div class="row destinations_row">
+						<div class="col">
+							<div class="destinations_container item_grid">
+
+								<!-- Destination -->
+								<div id="divBlock1" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_1.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Bali</h3></div>
+											<div class="destination_subtitle"><p>Luxury vacation package. Just enjoy Your time here</p></div>
+											<div class="destination_price">From $679</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
 
+								<!-- Destination -->
+								<div id="divBlock2" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_2.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Indonesia</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $579</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Destination -->
+								<div id="divBlock3" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_3.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>San Francisco</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $399</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Destination -->
+								<div id="divBlock4" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_4.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Paris</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $639</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Destination -->
+								<div id="divBlock5" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_5.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Phi Phi Island</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $929</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Destination -->
+								<div id="divBlock6" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_6.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Mykonos</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $719</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Destination -->
+								<div id="divBlock7" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_7.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Paris</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $515</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Destination -->
+								<div id="divBlock8" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_8.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Phi Phi Island</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $879</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Destination -->
+								<div id="divBlock9" style="display: none">
+									<div class="destination item">
+										<div class="destination_image">
+											<img src="../static/styles/images/destination_9.jpg" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3>Mykonos</h3></div>
+											<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+											<div class="destination_price">From $679</div>
+											<div class="destination_list">
+												<ul>
+													<li>5 Stars Hotel</li>
+													<li>All Inclusive</li>
+													<li>Flight tickets included</li>
+													<li>Guided visits</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</main>
+
+<!-- 
+	this should be replaced ASAP by BE implementation!!!
+ -->
+<script type="text/javascript">
+	function showBlocks() {
+		for (var i = 1; i < 10; i++) {
+			var divBlock = localStorage.getItem(`openDiv${i}`);
+			if(divBlock == 'open') {
+				document.getElementById(`divBlock${i}`).style.display = "block";
+			}
+			localStorage.removeItem(`divBlock${i}`);
+		}
+		localStorage.clear();
+	}
+	showBlocks();
+</script>
 
 
 <script src="../static/js/jquery-3.2.1.min.js"></script>

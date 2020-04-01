@@ -11,8 +11,43 @@
 <link rel="stylesheet" type="text/css" href="../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="../static/styles/css/main_styles.css">
 <link rel="stylesheet" type="text/css" href="../static/styles/css/responsive.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="../static/styles/css/signup.css">
+<!--===============================================================================================-->
 </head>
 <body>
+
+<div class="overlay display-none"></div>
+
+<div class="form-container display-none" id="login-form">
+    
+
+    <div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
+        <form class="login100-form validate-form-login" action="accountpage.html" method="POST">
+            <span class="login100-form-title p-b-59">
+                Sign In
+            </span>
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Email</span>
+                <input class="input101" type="text" name="email" placeholder="Email addess...">
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+                <span class="label-input100">Password</span>
+                <input class="input101" type="password" name="pass" placeholder="*************">
+                <span class="focus-input100"></span>
+            </div>
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn">
+                        Sign In
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 <div class="super_container">
 <!-- ----------------- -->
@@ -79,7 +114,7 @@
 		<div class="header_social d-flex flex-row align-items-center justify-content-start">
 			<ul class="d-flex flex-row align-items-start justify-content-start">
 				<li><a href="#">
-					<button type="button" class="btn btn-outline-light">Sign in</button>
+					<button type="button" class="btn btn-outline-light" onclick='displaylogin()'>Sign in</button>
 				</a></li>
 				<li><a href="registration.html">
 					<button type="button" class="btn btn-outline-light">Registration</button>
@@ -196,6 +231,23 @@
 		</div>
 	</div>
 </div>
+
+<script>
+function noScroll() {
+	window.scrollTo(0, 0);
+}
+
+function displaylogin() {
+	var loginform = document.getElementById("login-form");
+	loginform.classList.remove("display-none");
+
+	var x = document.getElementsByClassName('super_container')[0];
+	x.setAttribute("class", "blur-10");
+	document.getElementsByClassName("overlay")[0].classList.remove("display-none");
+
+	window.addEventListener('scroll', noScroll);
+}
+</script>
 
 <script src="../static/js/jquery-3.2.1.min.js"></script>
 <script src="../static/styles/vendor/bootstrap4/popper.js"></script>
