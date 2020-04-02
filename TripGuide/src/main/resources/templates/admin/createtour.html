@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../static/styles/css/admin/main_styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="header">
+        <p id="mainPageLink" href="#">Add new tour</p>
+    </div>
+
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a href="/admin/tours">All tours</a>
+    </div>
+
+    <form  class="addTour" th:action="@{/admin/tours/add}" th:object="${tour}" th:method="post" id="addTourForm">
+
+        <label for="description">Description: </label>
+        <input type="text" name="name" id="description" th:field="*{description}"/>
+
+        <label for="hotel">Hotel: </label>
+        <input type="text" name="name" id="hotel" th:field="*{hotel}"/>
+
+        <label for="delegate">Delegate's username: </label>
+        <input type="text" name="name" id="delegate" th:field="*{delegate}"/>
+
+        <label for="dateFrom">Date from: </label>
+        <input type="datetime-local" name="name" id="dateFrom" th:field="*{dateFrom}"/>
+
+        <label for="dateTill">Date till: </label>
+        <input type="datetime-local" name="name" id="dateTill" th:field="*{dateTil}" placeholder="Date"/>
+
+        <label for="departureFrom">Departure from: </label>
+        <input type="text" name="name" id="departureFrom" th:field="*{departureFrom}"/>
+
+        <label for="departureTime_start">Departure time(start): </label>
+        <input type="datetime-local" name="name" id="departureTime_start" th:field="*{departureTime_start}"/>
+
+        <label for="departureTime_end">Departure time(end): </label>
+        <input type="datetime-local" name="name" id="departureTime_end" th:field="*{departureTime_end}"/>
+
+        <button type="submit" id="addEventButton">Add</button>
+    </form>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+</body>
+</html>

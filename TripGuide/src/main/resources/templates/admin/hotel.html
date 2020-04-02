@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../static/styles/css/admin/main_styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <tbody>
+    <tr>
+        <div id="header">
+            <p id="mainPageLink" href="#" th:text="'Hotel #' + ${hotel.id}"></p>
+        </div>
+
+        <div class="links">
+            <a href="/admin/home">Admin menu</a>
+            <a href="/admin/tours">All hotels</a>
+        </div>
+        <div class="hotelOne">
+            <p class="hotelOneName" th:text="${hotel.name}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Destination:</span> <a href=\'/admin/dest/'+${hotel.destination.id}+'\'>'+${hotel.destination.name} + ' ' + ${hotel.destination.country} +'</a>'"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Stars:</span> ' + ${hotel.stars}"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Address:</span> ' + ${hotel.address}"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Web:</span> <a href=\'//'+${hotel.web}+'\'>' + ${hotel.web}+'</a>'"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Email:</span> ' + ${hotel.email}"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Phone number:</span> ' + ${hotel.phoneNumber}"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Breakfast time:</span> '"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Dinner time:</span> '"></p>
+        </div>
+
+        <div class="links bottom">
+            <a href="#">Tours</a>
+            <a href="#">Events</a>
+        </div>
+    </tr>
+    </tbody>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+</body>
+</html>

@@ -221,5 +221,17 @@ public class User extends AbstractEntity implements UserDetails {
                 ", active=" + active +
                 '}';
     }
+
+    public boolean isAdmin() {
+        return getAuthorities().contains(Role.ADMIN);
+    }
+
+    public boolean isDelegate() {
+        return getAuthorities().contains(Role.DELEGATE);
+    }
+
+    public boolean isTourist() {
+        return getAuthorities().contains(Role.TOURIST);
+    }
 }
 

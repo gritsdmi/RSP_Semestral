@@ -2,10 +2,7 @@ package cz.cvut.fel.rsp.tripguide.service;
 
 import cz.cvut.fel.rsp.tripguide.dto.UserDto;
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
-import cz.cvut.fel.rsp.tripguide.model.Event;
-import cz.cvut.fel.rsp.tripguide.model.Message;
-import cz.cvut.fel.rsp.tripguide.model.Role;
-import cz.cvut.fel.rsp.tripguide.model.User;
+import cz.cvut.fel.rsp.tripguide.model.*;
 import cz.cvut.fel.rsp.tripguide.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,28 +14,25 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
 
-    private final UserRepository userRepository;
-
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+    private PasswordEncoder passwordEncoder;
 
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return null;
+        User userFindByUserName = userRepository.findByUsername(s);
+        if(userFindByUserName != null) {
+            return userFindByUserName;
+        }
+        return userRepository.findByEmail(s);
     }
 
     public User regUser(UserDto registration) {
@@ -69,6 +63,15 @@ public class UserService implements UserDetailsService {
         return user.get();
     }
 
+    public User findUser(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new NotFoundException("User not found! Username: " + username);
+        }
+        return user;
+    }
+
+
     public User save(User user) {
         return userRepository.save(user);
     }
@@ -81,4 +84,11 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(id);
     }
 
+    public Set<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public Set<User> getTouristsByTour(Tour tour){
+        return userRepository.findAllByTour(tour);
+    }
 }

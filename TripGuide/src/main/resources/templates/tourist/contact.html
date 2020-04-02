@@ -1,85 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>TripGuide - Contact</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="TripGuide Contact">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../static/styles/vendor/bootstrap4/bootstrap.min.css">
-<link href="../static/styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="../static/styles/css/contact.css">
-<link rel="stylesheet" type="text/css" href="../static/styles/css/contact_responsive.css">
+<link rel="stylesheet" type="text/css" href="../../static/styles/vendor/bootstrap4/bootstrap.min.css">
+<link href="../../static/styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../../static/styles/css/contact.css">
+<link rel="stylesheet" type="text/css" href="../../static/styles/css/contact_responsive.css">
+<link rel="stylesheet" type="text/css" href="../../static/styles/css/signup.css">
 </head>
 <body>
+
+<div class="overlay display-none"></div>
+
+<div class="form-container display-none" id="login-form">
+	<div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
+		<div th:insert="~{fragments/login_form :: login_form}"></div>
+	</div>
+</div>
 
 <div class="super_container">
 	
 	<!-- Header -->
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="header_content d-flex flex-row align-items-center justify-content-start">
-						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-							<div class="logo"><a href="index.html">TripGuide</a></div>
-							<nav class="main_nav">
-								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="destinations.html">Destinations</a></li>
-									<li class="active"><a href="contact.html">Contact</a></li>
-								</ul>
-							</nav>
-							<!-- Hamburger -->
-							<div class="hamburger ml-auto">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="header_social d-flex flex-row align-items-center justify-content-start">
-			<ul class="d-flex flex-row align-items-start justify-content-start">
-				<li><a href="#">
-					<button type="button" class="btn btn-outline-light">Sign in</button>
-				</a></li>
-				<li><a href="registration.html">
-					<button type="button" class="btn btn-outline-light">Registration</button>
-				</a></li>
-			</ul>
-		</div>
-	</header>
-
-	<!-- Header in case of small window size -->
-	<div class="menu">
-		<div class="menu_header d-flex flex-row align-items-center justify-content-start">
-			<div class="menu_logo"><a href="index.html">TripGuide</a></div>
-			<div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>
-		</div>
-		<div class="menu_content">
-			<ul>
-				<li><a href="inex.html">Home</a></li>
-				<li><a href="destinations.html">Destinations</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</div>
-		<div class="menu_social">
-			<ul class="d-flex flex-row align-items-start justify-content-start">
-				<li><a href="#">
-					<button type="button" class="btn btn-outline-dark">Sign in</button>
-				</a></li>
-				<li><a href="registration.html">
-					<button type="button" class="btn btn-outline-dark">Registration</button>
-				</a></li>
-			</ul>
-		</div>
-	</div>
+	<div th:insert="~{fragments/header :: header}"></div>
 	
 	<!-- Home -->
 	<div class="home">
-		<div class="background_image" style="background-image:url(../static/styles/images/contact.jpg)"></div>
+		<div class="background_image" style="background-image:url(../../static/styles/images/contact.jpg)"></div>
 	</div>
 
 	<!-- Search -->
@@ -173,10 +124,28 @@
 	</div>
 </div>
 
-<script src="../static/js/jquery-3.2.1.min.js"></script>
-<script src="../static/styles/vendor/bootstrap4/popper.js"></script>
-<script src="../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
-<script src="../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../static/js/contact.js"></script>
+<script>
+	function noScroll() {
+		window.scrollTo(0, 0);
+	}
+
+	function displaylogin() {
+		var loginform = document.getElementById("login-form");
+		loginform.classList.remove("display-none");
+
+		var x = document.getElementsByClassName('super_container')[0];
+		x.setAttribute("class", "blur-10");
+		document.getElementsByClassName("overlay")[0].classList.remove("display-none");
+
+		window.addEventListener('scroll', noScroll);
+	}
+</script>
+
+
+<script src="../../static/js/jquery-3.2.1.min.js"></script>
+<script src="../../static/styles/vendor/bootstrap4/popper.js"></script>
+<script src="../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
+<script src="../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../../static/js/contact.js"></script>
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class DestinationService {
@@ -38,6 +39,14 @@ public class DestinationService {
         Optional<Destination> description = destinationRepository.findById(id);
         if(!description.isPresent()) {
             throw new NotFoundException("Destination not found! ID: " + id);
+        }
+        return description.get();
+    }
+
+    public Destination findDestination(String name) {
+        Optional<Destination> description = destinationRepository.findByName(name);
+        if(!description.isPresent()) {
+            throw new NotFoundException("Destination not found! Name: " + name);
         }
         return description.get();
     }
@@ -77,4 +86,7 @@ public class DestinationService {
         return destinationToUpdate;
     }
 
+    public Set<Destination> getAllDestinations() {
+        return destinationRepository.findAll();
+    }
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/admin/main_styles.css">
+</head>
+<body>
+<div class="container">
+
+    <div id="header">
+        <p id="mainPageLink" href="#" th:text="'Tourists - tour #' + ${tourid}"></p>
+    </div>
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a th:href="'/admin/tours/' + ${tourid}">Back</a>
+    </div>
+
+    <table id="touristsByTourTable">
+        <thead>
+        <tr>
+            <th> Username</th>
+            <th> Fullname</th>
+            <th> Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tourist : *{tourists}">
+            <td th:utext="'<a href=\'/user/'+${tourist.id}+'\'>'+${tourist.username}+'</a>'"></td>
+            <td th:text="${tourist.fullName}"></td>
+            <td th:text="${tourist.email}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form class="addTourist" th:action="@{/admin/tours/__${tourid}__/tourists}" th:method="post">
+        <label for="username">Name: </label>
+        <input type="text" name="username" id="username"/>
+        <button type="submit" id="addEventButton">Add</button>
+    </form>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+</body>
+</html>

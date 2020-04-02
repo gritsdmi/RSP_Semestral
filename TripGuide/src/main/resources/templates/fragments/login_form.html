@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--CODE FOR COPY-->
+<div th:insert="~{fragments/login_form :: login_form}"></div>
+<!--CODE FOR COPY-->
+
+    <th:block th:fragment="login_form">
+        <form class="login100-form" th:action="@{/login}" th:method="POST">
+            <span class="login100-form-title p-b-33">Sign In</span>
+            <div class="error-alert login-alert" th:if="${param.error}">
+                <div >Invalid username or password.</div>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Username/Email</span>
+                <input class="input101" type="text" name="username" id="username" placeholder="username or email">
+                <label for="username"></label>
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100" data-validate="Password is required">
+                <span class="label-input100">Password</span>
+                <input class="input101" type="password" name="password" id="password" placeholder="*************">
+                <label for="password"></label>
+                <span class="focus-input100"></span>
+            </div>
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn">
+                        Sign In
+                    </button>
+                </div>
+            </div>
+        </form>
+    </th:block>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../static/styles/css/admin/main_styles.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="header">
+        <p id="mainPageLink">All destinations</p>
+    </div>
+
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a href="/admin/dest/add">Add new dest</a>
+    </div>
+
+    <tbody>
+        <div class="dests">
+            <tr th:each="dest: ${destinations}">
+                <div class="dest">
+                    <p th:utext="'<span class=\'destTitles\'>Name:</span> ' + ${dest.name}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Country:</span> ' + ${dest.country}"></p>
+                    <a th:href="'/admin/dest/'+${dest.getId()}">More</a>
+                </div>
+            </tr>
+        </div>
+    </tbody>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+</body>
+</html>

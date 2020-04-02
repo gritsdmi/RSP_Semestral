@@ -19,32 +19,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthProvider authProvider;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-
-    @Autowired
-    private UserRepository userRepo;
-
     @Bean
     PasswordEncoder getEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-
-
     @Override
-    protected void configure(HttpSecurity http) throws Exception
-    {
+    protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/**","/resources/**/**", "/static/**", "/static/**/**", "/", "/login**", "/registration", "/h2-console/**", "/api/**", "/api/**/**").permitAll()
+                .antMatchers("/resources/**","/resources/**/**", "/static/**", "/static/**/**", "/templates/**","templates/**/**", "/", "/login**", "/registration", "/h2-console/**", "/api/**", "/api/**/**").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/tourist/**").hasAuthority("TOURIST")
                 .antMatchers("/delegate/**").hasAuthority("DELEGATE")
+                .antMatchers("/guest/**").anonymous()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login")
-                .defaultSuccessUrl("/topics/").failureUrl("/login?error").permitAll()
+                .defaultSuccessUrl("/home").failureUrl("/login?error").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout").permitAll();
 
     }

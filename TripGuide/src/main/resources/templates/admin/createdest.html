@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../static/styles/css/admin/main_styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="header">
+        <p id="mainPageLink" href="#">Add new destination</p>
+    </div>
+
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a href="/admin/dest">All destinations</a>
+    </div>
+    <form  class="addDest" th:action="@{/admin/dest/add}" th:object="${destination}" th:method="post" id="addEventForm">
+
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" th:field="*{name}"/>
+
+        <label for="countryname">Country: </label>
+        <input type="text" name="name" id="countryname" th:field="*{country}"/>
+
+        <button type="submit" id="addEventButton">Add</button>
+    </form>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+</body>
+</html>

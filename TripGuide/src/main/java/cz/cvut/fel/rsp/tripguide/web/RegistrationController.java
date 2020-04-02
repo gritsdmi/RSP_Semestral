@@ -1,4 +1,4 @@
-package cz.cvut.fel.rsp.tripguide.web.controller;
+package cz.cvut.fel.rsp.tripguide.web;
 
 import cz.cvut.fel.rsp.tripguide.dto.UserDto;
 import cz.cvut.fel.rsp.tripguide.model.User;
@@ -6,7 +6,6 @@ import cz.cvut.fel.rsp.tripguide.repository.UserRepository;
 import cz.cvut.fel.rsp.tripguide.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +41,6 @@ public class RegistrationController {
 
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") @Valid UserDto userDto, BindingResult result) {
-
         User email_existing = userRepository.findByUsername(userDto.getEmail());
         User username_existing = userRepository.findByUsername(userDto.getUsername());
         if (email_existing != null) {
@@ -53,7 +51,6 @@ public class RegistrationController {
         }
         if (!userDto.getPassword().equals(userDto.getRepassword())) {
             result.rejectValue("password", null, "Passwords are not match.");
-            result.rejectValue("repassword", null, "Passwords are not match.");
         }
         if (userDto.getUsername().length() > 20) {
             result.rejectValue("username", null, "MAX: 20");
@@ -70,7 +67,6 @@ public class RegistrationController {
 
         userService.regUser(userDto);
 
-        return "redirect:/login";
+        return "redirect:/registration?success";
     }
-
 }

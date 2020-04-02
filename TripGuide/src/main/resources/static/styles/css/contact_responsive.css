@@ -4,9 +4,7 @@
 ************/
 
 @media only screen and (max-width: 1800px) {
-	.header_social {
-		display: none !important;
-	}
+
 }
 
 /************
@@ -14,6 +12,7 @@
 ************/
 
 @media only screen and (max-width: 1199px) {
+
 	.main_nav {
 		margin-left: 150px;
 	}
@@ -28,6 +27,10 @@
 ************/
 
 @media only screen and (max-width: 991px) {
+	.header_social {
+		display: none !important;
+	}
+
 	.main_nav,
 	.header_phone {
 		display: none;

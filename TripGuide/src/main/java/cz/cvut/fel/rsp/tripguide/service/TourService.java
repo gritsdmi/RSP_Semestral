@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @SuppressWarnings("ALL")
 @Service
@@ -115,4 +116,7 @@ public class TourService {
         return tour;
     }
 
+    public Set<Tour> getAllTours() {
+        return tourRepository.findAll();
+    }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class HotelService {
@@ -38,6 +39,14 @@ public class HotelService {
         Optional<Hotel> hotel = hotelRepository.findById(id);
         if(!hotel.isPresent()) {
             throw new NotFoundException("Hotel not found! ID: " + id);
+        }
+        return hotel.get();
+    }
+
+    public Hotel findHotel(String name) {
+        Optional<Hotel> hotel = hotelRepository.findByName(name);
+        if(!hotel.isPresent()) {
+            throw new NotFoundException("Hotel not found! Name: " + name);
         }
         return hotel.get();
     }
@@ -93,5 +102,9 @@ public class HotelService {
         }
         hotelToUpdate = save(hotelToUpdate);
         return hotelToUpdate;
+    }
+
+    public Set<Hotel> getAllHotels() {
+        return hotelRepository.findAll();
     }
 }

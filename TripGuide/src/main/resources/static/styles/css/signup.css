@@ -600,3 +600,26 @@ iframe {
 .form-container input, .form-container span{
   color: white;
 }
+
+.info-alert {
+  background-color: rgb(194,225,253);
+  color: rgb(0,56,119);
+  border: 1px rgb(10,213,253);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.error-alert {
+  background-color: rgb(250,209,213);
+  color: rgb(108,25,33);
+  border: 1px rgb(248,191,196);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.login-alert {
+  margin-top: 0;
+  top: 0;
+  width: 100%;
+}

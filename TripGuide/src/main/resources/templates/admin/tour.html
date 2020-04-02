@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../static/styles/css/admin/main_styles.css">
+</head>
+<body>
+
+<div class="container">
+    <tr>
+        <div id="header">
+            <p id="mainPageLink" href="#" th:text="'Tour #' + ${tour.id}"></p>
+        </div>
+
+        <div class="links">
+            <a href="/admin/home">Admin menu</a>
+            <a href="/admin/tours">All tours</a>
+        </div>
+        <div class="tourOne">
+            <p class="tourOneDescr" th:text="${tour.description}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Destination:</span> <a href=\'/dest/'+${tour.hotel.destination.id}+'\'>'+${tour.hotel.destination.name} + ' ' + ${tour.hotel.destination.country} +'</a>'"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Tour type:</span> '+${tour.tourType}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Hotel:</span> <a href=\'/hotel/'+${tour.hotel.id}+'\'>' +${tour.hotel.name}+'</a>'"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Date from:</span> ' "></p>
+            <p th:utext="'<span class=\'tourTitles\'>Date till:</span> ' "></p>
+            <p th:utext="'<span class=\'tourTitles\'>Depature from:</span> ' +${tour.departureFrom}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Depature time:</span> '"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Transfer type:</span> '+${tour.transferType}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Delegate:</span> '+${tour.delegate.username}"></p>
+        </div>
+
+        <div class="links bottom">
+            <a th:href="'/admin/tours/'+ ${tour.id}+'/tourists'">Tourists</a>
+            <a href="#">Excursions</a>
+        </div>
+    </tr>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+</body>
+</html>

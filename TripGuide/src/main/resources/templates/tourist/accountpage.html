@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Account page</title>
+	<link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../../static/styles/vendor/bootstrap4/bootstrap.min.css">
+	<link href="../../static/styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" href="../../static/styles/css/accountpage.css">
+	<link rel="stylesheet" type="text/css" href="../../static/styles/css/main_styles.css">
+	<link rel="stylesheet" type="text/css" href="../../static/styles/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="../../static/styles/css/signup.css">
+
+
+</head>
+<body>
+<div class="overlay display-none"></div>
+
+<div class="form-container display-none" id="login-form">
+	<div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
+		<div th:insert="~{fragments/login_form :: login_form}"></div>
+	</div>
+</div>
+
+<div th:insert="~{fragments/header :: header}"></div>
+
+<main>
+	<div class="content">
+		<div class="about-user">
+			<div class="flex-column">
+				<h1>My Account</h1>
+				<div class="flex-row">
+					<div class="avatar">
+						<img src="../../static/styles/images/admin_image.jpeg" alt="image">
+					</div>
+					<div class="info">
+						<div class="username">
+							<span>Username</span>
+							<div id="data-1" th:text="${user.getUsername()}"> Admin</div>
+						</div>
+						<div class="email">
+							<span>Email</span>
+							<div id="data-2" th:text="${user.getEmail()}">admin@admin.com</div>
+						</div>
+						<div class="date">
+							<span>Full name</span>
+							<div id="data-3" th:text="${user.getFullName()}">01.01.1970</div>
+						</div>
+						<div class="type">
+							<span>Account type</span>
+							<div id="data-4" th:text="${user.getAuthorities()}">god</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="edit-btn">
+                    <button>Edit</button>
+                </div> -->
+			</div>
+		</div>
+
+
+		<div class="destinations" id="destinations">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="section_title"><h2>My Destinations</h2></div>
+					</div>
+				</div>
+				<div class="row destinations_row">
+					<div class="col">
+						<div class="destinations_container item_grid">
+
+							<!-- Destination -->
+							<div id="divBlock1" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_1.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Bali</h3></div>
+										<div class="destination_subtitle"><p>Luxury vacation package. Just enjoy Your time here</p></div>
+										<div class="destination_price">From $679</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock2" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_2.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Indonesia</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $579</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock3" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_3.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>San Francisco</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $399</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock4" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_4.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Paris</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $639</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock5" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_5.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Phi Phi Island</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $929</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock6" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_6.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Mykonos</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $719</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock7" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_7.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Paris</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $515</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock8" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_8.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Phi Phi Island</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $879</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Destination -->
+							<div id="divBlock9" style="display: none">
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="../../static/styles/images/destination_9.jpg" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3>Mykonos</h3></div>
+										<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="destination_price">From $679</div>
+										<div class="destination_list">
+											<ul>
+												<li>5 Stars Hotel</li>
+												<li>All Inclusive</li>
+												<li>Flight tickets included</li>
+												<li>Guided visits</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+<!--
+	this should be replaced ASAP by BE implementation!!!
+ -->
+<script type="text/javascript">
+	function showBlocks() {
+		for (var i = 1; i < 10; i++) {
+			var divBlock = localStorage.getItem(`openDiv${i}`);
+			if(divBlock == 'open') {
+				document.getElementById(`divBlock${i}`).style.display = "block";
+			}
+			localStorage.removeItem(`divBlock${i}`);
+		}
+		localStorage.clear();
+	}
+	showBlocks();
+</script>
+
+<script src="../../static/js/jquery-3.2.1.min.js"></script>
+<script src="../../static/styles/vendor/bootstrap4/popper.js"></script>
+<script src="../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
+<script src="../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../../static/js/custom.js"></script>
+	
+</body>
+</html>
