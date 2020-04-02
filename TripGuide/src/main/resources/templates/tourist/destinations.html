@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../../static/styles/css/destinations.css">
 <link rel="stylesheet" type="text/css" href="../../static/styles/css/destinations_responsive.css">
 <link rel="stylesheet" type="text/css" href="../../static/styles/css/signup.css">
+
 </head>
 <body>
 <div class="overlay display-none"></div>
@@ -24,7 +25,6 @@
 </div>
 
 <div class="super_container">
-	
 	<!-- Header -->
 	<div th:insert="~{fragments/header :: header}"></div>
 	
@@ -80,18 +80,8 @@
 										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
 									</ul>
 								</li>
-								<li>
-									<span class="sorting_text">Categories</span>
-									<i class="fa fa-chevron-down" aria-hidden="true"></i>
-									<ul>
-										<li class="num_sorting_btn"><span>Category</span></li>
-										<li class="num_sorting_btn"><span>Category</span></li>
-										<li class="num_sorting_btn"><span>Category</span></li>
-									</ul>
-								</li>
 							</ul>
 						</div>
-						<div class="sort_box ml-auto"><i class="fa fa-th" aria-hidden="true"></i></div>
 					</div>
 				</div>
 			</div>
@@ -100,7 +90,7 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
-						<a href="#">
+						<a href="#" onclick="setLocalStorage(1)">
 							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_1.jpg" alt="">
@@ -122,12 +112,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(2)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_2.jpg" alt="">
 								</div>
@@ -148,12 +134,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(3)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_3.jpg" alt="">
 								</div>
@@ -174,12 +156,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(4)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_4.jpg" alt="">
 								</div>
@@ -200,12 +178,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(5)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_5.jpg" alt="">
 								</div>
@@ -226,12 +200,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(6)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_6.jpg" alt="">
 								</div>
@@ -252,12 +222,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(7)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_7.jpg" alt="">
 								</div>
@@ -278,12 +244,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(8)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_8.jpg" alt="">
 								</div>
@@ -304,12 +266,8 @@
 						</a>
 
 						<!-- Destination -->
-						<a href="#">
-							<!-- 
-								For first version we need only one destionation, so this is why this div is display: none
-								You can easily delete display:none, and div will be in our website
-							-->
-							<div style="display: none;" class="destination item">
+						<a href="#" onclick="setLocalStorage(9)">
+							<div class="destination item">
 								<div class="destination_image">
 									<img src="../../static/styles/images/destination_9.jpg" alt="">
 								</div>
@@ -335,9 +293,7 @@
 	</div>
 </div>
 
-<!--
-	This maybe should be given to some js file and just import that file
- -->
+
 <script>
 	function noScroll() {
 		window.scrollTo(0, 0);
@@ -355,9 +311,6 @@
 	}
 </script>
 
-<!--
-	this should be replaced ASAP by BE implementation!!!
- -->
 <script type="text/javascript">
 	function setLocalStorage(numberOfBlock) {
 		localStorage.setItem(`openDiv${numberOfBlock}`, 'open');
@@ -371,5 +324,6 @@
 <script src="../../static/styles/fonts/easing/easing.js"></script>
 <script src="../../static/styles/fonts/Isotope/isotope.pkgd.min.js"></script>
 <script src="../../static/js/destinations.js"></script>
+
 </body>
 </html>
