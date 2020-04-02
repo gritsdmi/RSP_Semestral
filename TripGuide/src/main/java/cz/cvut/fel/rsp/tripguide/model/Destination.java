@@ -15,10 +15,6 @@ public class Destination extends AbstractEntity {
 
     private String country;
 
-    private Integer temperature;
-
-    private String weather;
-
     @JsonIgnore
     @OneToMany(mappedBy = "destination")
     private Set<Hotel> hotels = new HashSet<>();
@@ -37,22 +33,6 @@ public class Destination extends AbstractEntity {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public Integer getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(Integer temperature) {
-        this.temperature = temperature;
-    }
-
-    public String getWeather() {
-        return weather;
-    }
-
-    public void setWeather(String weather) {
-        this.weather = weather;
     }
 
     public Set<Hotel> getHotels() {

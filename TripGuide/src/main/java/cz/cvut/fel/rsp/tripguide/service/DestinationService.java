@@ -73,12 +73,6 @@ public class DestinationService {
         if(destination.getName() != null) {
             destinationToUpdate.setName(destination.getName());
         }
-        if(destination.getTemperature() != null) {
-            destinationToUpdate.setTemperature(destination.getTemperature());
-        }
-        if(destination.getWeather() != null) {
-            destinationToUpdate.setWeather(destination.getWeather());
-        }
         if(destination.getHotels() != null && !destination.getHotels().isEmpty()) {
             destinationToUpdate.setHotels(destination.getHotels());
         }
