@@ -7,8 +7,6 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="../static/styles/images/icons/favicon.ico"/>
     <!--===============================================================================================-->
-    <!-- <link rel="stylesheet" type="text/css" href="styles/vendor/bootstrap/css/bootstrap.min.css"> -->
-    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../static/styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../static/styles/fonts/iconic/css/material-design-iconic-font.min.css">
@@ -42,25 +40,14 @@
 <script src="../static/js/signup.js"></script>
 
 <script>
-function displaylogin() {
-  var loginform = document.getElementById("login-form");
-  loginform.classList.remove("display-none");
+    function displaylogin() {
+      var loginform = document.getElementById("login-form");
+      loginform.classList.remove("display-none");
 
-  var x = document.getElementsByClassName('limiter')[0];
-  x.setAttribute("class", "blur-10");
-  document.getElementsByClassName("overlay")[0].classList.remove("display-none");
-}
-
-function hideLogin(){
-document.getElementById("login-form").setAttribute("class", "display-none");
-document.getElementsByClassName("limiter")[0].classList.remove("blur-10");
-document.getElementsByClassName("overlay")[0].setAttribute("class", "display-none");
-    var loginform = document.getElementById("login-form");
-    loginform.classList.remove("display-none");
-
-    var x = document.getElementsByClassName('limiter')[0];
-    x.setAttribute("class", "blur-10");
-    document.getElementsByClassName("overlay")[0].classList.remove("display-none");
+      var x = document.getElementsByClassName('limiter')[0];
+      x.setAttribute("class", "blur-10");
+      document.getElementsByClassName("overlay")[0].classList.remove("display-none");
+    }
 </script>
 
 </body>
