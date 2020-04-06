@@ -30,7 +30,7 @@ public class AdminHotelController {
     }
 
     @PostMapping("/add")
-    public String addDestination(@ModelAttribute("hotel") @Valid HotelDto dto){
+    public String addHotel(@ModelAttribute("hotel") @Valid HotelDto dto){
         Hotel hotel = new Hotel();
         hotel.setName(dto.getName());
         hotel.setDestination(destinationService.findDestination(dto.getDestination()));
