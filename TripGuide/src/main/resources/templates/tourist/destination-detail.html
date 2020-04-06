@@ -21,6 +21,8 @@
 	</div>
 </div>
 
+<div class="super_container">
+
 	<div th:insert="~{fragments/header :: header}"></div>
 
 	<main>
@@ -30,17 +32,17 @@
 					<div class="bali-tour" id="tour01">
 							<div class="destination item">
 								<div class="destination_content">
-									<div class="destination_title"><h1>Bali</h1></div>
+									<div class="destination_title" th:text="${destination.getName()}"><h1>Bali</h1></div>
 									<div class="destination_subtitle"><p>Luxury vacation package. Just enjoy Your time here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem omnis distinctio quidem sit nemo eaque et temporibus, quam nobis quod! Similique labore, vero consectetur ipsum odit animi.</p></div>
-									<div class="destination_price">From $679</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
+									<!--<div class="destination_price">From $679</div>-->
+									<!--<div class="destination_list">-->
+										<!--<ul>-->
+											<!--<li>5 Stars Hotel</li>-->
+											<!--<li>All Inclusive</li>-->
+											<!--<li>Flight tickets included</li>-->
+											<!--<li>Guided visits</li>-->
+										<!--</ul>-->
+									<!--</div>-->
 									<div class="destination_dates">
 										<h4>Available dates</h4>
 										<ul>
@@ -89,6 +91,7 @@
 
 		</div>
 	</main>
+</div>
 
 <script>
 	function noScroll() {

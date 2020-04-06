@@ -6,10 +6,7 @@ import cz.cvut.fel.rsp.tripguide.service.DestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -33,6 +30,12 @@ public class TouristDestinationController {
     public String destinationPage(Model model) {
         model.addAttribute("destinations", destinationService.getAllDestinations());
         return "tourist/destinations";
+    }
+
+    @GetMapping("/{id}")
+    public String destinationInfoPage(Model model, @PathVariable Integer id) {
+        model.addAttribute("destination", destinationService.findDestination(id));
+        return "tourist/destination-detail";
     }
 
     @PostMapping

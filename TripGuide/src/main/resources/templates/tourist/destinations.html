@@ -82,7 +82,8 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
-						<a th:each="destination : ${destinations}" href="">
+
+						<a th:each="destination : ${destinations}" th:href="'destination/'+${destination.getId()}">
 							<div class="destination item">
 								<div class="destination_image">
 									<img th:src="'../../static/styles/images/destination_'+${destination.id}+'.jpg'" alt="">
