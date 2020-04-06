@@ -1,5 +1,6 @@
 package cz.cvut.fel.rsp.tripguide.service;
 
+import cz.cvut.fel.rsp.tripguide.dto.SearchDto;
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
 import cz.cvut.fel.rsp.tripguide.model.Destination;
 import cz.cvut.fel.rsp.tripguide.model.Hotel;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class DestinationService {
@@ -73,12 +75,6 @@ public class DestinationService {
         if(destination.getName() != null) {
             destinationToUpdate.setName(destination.getName());
         }
-        if(destination.getTemperature() != null) {
-            destinationToUpdate.setTemperature(destination.getTemperature());
-        }
-        if(destination.getWeather() != null) {
-            destinationToUpdate.setWeather(destination.getWeather());
-        }
         if(destination.getHotels() != null && !destination.getHotels().isEmpty()) {
             destinationToUpdate.setHotels(destination.getHotels());
         }
@@ -88,5 +84,15 @@ public class DestinationService {
 
     public Set<Destination> getAllDestinations() {
         return destinationRepository.findAll();
+    }
+
+    public Set<Destination> search(SearchDto searchDto) {
+        return destinationRepository.findAll()
+                .stream()
+                .filter(destination ->
+                        destination.getName().toUpperCase().contains(searchDto.getCity().toUpperCase()) &&
+                        destination.getCountry().toUpperCase().contains(searchDto.getCountry().toUpperCase())
+                )
+                .collect(Collectors.toSet());
     }
 }

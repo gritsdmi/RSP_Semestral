@@ -10,4 +10,5 @@ public interface DestinationRepository extends CrudRepository<Destination, Integ
 
     Optional<Destination> findByName(String name);
     Set<Destination> findAll();
+    Set<Destination> findAllByCountryIsContainingAndNameIsContaining(String countryRegex, String nameRegex);
 }

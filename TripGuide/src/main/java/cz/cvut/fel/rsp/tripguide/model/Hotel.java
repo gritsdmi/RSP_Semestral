@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,11 +16,9 @@ public class Hotel extends AbstractEntity {
 
     private String address;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime breakfastTime;
+    private Time breakfastTime;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dinnerTime;
+    private Time dinnerTime;
 
     private String email;
 
@@ -47,19 +46,19 @@ public class Hotel extends AbstractEntity {
         this.address = address;
     }
 
-    public LocalDateTime getBreakfastTime() {
+    public Time getBreakfastTime() {
         return breakfastTime;
     }
 
-    public void setBreakfastTime(LocalDateTime breakfastTime) {
+    public void setBreakfastTime(Time breakfastTime) {
         this.breakfastTime = breakfastTime;
     }
 
-    public LocalDateTime getDinnerTime() {
+    public Time getDinnerTime() {
         return dinnerTime;
     }
 
-    public void setDinnerTime(LocalDateTime dinnerTime) {
+    public void setDinnerTime(Time dinnerTime) {
         this.dinnerTime = dinnerTime;
     }
 

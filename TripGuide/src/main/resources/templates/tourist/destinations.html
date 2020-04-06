@@ -41,15 +41,7 @@
 					<div class="home_search_container">
 						<div class="home_search_title">Search for your trip</div>
 						<div class="home_search_content">
-							<form action="#" class="home_search_form" id="home_search_form">
-								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input search_input_1" placeholder="City" required="required">
-									<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
-									<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
-									<input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
-									<button class="home_search_button">search</button>
-								</div>
-							</form>
+							<div th:insert="~{fragments/search_form :: search_form}"></div>
 						</div>
 					</div>
 				</div>
@@ -90,202 +82,27 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(1)">
+						<a th:each="destination : ${destinations}" href="">
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="../../static/styles/images/destination_1.jpg" alt="">
+									<img th:src="'../../static/styles/images/destination_'+${destination.id}+'.jpg'" alt="">
 								</div>
 								<div class="destination_content">
-									<div class="destination_title"><h3>Bali</h3></div>
-									<div class="destination_subtitle"><p>Luxury vacation package. Just enjoy Your time here</p></div>
-									<div class="destination_price">From $679</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
+									<div class="destination_title"><h3 th:text="${destination.getName()}">Bali</h3></div>
+									<div class="destination_subtitle"><p th:text="${destination.getCountry()}">Luxury vacation package. Just enjoy Your time here</p></div>
+									<!--<div class="destination_price">From $679</div>-->
+									<!--<div class="destination_list">-->
+										<!--<ul>-->
+											<!--<li>5 Stars Hotel</li>-->
+											<!--<li>All Inclusive</li>-->
+											<!--<li>Flight tickets included</li>-->
+											<!--<li>Guided visits</li>-->
+										<!--</ul>-->
+									<!--</div>-->
 								</div>
 							</div>
 						</a>
 
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(2)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_2.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Indonesia</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $579</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
-
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(3)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_3.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>San Francisco</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $399</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
-
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(4)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_4.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Paris</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $639</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
-
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(5)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_5.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Phi Phi Island</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $929</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
-
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(6)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_6.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Mykonos</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $719</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
-
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(7)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_7.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Paris</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $515</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
-
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(8)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_8.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Phi Phi Island</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $879</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
-
-						<!-- Destination -->
-						<a href="#" onclick="setLocalStorage(9)">
-							<div class="destination item">
-								<div class="destination_image">
-									<img src="../../static/styles/images/destination_9.jpg" alt="">
-								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3>Mykonos</h3></div>
-									<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									<div class="destination_price">From $679</div>
-									<div class="destination_list">
-										<ul>
-											<li>5 Stars Hotel</li>
-											<li>All Inclusive</li>
-											<li>Flight tickets included</li>
-											<li>Guided visits</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</a>
 					</div>
 				</div>
 			</div>
@@ -311,11 +128,11 @@
 	}
 </script>
 
-<script type="text/javascript">
-	function setLocalStorage(numberOfBlock) {
-		localStorage.setItem(`openDiv${numberOfBlock}`, 'open');
-	}
-</script>
+<!--<script type="text/javascript">-->
+	<!--function setLocalStorage(numberOfBlock) {-->
+		<!--localStorage.setItem(`openDiv${numberOfBlock}`, 'open');-->
+	<!--}-->
+<!--</script>-->
 
 <script src="../../static/js/jquery-3.2.1.min.js"></script>
 <script src="../../static/styles/vendor/bootstrap4/popper.js"></script>
