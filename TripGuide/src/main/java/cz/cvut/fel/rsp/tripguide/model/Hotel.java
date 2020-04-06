@@ -3,7 +3,9 @@ package cz.cvut.fel.rsp.tripguide.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -45,20 +47,20 @@ public class Hotel extends AbstractEntity {
         this.address = address;
     }
 
-    public void setDinnerTime(Time dinnerTime) {
-        this.dinnerTime = dinnerTime;
-    }
-
-    public Time getDinnerTime() {
-        return dinnerTime;
-    }
-
     public Time getBreakfastTime() {
         return breakfastTime;
     }
 
     public void setBreakfastTime(Time breakfastTime) {
         this.breakfastTime = breakfastTime;
+    }
+
+    public Time getDinnerTime() {
+        return dinnerTime;
+    }
+
+    public void setDinnerTime(Time dinnerTime) {
+        this.dinnerTime = dinnerTime;
     }
 
     public String getEmail() {

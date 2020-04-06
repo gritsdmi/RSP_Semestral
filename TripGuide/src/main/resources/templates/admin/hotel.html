@@ -15,7 +15,7 @@
     <tbody>
     <tr>
         <div id="header">
-            <p id="mainPageLink" href="#" th:text="'Hotel #' + ${hotel.id}"></p>
+            <p id="mainPageLink" href="#" th:text="'Hotel #' + ${hotel.getId()}"></p>
         </div>
 
         <div class="links">
@@ -30,8 +30,8 @@
             <p th:utext="'<span class=\'hotelTitles\'>Web:</span> <a href=\'//'+${hotel.web}+'\'>' + ${hotel.web}+'</a>'"></p>
             <p th:utext="'<span class=\'hotelTitles\'>Email:</span> ' + ${hotel.email}"></p>
             <p th:utext="'<span class=\'hotelTitles\'>Phone number:</span> ' + ${hotel.phoneNumber}"></p>
-            <p th:utext="'<span class=\'hotelTitles\'>Breakfast time:</span> '+ ${hotel.getBreakfastTime()}"></p>
-            <p th:utext="'<span class=\'hotelTitles\'>Dinner time:</span> '+ ${hotel.getDinnerTime()}"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Breakfast time:</span> ' + ${hotel.getBreakfastTime()}"></p>
+            <p th:utext="'<span class=\'hotelTitles\'>Dinner time:</span> ' + ${hotel.getDinnerTime()}"></p>
         </div>
 
         <div class="links bottom">

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--CODE FOR COPY-->
+<div th:insert="~{fragments/search_form :: search_form}"></div>
+<!--CODE FOR COPY-->
+
+<th:block th:fragment="search_form">
+    <form class="home_search_form" id="home_search_form" th:action="@{/tourist/destination}" th:object="${searchDto}" th:method="post">
+        <div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start" >
+            <input type="text" class="search_input search_input_1" id="country" name="country" placeholder="Country" required="required">
+            <input type="text" class="search_input search_input_2" id="city" name="city" placeholder="City" required="required">
+            <!--<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">-->
+            <!--<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">-->
+            <!--<input type="text" class="search_input search_input_4" id="budget" name="budget" placeholder="Budget" required="required">-->
+            <button class="home_search_button">search</button>
+        </div>
+    </form>
+</th:block>
+
+</body>
+</html>

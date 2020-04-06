@@ -1,7 +1,7 @@
 INSERT INTO PUBLIC.USER(ID, USERNAME, EMAIL, PASSWORD,FULL_NAME, ACTIVE) VALUES
-(1,'tourist', 'tourist@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','tourist tourist',  true),
-(2,'delegate' , 'delegate@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','delegate delegate', true),
-(3,'admin', 'admin@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','admin admin', true);
+(1, 'tourist', 'tourist@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','tourist tourist',  true),
+(2, 'delegate' , 'delegate@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','delegate delegate', true),
+(3, 'admin', 'admin@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','admin admin', true);
 
 
 INSERT INTO PUBLIC.USERS_ROLES(USERID, ROLES) VALUES
@@ -10,10 +10,17 @@ INSERT INTO PUBLIC.USERS_ROLES(USERID, ROLES) VALUES
 (3, 'ADMIN');
 
 INSERT INTO DESTINATION(ID, COUNTRY, "NAME") VALUES
-(1,'Turkey', 'Belek'),
-(2,'Turkey', 'Kemer');
+(1, 'Indonesia', 'Bali'),
+(2, 'Turkey', 'Belek'),
+(3, 'Indonesia', 'Nulla pretium tincidunt'),
+(4, 'USA', 'San Francisco'),
+(5, 'France', 'Paris'),
+(6, 'Phi Phi Island', 'Nulla pretium tincidunt'),
+(7, 'Mykonos', 'Nulla pretium tincidunt'),
+(8, 'Phi Phi Island', 'Nulla pretium tincidunt'),
+(9, 'Turkey', 'Kemer');
 
-INSERT INTO HOTEL(ID,BREAKFAST_TIME, DINNER_TIME, ADDRESS, EMAIL, "NAME", PHONE_NUMBER, STARS, WEB, DESTINATION_ID) VALUES
+INSERT INTO HOTEL(ID, BREAKFAST_TIME, DINNER_TIME,ADDRESS, EMAIL, "NAME", PHONE_NUMBER, STARS, WEB, DESTINATION_ID) VALUES
 (1, TIME '17:30:00.0',TIME '17:30:00.0', 'Steet 1', 'email@gmail.com', 'Hotel name', '777 777 777', 5, 'www.hotel.com', 1),
 (2, TIME '17:30:00.0',TIME '17:30:00.0', 'Steet 2', 'email2@gmail.com', 'Hotel name 2', '111 111 111', 4, 'www.hotel2.com', 2),
 (3, TIME '17:30:00.0',TIME '17:30:00.0', 'Steet 3', 'email3@gmail.com', 'Hotel name 3', '333 333 333', 4, 'www.hotel3.com', 2);
