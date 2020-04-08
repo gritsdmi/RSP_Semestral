@@ -52,18 +52,19 @@ form {
 	width: 300px;
 	margin: 20px auto 0;
 }
-form label, form input, form button{
+form label, form input, form button, form select{
 	display: block;
 	margin: auto;
 	text-align: center;
 	font-size: 16px;
 }
-form input{
+form input, form select{
 	width: 250px;
 	height: 25px;
 }
 form label {
 	margin-top: 10px;
+	color: #6c757d;
 }
 form button{
 	margin-top: 10px;
@@ -71,13 +72,15 @@ form button{
 	height: 31px;
 	color: whitesmoke;
 	background-color: #007bff;
+	border: none;
 }
 
 .links{
-	width: 300px;
+	width: 320px;
 	margin: 30px auto 0;
 	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 .links a{
 	width: 120px;
@@ -191,12 +194,98 @@ form button{
 	 color: #6c757d;
 }
 
+/**All attractions **/
+.attractions {
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	margin: 30px auto;
+	justify-content: center;
+}
+
+.attraction{
+	width: 300px;
+	border: 1px solid lightgray;
+	margin: 10px;
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 3px;
+}
+
+.attraction p {
+	color: black;
+	margin: 7px 3px;
+}
+
+#addAttrForm {
+	margin-top: 5px;
+}
+
+#addAttrForm label{
+	margin-top: 5px;
+}
+
+#nameLabel{
+	margin-top: 0;
+}
+
+/**Excursions **/
+.excursions {
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	margin: 20px auto;
+	justify-content: center;
+}
+
+.excursion{
+	width: 300px;
+	border: 1px solid lightgray;
+	margin: 10px;
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 3px;
+}
+
+.excursion p {
+	color: black;
+	margin: 7px 3px;
+}
+
+#addNewExcBut{
+	width: 294px;
+	display: block;
+	margin: 20px auto 0;
+	padding: 10px;
+	border: 1px solid #6c757d;
+	border-radius: 3px;
+	color: #6c757d;
+	font-size: 16px;
+	text-align: center;
+	outline: none;
+	cursor: pointer;
+	background: white;
+}
+
+/*#addNewExcBut:hover{*/
+	/*background-color: lightgray;*/
+/*}*/
+
+.addExcursion{
+	display: none;
+}
+.addExcursion.showed{
+	display: block;
+}
+
 .tourOne, .hotelOne, .destOne{
 	text-align: center;
 	font-size: 16px;
 	color: black;
 }
-
+.destOne{
+	margin-top: 30px;
+}
 .tourOne a, .hotelOne a{
 	color: blue;
 }
@@ -216,3 +305,4 @@ form button{
 	padding: 5px;
 	font-size: 16px;
 }
+

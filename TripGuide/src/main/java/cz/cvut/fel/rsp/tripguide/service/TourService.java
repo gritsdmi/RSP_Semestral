@@ -100,9 +100,9 @@ public class TourService {
         if(tour.getHotel() != null) {
             tourToUpdate.setHotel(tour.getHotel());
         }
-        if(tour.getLocalAttractions() != null) {
-            tourToUpdate.setLocalAttractions(tour.getLocalAttractions());
-        }
+//        if(tour.getLocalAttractions() != null) {
+//            tourToUpdate.setLocalAttractions(tour.getLocalAttractions());
+//        }
         if(tour.getTourType() != null) {
             tourToUpdate.setTourType(tour.getTourType());
         }
