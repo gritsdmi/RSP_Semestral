@@ -581,7 +581,8 @@ section {
 *********************************/
 
 .home_search {
-	width: 100%;
+	width: 70%;
+	margin-left: 15%;
 	height: 0;
 	background: #FFFFFF;
 	z-index: 1;
@@ -637,20 +638,8 @@ section {
 	color: #72728c !important;
 }
 
-.search_input_1 {
-	width: 25%;
-}
-
-.search_input_2 {
-	width: 15%;
-}
-
-.search_input_3 {
-	width: 15%;
-}
-
-.search_input_4 {
-	width: 20%;
+.search_input_1, .search_input_2 {
+	width: 35%;
 }
 
 .search_input::-webkit-input-placeholder {
