@@ -1,10 +1,9 @@
 package cz.cvut.fel.rsp.tripguide.web.admin;
 
+import cz.cvut.fel.rsp.tripguide.dto.ExcursionDto;
 import cz.cvut.fel.rsp.tripguide.dto.TourDto;
-import cz.cvut.fel.rsp.tripguide.model.Tour;
-import cz.cvut.fel.rsp.tripguide.model.TourType;
-import cz.cvut.fel.rsp.tripguide.model.TransferType;
-import cz.cvut.fel.rsp.tripguide.model.User;
+import cz.cvut.fel.rsp.tripguide.model.*;
+import cz.cvut.fel.rsp.tripguide.service.ExcursionService;
 import cz.cvut.fel.rsp.tripguide.service.HotelService;
 import cz.cvut.fel.rsp.tripguide.service.TourService;
 import cz.cvut.fel.rsp.tripguide.service.UserService;
@@ -24,12 +23,14 @@ public class AdminTourController {
     private final TourService tourService;
     private final UserService userService;
     private final HotelService hotelService;
+    private final ExcursionService excursionService;
 
     @Autowired
-    public AdminTourController(TourService tourService, UserService userService, HotelService hotelService) {
+    public AdminTourController(TourService tourService, UserService userService, HotelService hotelService, ExcursionService excursionService) {
         this.tourService = tourService;
         this.userService = userService;
         this.hotelService = hotelService;
+        this.excursionService = excursionService;
     }
 
     @GetMapping("/add")
@@ -41,6 +42,9 @@ public class AdminTourController {
     public TourDto tourDto(){
         return new TourDto();
     }
+
+    @ModelAttribute("excursion")
+    public ExcursionDto excursionDto(){return new ExcursionDto();}
 
     @PostMapping("/add")
     public String addTour(@ModelAttribute("tour") @Valid TourDto dto){
@@ -92,6 +96,30 @@ public class AdminTourController {
     public String getTour(Model model, @PathVariable Integer id){
         model.addAttribute("tour", tourService.findTour(id));
         return "admin/tour";
+    }
+
+    @GetMapping("/{id}/excursions")
+    public String getExcursionsByTour(Model model, @PathVariable Integer id){
+        model.addAttribute("excursions", excursionService.findExcursionsByTour(id));
+        model.addAttribute("tour", tourService.findTour(id));
+        return "admin/allexcursionsbytour";
+    }
+
+
+    @PostMapping("/{id}/addexc")
+    public String addNewExcursionsToTour(@PathVariable Integer id, @ModelAttribute("excursion") @Valid ExcursionDto dto){
+        Excursion excursion = new Excursion();
+        excursion.setName(dto.getName());
+        excursion.setDescription(dto.getDescription());
+        excursion.setPrice(Integer.parseInt(dto.getPrice()));
+        if(dto.getTransfer().equals("yes")) excursion.setTransferNeeded(true);
+        else excursion.setTransferNeeded(false);
+//        excursion.setDateFrom(dto.getDateFroom());
+//        excursion.setDateTill(dto.getDateTill());
+//        excursion.setDepartureTime(dto.getDepartureTime());
+//        excursion.setArrivalTime(dto.getArrivalTime());
+        excursionService.addExcursion(excursion, id);
+        return "redirect:/admin/tours/"+id+"/excursions";
     }
 }
 

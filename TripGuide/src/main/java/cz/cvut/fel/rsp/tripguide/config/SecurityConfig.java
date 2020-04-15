@@ -38,6 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/home").failureUrl("/login?error").permitAll()
                 .and().logout().logoutSuccessUrl("/guest/home").permitAll();
 
+        http.headers().frameOptions().sameOrigin();
+
     }
 
     @Override

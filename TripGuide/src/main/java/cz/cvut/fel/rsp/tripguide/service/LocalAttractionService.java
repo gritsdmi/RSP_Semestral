@@ -1,13 +1,17 @@
 package cz.cvut.fel.rsp.tripguide.service;
 
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
+import cz.cvut.fel.rsp.tripguide.model.Destination;
 import cz.cvut.fel.rsp.tripguide.model.LocalAttraction;
 import cz.cvut.fel.rsp.tripguide.model.Tour;
 import cz.cvut.fel.rsp.tripguide.repository.LocalAttractionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @SuppressWarnings("ALL")
 @Service
@@ -15,12 +19,12 @@ public class LocalAttractionService {
 
     private final LocalAttractionRepository localAttractionRepository;
 
-    private final TourService tourService;
+    private final DestinationService destinationService;
 
     @Autowired
-    public LocalAttractionService(LocalAttractionRepository localAttractionRepository, TourService tourService) {
+    public LocalAttractionService(LocalAttractionRepository localAttractionRepository, DestinationService destinationService) {
         this.localAttractionRepository = localAttractionRepository;
-        this.tourService = tourService;
+        this.destinationService = destinationService;
     }
 
     public LocalAttraction save(LocalAttraction localAttraction) {
@@ -43,20 +47,25 @@ public class LocalAttractionService {
         return localAttraction.get();
     }
 
-    public LocalAttraction addLocalAttraction(LocalAttraction localAttraction, Tour tour) {
-        localAttraction.addTour(tour);
+    public Set<LocalAttraction> getLocalAttractionsByDestination(Destination destination) {
+        Set<LocalAttraction> localAttractions = localAttractionRepository.findAllByDestinationOrderByIdDesc(destination);
+        return localAttractions;
+    }
+
+    public LocalAttraction addLocalAttraction(LocalAttraction localAttraction, Destination destination) {
+        localAttraction.setDestination(destination);
         localAttraction = save(localAttraction);
         return localAttraction;
     }
 
-    public LocalAttraction addLocalAttraction(Integer localAttractinoId, Integer tourId) {
-        LocalAttraction localAttraction = findLocalAttraction(localAttractinoId);
-        Tour tour = tourService.findTour(tourId);
-        return addLocalAttraction(localAttraction, tour);
-    }
+//    public LocalAttraction addLocalAttraction(Integer localAttractinoId, Integer tourId) {
+//        LocalAttraction localAttraction = findLocalAttraction(localAttractinoId);
+//        Tour tour = tourService.findTour(tourId);
+//        return addLocalAttraction(localAttraction, tour);
+//    }
 
-    public LocalAttraction addLocalAttraction(LocalAttraction localAttraction, Integer tourId) {
-        return addLocalAttraction(localAttraction, tourService.findTour(tourId));
+    public LocalAttraction addLocalAttraction(LocalAttraction localAttraction, Integer destId) {
+        return addLocalAttraction(localAttraction, destinationService.findDestination(destId));
     }
 
     public LocalAttraction updateLocalAttraction(LocalAttraction localAttraction, Integer id) {
@@ -77,8 +86,8 @@ public class LocalAttractionService {
         if(localAttraction.getName() != null) {
             localAttractionToUpdate.setName(localAttraction.getName());
         }
-        if(localAttraction.getTours() != null && !localAttraction.getTours().isEmpty()) {
-            localAttractionToUpdate.setTours(localAttraction.getTours());
+        if(localAttraction.getDestination() != null) {
+            localAttractionToUpdate.setDestination(localAttraction.getDestination());
         }
         localAttractionToUpdate = save(localAttractionToUpdate);
         return localAttractionToUpdate;
