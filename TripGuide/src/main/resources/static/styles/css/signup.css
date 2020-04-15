@@ -383,6 +383,15 @@ iframe {
 
 /*------------------------------------------------------------------
 [ Button ]*/
+
+#closeButton {
+  position: fixed;
+  font-size: 50px;
+  right: 50px;
+  top: 50px;
+  color: white;
+}
+
 .container-login100-form-btn {
   width: 100%;
   display: -webkit-box;
@@ -433,7 +442,6 @@ iframe {
   padding: 0 20px;
   min-width: 244px;
   height: 50px;
-
   font-family: Poppins-Medium;
   font-size: 16px;
   color: #fff;
