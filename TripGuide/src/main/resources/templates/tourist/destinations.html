@@ -68,7 +68,6 @@
 									<i class="fa fa-chevron-down" aria-hidden="true"></i>
 									<ul>
 										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>All</span></li>
-										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
 										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
 									</ul>
 								</li>
@@ -82,24 +81,14 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
-
-						<a th:each="destination : ${destinations}" th:href="'destination/'+${destination.getId()}">
+						<a th:each="destination : ${destinations}" th:href="'tours/'+${destination.getName()}">
 							<div class="destination item">
 								<div class="destination_image">
 									<img th:src="'../../static/styles/images/destination_'+${destination.id}+'.jpg'" alt="">
 								</div>
 								<div class="destination_content">
-									<div class="destination_title"><h3 th:text="${destination.getName()}">Bali</h3></div>
-									<div class="destination_subtitle"><p th:text="${destination.getCountry()}">Luxury vacation package. Just enjoy Your time here</p></div>
-									<!--<div class="destination_price">From $679</div>-->
-									<!--<div class="destination_list">-->
-										<!--<ul>-->
-											<!--<li>5 Stars Hotel</li>-->
-											<!--<li>All Inclusive</li>-->
-											<!--<li>Flight tickets included</li>-->
-											<!--<li>Guided visits</li>-->
-										<!--</ul>-->
-									<!--</div>-->
+									<div class="destination_title"><h3 th:text="${destination.getName()}">Title</h3></div>
+									<div class="destination_subtitle"><p th:text="${destination.getCountry()}">Subtitle</p></div>
 								</div>
 							</div>
 						</a>
@@ -124,15 +113,6 @@
 		window.addEventListener('scroll', noScroll);
 	}
 </script>>
-
-<<<<<<< TripGuide/src/main/resources/templates/tourist/destinations.html
-<!--<script type="text/javascript">-->
-	<!--function setLocalStorage(numberOfBlock) {-->
-		<!--localStorage.setItem(`openDiv${numberOfBlock}`, 'open');-->
-	<!--}-->
-<!--</script>-->
-=======
->>>>>>> TripGuide/src/main/resources/templates/tourist/destinations.html
 
 <script src="../../static/js/jquery-3.2.1.min.js"></script>
 <script src="../../static/styles/vendor/bootstrap4/popper.js"></script>
