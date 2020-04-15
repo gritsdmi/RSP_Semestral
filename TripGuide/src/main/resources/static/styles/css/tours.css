@@ -1,0 +1,20 @@
+/*********************************
+7. Tours
+*********************************/
+
+.tour_button {
+	width: 25%;
+	margin-left: 37.5%;
+	margin-top: 20px;
+	height: 42px;
+	background: #181818;
+	color: #FFFFFF;
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	border-radius: 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
