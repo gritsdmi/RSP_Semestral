@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/admin/main_styles.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div id="header">
+        <p id="mainPageLink">All destination hotels</p>
+    </div>
+
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a href="/admin/hotels/add">Add new hotel</a>
+    </div>
+    <tbody>
+    <div class="hotels">
+        <tr th:each="hotel: ${hotels}">
+            <div class="hotel">
+                <p th:utext="'<span class=\'hotelTitles\'>Name:</span> ' + ${hotel.name}"></p>
+                <p th:utext="'<span class=\'hotelTitles\'>Stars:</span> ' + ${hotel.stars}"></p>
+                <p th:utext="'<span class=\'hotelTitles\'>Destination:</span> ' + ${hotel.destination.country} + ' ' + ${hotel.destination.name} "></p>
+                <p th:utext="'<span class=\'hotelTitles\'>Address:</span> ' + ${hotel.address}"></p>
+                <p th:utext="'<span class=\'hotelTitles\'>Web:</span> <a href='+${hotel.web}+'>' + ${hotel.web}+'</a>'"></p>
+                <a th:href="'/admin/hotels/'+${hotel.id}">More</a>
+            </div>
+        </tr>
+    </div>
+    </tbody>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+</body>
+</html>

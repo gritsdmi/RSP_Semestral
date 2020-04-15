@@ -44,6 +44,18 @@
         <label for="web">Address: </label>
         <input type="text" name="name" id="address" th:field="*{address}"/>
 
+        <label for="breakfastTime_from">Breakfast time from:</label>
+        <input type="time" id="breakfastTime_from" name="breakfastTime_from" required th:field="*{breakfastTime_from}"/>
+
+        <label for="breakfastTime_to">Breakfast time to:</label>
+        <input type="time" id="breakfastTime_to" name="breakfastTime_to" required th:field="*{breakfastTime_to}"/>
+
+        <label for="dinnerTime_from">Dinner time from:</label>
+        <input type="time" id="dinnerTime_from" name="dinnerTime_from" required th:field="*{dinnerTime_from}"/>
+
+        <label for="dinnerTime_to">Dinner time to:</label>
+        <input type="time" id="dinnerTime_to" name="dinnerTime_to" required th:field="*{dinnerTime_to}"/>
+
         <button type="submit" id="addEventButton">Add</button>
     </form>
 </div>

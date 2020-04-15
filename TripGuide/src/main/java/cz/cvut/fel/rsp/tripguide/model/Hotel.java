@@ -17,9 +17,13 @@ public class Hotel extends AbstractEntity {
 
     private String address;
 
-    private Time breakfastTime;
+    private Time breakfastTime_from;
 
-    private Time dinnerTime;
+    private Time breakfastTime_to;
+
+    private Time dinnerTime_from;
+
+    private Time dinnerTime_to;
 
     private String email;
 
@@ -47,20 +51,36 @@ public class Hotel extends AbstractEntity {
         this.address = address;
     }
 
-    public Time getBreakfastTime() {
-        return breakfastTime;
+    public Time getBreakfastTime_from() {
+        return breakfastTime_from;
     }
 
-    public void setBreakfastTime(Time breakfastTime) {
-        this.breakfastTime = breakfastTime;
+    public void setBreakfastTime_from(Time breakfastTime_from) {
+        this.breakfastTime_from = breakfastTime_from;
     }
 
-    public Time getDinnerTime() {
-        return dinnerTime;
+    public Time getBreakfastTime_to() {
+        return breakfastTime_to;
     }
 
-    public void setDinnerTime(Time dinnerTime) {
-        this.dinnerTime = dinnerTime;
+    public void setBreakfastTime_to(Time breakfastTime_to) {
+        this.breakfastTime_to = breakfastTime_to;
+    }
+
+    public Time getDinnerTime_from() {
+        return dinnerTime_from;
+    }
+
+    public void setDinnerTime_from(Time dinnerTime_from) {
+        this.dinnerTime_from = dinnerTime_from;
+    }
+
+    public Time getDinnerTime_to() {
+        return dinnerTime_to;
+    }
+
+    public void setDinnerTime_to(Time dinnerTime_to) {
+        this.dinnerTime_to = dinnerTime_to;
     }
 
     public String getEmail() {
