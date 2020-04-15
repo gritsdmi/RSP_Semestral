@@ -22,8 +22,8 @@ public class LocalAttraction extends AbstractEntity {
     private String name;
 
     @JsonIgnore
-    @ManyToMany
-    private Set<Tour> tours = new HashSet<>();
+    @ManyToOne
+    private Destination destination;
 
     public String getAddress() {
         return address;
@@ -65,15 +65,11 @@ public class LocalAttraction extends AbstractEntity {
         this.name = name;
     }
 
-    public Set<Tour> getTours() {
-        return tours;
+    public Destination getDestination() {
+        return destination;
     }
 
-    public void setTours(Set<Tour> tours) {
-        this.tours = tours;
-    }
-
-    public void addTour(Tour tour) {
-        tours.add(tour);
+    public void setDestination(Destination destination) {
+        this.destination = destination;
     }
 }

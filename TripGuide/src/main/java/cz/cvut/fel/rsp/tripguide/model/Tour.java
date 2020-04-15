@@ -53,10 +53,6 @@ public class Tour extends AbstractEntity {
 
     @JsonIgnore
     @ManyToMany(mappedBy = "tours")
-    private Set<LocalAttraction> localAttractions = new HashSet<>();
-
-    @JsonIgnore
-    @ManyToMany(mappedBy = "tours")
     private Set<Excursion> excursions = new HashSet<>();
 
     public String getCity() {
@@ -161,14 +157,6 @@ public class Tour extends AbstractEntity {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
-    }
-
-    public Set<LocalAttraction> getLocalAttractions() {
-        return localAttractions;
-    }
-
-    public void setLocalAttractions(Set<LocalAttraction> localAttractions) {
-        this.localAttractions = localAttractions;
     }
 
     public Set<Excursion> getExcursions() {

@@ -35,11 +35,11 @@ public class LocalAttractionController {
         return localAttractionService.save(localAttraction);
     }
 
-    @PostMapping(path = "/add", consumes = "application/json", produces = "application/json")
-    public LocalAttraction add(@RequestBody LocalAttraction localAttraction, @RequestBody Tour tour) {
-        return localAttractionService.addLocalAttraction(localAttraction, tour);
-    }
-
+//    @PostMapping(path = "/add", consumes = "application/json", produces = "application/json")
+//    public LocalAttraction add(@RequestBody LocalAttraction localAttraction, @RequestBody Tour tour) {
+//        return localAttractionService.addLocalAttraction(localAttraction, tour);
+//    }
+//
     @PostMapping(path = "/add/{tourId}", consumes = "application/json", produces = "application/json")
     public LocalAttraction add(@RequestBody LocalAttraction localAttraction, @PathVariable(name = "tourId") Integer tourId) {
         return localAttractionService.addLocalAttraction(localAttraction, tourId);
@@ -53,11 +53,11 @@ public class LocalAttractionController {
     public LocalAttraction update(@RequestBody LocalAttraction localAttraction, @RequestParam(name = "attractionId") Integer id) {
         return localAttractionService.updateLocalAttraction(localAttraction, id);
     }
-
-    @PutMapping(path = "/add/{attractionId}/{tourId}", produces = "application/json")
-    public LocalAttraction add(@PathVariable("attractionId") Integer attractionId, @PathVariable("tourId") Integer tourId) {
-        return localAttractionService.addLocalAttraction(attractionId, tourId);
-    }
+//
+//    @PutMapping(path = "/add/{attractionId}/{tourId}", produces = "application/json")
+//    public LocalAttraction add(@PathVariable("attractionId") Integer attractionId, @PathVariable("tourId") Integer tourId) {
+//        return localAttractionService.addLocalAttraction(attractionId, tourId);
+//    }
 
     /* =============== */
     /* DELETE REQUESTS */

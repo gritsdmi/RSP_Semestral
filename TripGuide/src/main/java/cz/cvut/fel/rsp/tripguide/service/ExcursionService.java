@@ -9,19 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @SuppressWarnings("ALL")
 @Service
 public class ExcursionService {
 
     private final ExcursionRepository excursionRepository;
-
     private final TourService tourService;
+    private final DestinationService destinationService;
 
     @Autowired
-    public ExcursionService(ExcursionRepository excursionRepository, TourService tourService) {
+    public ExcursionService(ExcursionRepository excursionRepository, TourService tourService,  DestinationService destinationService) {
         this.excursionRepository = excursionRepository;
         this.tourService = tourService;
+        this.destinationService = destinationService;
     }
 
     public Excursion save(Excursion excursion) {
@@ -34,6 +36,11 @@ public class ExcursionService {
             throw new NotFoundException("Excursion not found! ID: " + id);
         }
         return excursion.get();
+    }
+
+    public Set<Excursion> findExcursionsByTour(Integer id) {
+        Set<Excursion> excursions = excursionRepository.findByTours(tourService.findTour(id));
+        return excursions;
     }
 
     public void remove(Integer id) {

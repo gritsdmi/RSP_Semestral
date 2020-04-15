@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +17,10 @@ public class Destination extends AbstractEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "destination")
     private Set<Hotel> hotels = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "destination")
+    private Set<LocalAttraction> localAttractions = new HashSet<>();
 
     public String getName() {
         return name;
@@ -46,4 +49,13 @@ public class Destination extends AbstractEntity {
     public void addHotel(Hotel hotel) {
         hotels.add(hotel);
     }
+
+    public Set<LocalAttraction> getLocalAttractions() {
+        return localAttractions;
+    }
+
+    public void setLocalAttractions(Set<LocalAttraction> localAttractions) {
+        this.localAttractions = localAttractions;
+    }
+
 }

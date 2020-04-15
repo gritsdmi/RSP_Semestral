@@ -15,7 +15,7 @@
     <tbody>
     <tr>
         <div id="header">
-            <p id="mainPageLink" href="#" th:text="'Destination #' + ${dest.id}"></p>
+            <p id="mainPageLink" th:text="'Destination #' + ${dest.id}"></p>
         </div>
 
         <div class="links">
@@ -29,7 +29,7 @@
 
         <div class="links bottom">
             <a href="#">Hotels</a>
-            <a href="#">Attractions</a>
+            <a th:href="'/admin/dest/'+${dest.id}+'/allattr'">Attractions</a>
         </div>
     </tr>
     </tbody>
