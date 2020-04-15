@@ -61,7 +61,7 @@
         </thead>
         <tbody>
         <tr th:each="tourist : *{tourists}">
-            <td th:utext="'<a href=\'/user/'+${tourist.id}+'\'>'+${tourist.username}+'</a>'"></td>
+            <td th:utext="'<a href=\'/admin/users/'+${tourist.id}+'\'>'+${tourist.username}+'</a>'"></td>
             <td th:text="${tourist.fullName}"></td>
             <td th:text="${tourist.email}"></td>
         </tr>

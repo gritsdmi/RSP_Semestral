@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Collections;
@@ -64,6 +61,12 @@ public class AdminUserController {
         user.setPhoneNumber(dto.getPhoneNumber());
         userService.save(user);
         return "redirect:/admin/users";
+    }
+
+    @GetMapping("/{id}")
+    public String getUserInfo(Model model, @PathVariable Integer id) {
+        model.addAttribute("user", userService.findUser(id));
+        return "admin/user";
     }
 
 
