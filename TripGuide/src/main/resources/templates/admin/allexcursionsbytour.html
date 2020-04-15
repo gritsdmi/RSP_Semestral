@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/admin/main_styles.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="header">
+        <p id="mainPageLink" th:utext="'Excursions in Tour №'+ ${tour.id}"></p>
+    </div>
+
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a th:href="'/admin/tours/'+${tour.id}">Back to tour</a>
+    </div>
+
+    <div class="addExcursionForm">
+        <button id="addNewExcBut">Show form for add new excursion</button>
+        <form  class="addExcursion" th:action="@{/admin/tours/__${tour.id}__/addexc}" th:object="${excursion}" th:method="post" id="addExcForm">
+
+             <label for="name" id="nameLabel">Name: </label>
+             <input type="text" name="name" id="name" th:field="*{name}"/>
+
+             <label for="descr">Description: </label>
+             <input type="text" name="name" id="descr" th:field="*{description}"/>
+
+             <label for="price">Price: </label>
+             <input type="number" name="name" id="price" th:field="*{price}"/>
+
+             <label for="dateFrom">Date and time from: </label>
+             <input type="text" name="name" id="dateFrom" th:field="*{dateFrom}"/>
+
+             <label for="dateTill">Date and time till: </label>
+             <input type="text" name="name" id="dateTill" th:field="*{dateTill}"/>
+
+             <label for="free">Transfer: </label>
+             <select id="transfer" th:field="*{transfer}">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+             </select>
+
+             <label for="free">Departure date and time </label>
+             <input type="text" name="name" id="free" th:field="*{departureTime}"/>
+
+             <label for="free">Arrival date and time: </label>
+             <input type="text" name="name" id="free" th:field="*{arrivalTime}"/>
+
+             <button type="submit" id="addEventButton">Add</button>
+        </form>
+    </div>
+    <tbody>
+        <div class="excursions">
+
+            <tr th:each="exc: ${excursions}">
+                <div class="excursion">
+                    <p th:utext="'<span class=\'destTitles\'>Name:</span> ' + ${exc.name}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Description:</span> ' + ${exc.description}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Price:</span> ' + ${exc.price}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Transfer:</span> ' + (${exc.transferNeeded} ? 'Yes' : 'No')"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Date and time from:</span> ' + ${exc.dateFrom}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Date and time till:</span> ' + ${exc.dateTill}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Departure time:</span> ' + ${exc.departureTime}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Arrival time:</span> ' + ${exc.arrivalTime}"></p>
+                </div>
+            </tr>
+        </div>
+    </tbody>
+</div>
+
+<!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+<script>
+    var showFormButton = $("#addNewExcBut");
+    var addExcForm = $("#addExcForm");
+
+
+    showFormButton.on('click', function() {
+      addExcForm.toggleClass("showed");
+    })
+</script>
+
+</body>
+</html>
