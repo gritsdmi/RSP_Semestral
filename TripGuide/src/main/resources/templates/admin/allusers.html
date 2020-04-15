@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../static/styles/css/admin/main_styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="header">
+        <p id="mainPageLink" href="#">All users</p>
+    </div>
+
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a href="/admin/users">Back</a>
+    </div>
+
+    <div class="addExcursionForm">
+        <button id="addNewExcBut">Show form for add new user</button>
+        <form  class="addExcursion" th:action="@{/admin/users/add}" th:object="${user}" th:method="post" id="addExcForm">
+
+            <label for="username" id="nameLabel">Username: </label>
+            <input type="text" name="username" id="username" th:field="*{username}" required/>
+
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" th:field="*{email}" required/>
+
+            <label for="phoneNumber">Phone number: </label>
+            <input type="number" name="phoneNumber" id="phoneNumber" th:field="*{phoneNumber}" required/>
+
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" th:field="*{password}" required/>
+
+            <label for="fullName">Full name: </label>
+            <input type="text" name="fullName" id="fullName" th:field="*{fullName}" required/>
+
+            <label for="role">Role: </label>
+            <select id="role" th:field="*{role}" required>
+                <option value="Tourist">Tourist</option>
+                <option value="Delegate">Delegate</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+            <button type="submit" id="addEventButton">Add</button>
+        </form>
+    </div>
+
+    <table id="touristsByTourTable">
+        <thead>
+        <tr>
+            <th> Username</th>
+            <th> Fullname</th>
+            <th> Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tourist : *{tourists}">
+            <td th:utext="'<a href=\'/user/'+${tourist.id}+'\'>'+${tourist.username}+'</a>'"></td>
+            <td th:text="${tourist.fullName}"></td>
+            <td th:text="${tourist.email}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+<script>
+    var showFormButton = $("#addNewExcBut");
+    var addExcForm = $("#addExcForm");
+
+
+    showFormButton.on('click', function() {
+        addExcForm.toggleClass("showed");
+    })
+</script>
+
+</body>
+</html>

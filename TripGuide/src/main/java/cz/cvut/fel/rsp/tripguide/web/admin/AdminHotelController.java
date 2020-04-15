@@ -76,4 +76,6 @@ public class AdminHotelController {
     public String getAddHotelPage() {
         return "admin/createhotel";
     }
+
+
 }
