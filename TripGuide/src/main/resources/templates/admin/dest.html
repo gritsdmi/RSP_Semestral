@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>TripGuide registration</title>
+    <title>TripGuide admin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -28,7 +28,7 @@
         </div>
 
         <div class="links bottom">
-            <a href="#">Hotels</a>
+            <a th:href="'/admin/dest/'+${dest.id}+'/hotels'">Hotels</a>
             <a th:href="'/admin/dest/'+${dest.id}+'/allattr'">Attractions</a>
         </div>
     </tr>

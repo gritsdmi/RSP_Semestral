@@ -26,10 +26,10 @@ INSERT INTO LOCAL_ATTRACTION(ID, NAME, DESCRIPTION, ADDRESS, FREE, DESTINATION_I
 (3, 'Fisherman''s Wharf', 'Fisherman''s Wharf is one of San Francisco''s most popular tourist areas. If this is your first visit to the city and you only have a day or two to see the sights, Fisherman''s Wharf is one of the best places to visit', 'San Francisco, CA 94133, USA', FALSE , 4),
 (4, 'Chinatown', 'You may have been to Chinatown in other cities, but San Francisco''s Chinatown is a whole other realm. It is both the largest Chinatown outside of Asia and the oldest of its kind in North America.', 'San Francisco, CA 94133, USA', FALSE , 4);
 
-INSERT INTO HOTEL(ID, BREAKFAST_TIME, DINNER_TIME,ADDRESS, EMAIL, "NAME", PHONE_NUMBER, STARS, WEB, DESTINATION_ID) VALUES
-(1, TIME '17:30:00.0',TIME '17:30:00.0', 'Steet 1', 'email@gmail.com', 'Hotel name', '777 777 777', 5, 'www.hotel.com', 1),
-(2, TIME '17:30:00.0',TIME '17:30:00.0', 'Steet 2', 'email2@gmail.com', 'Hotel name 2', '111 111 111', 4, 'www.hotel2.com', 2),
-(3, TIME '17:30:00.0',TIME '17:30:00.0', 'Steet 3', 'email3@gmail.com', 'Hotel name 3', '333 333 333', 4, 'www.hotel3.com', 2);
+INSERT INTO HOTEL(ID, BREAKFAST_TIME_FROM ,BREAKFAST_TIME_TO, DINNER_TIME_FROM, DINNER_TIME_TO,ADDRESS, EMAIL, "NAME", PHONE_NUMBER, STARS, WEB, DESTINATION_ID) VALUES
+(1, TIME '17:30:00.0',TIME '18:30:00.0', TIME '12:30:00.0', TIME '13:30:00.0', 'Steet 1', 'email@gmail.com', 'Hotel name', '777 777 777', 5, 'www.hotel.com', 1),
+(2, TIME '17:30:00.0',TIME '18:30:00.0', TIME '12:30:00.0', TIME '13:30:00.0', 'Steet 2', 'email2@gmail.com', 'Hotel name 2', '111 111 111', 4, 'www.hotel2.com', 2),
+(3, TIME '17:30:00.0',TIME '18:30:00.0', TIME '12:30:00.0', TIME '13:30:00.0', 'Steet 3', 'email3@gmail.com', 'Hotel name 3', '333 333 333', 4, 'www.hotel3.com', 2);
 
 INSERT INTO TOUR(ID, DATE_FROM, DAT_TIL, DEPARTURE_FROM, DEPARTURE_TIME_END, DEPARTURE_TIME_START, DESCRIPTION, TOUR_TYPE,TRANSFER_TYPE, DELEGATE_ID, HOTEL_ID) VALUES
 (1, '2020-10-10', '2020-10-20', 'Airport', '2020-10-20', '2020-10-20', 'Bali tour', 'BEACH', 'PLANE', 2, 1),
