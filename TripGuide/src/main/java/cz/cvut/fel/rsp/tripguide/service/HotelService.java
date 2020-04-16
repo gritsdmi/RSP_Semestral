@@ -70,14 +70,14 @@ public class HotelService {
         if(hotel.getAddress() != null) {
             hotelToUpdate.setAddress(hotel.getAddress());
         }
-        if(hotel.getBreakfastTime() != null) {
-            hotelToUpdate.setBreakfastTime(hotel.getBreakfastTime());
+        if(hotel.getBreakfastTime_from() != null) {
+            hotelToUpdate.setBreakfastTime_from(hotel.getBreakfastTime_from());
         }
         if(hotel.getDestination() != null) {
             hotelToUpdate.setDestination(hotel.getDestination());
         }
-        if(hotel.getDinnerTime() != null) {
-            hotelToUpdate.setDinnerTime(hotel.getDinnerTime());
+        if(hotel.getDinnerTime_from() != null) {
+            hotelToUpdate.setDinnerTime_from(hotel.getDinnerTime_from());
         }
         if(hotel.getEmail() != null) {
             hotelToUpdate.setEmail(hotel.getEmail());

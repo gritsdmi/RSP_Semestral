@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../../../static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/admin/main_styles.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="header">
+        <p id="mainPageLink" th:utext="'Local attractions in '+ ${dest.name} + ', ' + ${dest.country} "></p>
+    </div>
+
+    <div class="links">
+        <a href="/admin/home">Admin menu</a>
+        <a th:href="'/admin/dest/'+${dest.id}">Back to dest</a>
+    </div>
+
+    <tbody>
+        <div class="attractions">
+            <div class="attraction">
+                <form  class="addAttr" th:action="@{/admin/dest/__${dest.id}__/addattr}" th:object="${attraction}" th:method="post" id="addAttrForm">
+
+                    <label for="name" id="nameLabel">Name: </label>
+                    <input type="text" name="name" id="name" th:field="*{name}"/>
+
+                    <label for="descr">Description: </label>
+                    <input type="text" name="name" id="descr" th:field="*{description}"/>
+
+                    <label for="descr">Address: </label>
+                    <input type="text" name="name" id="descr" th:field="*{address}"/>
+
+                    <label for="free">Free entrance: </label>
+                    <select id="free" th:field="*{free}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <button type="submit" id="addEventButton">Add</button>
+                </form>
+            </div>
+            <tr th:each="attr: ${attractions}">
+                <div class="attraction">
+                    <p th:utext="'<span class=\'destTitles\'>Name:</span> ' + ${attr.name}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Description:</span> ' + ${attr.description}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Address:</span> ' + ${attr.address}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Free entrance:</span> ' + (${attr.free} ? 'Yes' : 'No')"></p>
+                </div>
+            </tr>
+        </div>
+    </tbody>
+</div>
+
+<!--===============================================================================================-->
+<script src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../static/js/signup.js"></script>
+
+</body>
+</html>
