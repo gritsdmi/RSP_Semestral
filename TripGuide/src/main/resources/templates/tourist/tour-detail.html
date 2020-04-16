@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Destination detail</title>
-	<link rel="icon" type="image/png" href="../../../static/styles/images/icons/favicon.ico"/>
-	<link rel="stylesheet" href="../../../static/styles/css/accountpage.css">
-	<link rel="stylesheet" href="../../../static/styles/css/destination-detail.css">
-	<link rel="stylesheet" type="text/css" href="../../../static/styles/vendor/bootstrap4/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../../static/styles/css/signup.css">
+	<link rel="icon" type="image/png" href="../../../../static/styles/images/icons/favicon.ico"/>
+	<link rel="stylesheet" href="../../../../static/styles/css/accountpage.css">
+	<link rel="stylesheet" href="../../../../static/styles/css/destination-detail.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/styles/vendor/bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/styles/css/signup.css">
 
 </head>
 <body>
@@ -33,15 +33,7 @@
 								<div class="destination_content">
 									<div class="destination_title" th:text="${tour.getCity()}"><h1>Title</h1></div>
 									<div class="destination_subtitle"><p> Subtitle </p></div>
-									<!--<div class="destination_price">From $679</div>-->
-									<!--<div class="destination_list">-->
-										<!--<ul>-->
-											<!--<li>5 Stars Hotel</li>-->
-											<!--<li>All Inclusive</li>-->
-											<!--<li>Flight tickets included</li>-->
-											<!--<li>Guided visits</li>-->
-										<!--</ul>-->
-									<!--</div>-->
+
 									<div class="destination_dates">
 										<h4>Available dates</h4>
 										<ul>
@@ -51,35 +43,21 @@
 											<li><a href="#">11. 7. 2020 - 18. 7. 2020</a></li>
 										</ul>
 									</div>
+
 									<div class="destination_attractions">
 										<h4>Attractions</h4>
-										<div class="destination_attraction">
-											<img src="../../../static/styles/images/destination_1.jpg" alt="">
-											<h5>Surfing</h5>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
-										</div>
-										<div class="destination_attraction">
-											<img src="../../../static/styles/images/destination_2.jpg" alt="">
-											<h5>Surfing</h5>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
-										</div>
-										<div class="destination_attraction">
-											<img src="../../../static/styles/images/destination_3.jpg" alt="">
-											<h5>Surfing</h5>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
-										</div>
-										<div class="destination_attraction">
-											<img src="../../../static/styles/images/destination_4.jpg" alt="">
-											<h5>Surfing</h5>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+										<div th:each="att : ${attractions}" class="destination_attraction">
+											<img th:src="'../../../../static/styles/images/destination_'+${att.getId()}+'.jpg'" alt="">
+											<h5 th:text="${att.getName()}">Surfing</h5>
+											<p th:text="${att.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
 										</div>
 									</div>
 									<div class="destination_images">
 										<h4>Images</h4>
-										<img src="../../../static/styles/images/destination_5.jpg" alt="">
-										<img src="../../../static/styles/images/destination_6.jpg" alt="">
-										<img src="../../../static/styles/images/destination_7.jpg" alt="">
-										<img src="../../../static/styles/images/destination_8.jpg" alt="">
+										<img src="../../../../static/styles/images/destination_5.jpg" alt="">
+										<img src="../../../../static/styles/images/destination_6.jpg" alt="">
+										<img src="../../../../static/styles/images/destination_7.jpg" alt="">
+										<img src="../../../../static/styles/images/destination_8.jpg" alt="">
 									</div>
 								</div>
 							</div>
@@ -91,11 +69,11 @@
 </div>
 
 <script type="text/javascript"> function closeLogin() { location.replace("/guest/tour-detail"); } </script>
-<script src="../../../static/js/jquery-3.2.1.min.js"></script>
-<script src="../../../static/js/destinations.js"></script>
-<script src="../../../static/styles/vendor/bootstrap4/popper.js"></script>
-<script src="../../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
-<script src="../../static/js/login.js"></script>
+<script src="../../../../stat../../../../jquery-3.2.1.min.js"></script>
+<script src="../../../../stat../../../../destinations.js"></script>
+<script src="../../../../static/styles/vendor/bootstrap4/popper.js"></script>
+<script src="../../../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
+<script src="../../../../stat../../../../login.js"></script>
 
 </body>
 </html>

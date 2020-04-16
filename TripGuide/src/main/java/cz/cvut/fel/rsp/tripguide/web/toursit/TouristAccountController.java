@@ -1,6 +1,7 @@
 package cz.cvut.fel.rsp.tripguide.web.toursit;
 
 import cz.cvut.fel.rsp.tripguide.model.User;
+import cz.cvut.fel.rsp.tripguide.service.DestinationService;
 import cz.cvut.fel.rsp.tripguide.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class TouristAccountController {
     public String accountPage(Principal principal, Model model) {
         User user = userService.findUser(principal.getName());
         model.addAttribute("user", user);
+        model.addAttribute("destination", userService.findUsersDestination(user.getId()));
+        model.addAttribute("tour", user.getTour());
+        model.addAttribute("hotel", userService.findUsersHotel(user.getId()));
         return "tourist/accountpage";
     }
 }

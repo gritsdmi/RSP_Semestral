@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="TripGuide Tours">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../../static/styles/vendor/bootstrap4/bootstrap.min.css">
-    <link href="../../static/styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="../../static/styles/css/destinations.css">
-    <link rel="stylesheet" type="text/css" href="../../static/styles/css/destinations_responsive.css">
-    <link rel="stylesheet" type="text/css" href="../../static/styles/css/signup.css">
-    <link rel="stylesheet" type="text/css" href="../../static/styles/css/tours.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/vendor/bootstrap4/bootstrap.min.css">
+    <link href="../../../static/styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/destinations.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/destinations_responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/signup.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/tours.css">
 
 </head>
 <body>
@@ -31,7 +31,7 @@
 
     <!-- Home -->
     <div class="home">
-        <div class="background_image" style="background-image:url(../../static/styles/images/destinations.jpg)"></div>
+        <div class="background_image" style="background-image:url(../../../static/styles/images/destinations.jpg)"></div>
     </div>
 
     <!-- Search -->
@@ -83,10 +83,13 @@
                     <div class="destinations_container item_grid">
 
                         <!-- Tour -->
-                        <a th:each="tour : ${tours}" th:href="${tour.getId()}+'/detail'">
+                        <!--tours/'+${tour.getId()}}-->
+                        <a th:each="tour : ${tours}"
+                           th:href="'tours/'+${tour.getId()}">
+
                             <div class="destination item">
                                 <div class="destination_image">
-                                    <img th:src="'../../static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
+                                    <img th:src="'../../../static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
                                 </div>
                                 <div class="destination_content">
                                     <div class="destination_title"><h3 th:text="${tour.getCity()}">Title</h3></div>
@@ -112,14 +115,14 @@
 </div>
 
 <script type="text/javascript"> function closeLogin() { location.replace("/guest/tours"); } </script>
-<script src="../../static/js/jquery-3.2.1.min.js"></script>
-<script src="../../static/styles/vendor/bootstrap4/popper.js"></script>
-<script src="../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
-<script src="../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../../static/styles/fonts/easing/easing.js"></script>
-<script src="../../static/styles/fonts/Isotope/isotope.pkgd.min.js"></script>
-<script src="../../static/js/destinations.js"></script>
-<script src="../../static/js/login.js"></script>
+<script src="../../../static/js/jquery-3.2.1.min.js"></script>
+<script src="../../../static/styles/vendor/bootstrap4/popper.js"></script>
+<script src="../../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
+<script src="../../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../../../static/styles/fonts/easing/easing.js"></script>
+<script src="../../../static/styles/fonts/Isotope/isotope.pkgd.min.js"></script>
+<script src="../../../static/js/destinations.js"></script>
+<script src="../../../static/js/login.js"></script>
 
 </body>
 </html>

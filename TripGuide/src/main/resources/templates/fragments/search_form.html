@@ -11,7 +11,7 @@
 <!--CODE FOR COPY-->
 
 <th:block th:fragment="search_form">
-    <form class="home_search_form" id="home_search_form" th:action="@{/tourist/destination}" th:object="${searchDto}" th:method="post">
+    <form class="home_search_form" id="home_search_form" th:action="@{/tourist/destinations}" th:object="${searchDto}" th:method="post">
         <div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start" >
             <input type="text" class="search_input search_input_1" id="country" name="country" placeholder="Country" required="required">
             <input type="text" class="search_input search_input_2" id="city" name="city" placeholder="City" required="required">
