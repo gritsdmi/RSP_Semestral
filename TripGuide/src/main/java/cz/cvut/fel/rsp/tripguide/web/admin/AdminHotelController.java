@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Controller
 @RequestMapping("/admin/hotels")
@@ -39,6 +43,19 @@ public class AdminHotelController {
         hotel.setEmail(dto.getEmail());
         hotel.setPhoneNumber(dto.getPhoneNumbrer());
         hotel.setWeb(dto.getWeb());
+        DateFormat formatter = new SimpleDateFormat("HH:mm");
+        try {
+            hotel.setBreakfastTime_from(new Time(formatter.parse(dto.getBreakfastTime_from()).getTime()));
+        } catch (ParseException ignored) {}
+        try {
+            hotel.setBreakfastTime_to(new Time(formatter.parse(dto.getBreakfastTime_to()).getTime()));
+        } catch (ParseException ignored) { }
+        try {
+            hotel.setDinnerTime_from(new Time(formatter.parse(dto.getDinnerTime_from()).getTime()));
+        } catch (ParseException ignored) {}
+        try {
+            hotel.setDinnerTime_to(new Time(formatter.parse(dto.getDinnerTime_to()).getTime()));
+        } catch (ParseException ignored) {}
         hotelService.save(hotel);
         return "redirect:/admin/home";
     }
@@ -59,4 +76,6 @@ public class AdminHotelController {
     public String getAddHotelPage() {
         return "admin/createhotel";
     }
+
+
 }

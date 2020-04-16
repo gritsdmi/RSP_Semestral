@@ -1,6 +1,7 @@
 package cz.cvut.fel.rsp.tripguide.dto;
 
 import javax.validation.constraints.NotEmpty;
+import java.sql.Time;
 
 public class HotelDto {
     @NotEmpty
@@ -17,6 +18,14 @@ public class HotelDto {
     private String web;
     @NotEmpty
     private String destination;
+    @NotEmpty
+    private String breakfastTime_from;
+    @NotEmpty
+    private String breakfastTime_to;
+    @NotEmpty
+    private String dinnerTime_from;
+    @NotEmpty
+    private String dinnerTime_to;
 
     public String getName() {
         return name;
@@ -72,5 +81,37 @@ public class HotelDto {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public String getBreakfastTime_from() {
+        return breakfastTime_from;
+    }
+
+    public void setBreakfastTime_from(String breakfastTime_from) {
+        this.breakfastTime_from = breakfastTime_from;
+    }
+
+    public String getBreakfastTime_to() {
+        return breakfastTime_to;
+    }
+
+    public void setBreakfastTime_to(String breakfastTime_to) {
+        this.breakfastTime_to = breakfastTime_to;
+    }
+
+    public String getDinnerTime_from() {
+        return dinnerTime_from;
+    }
+
+    public void setDinnerTime_from(String dinnerTime_from) {
+        this.dinnerTime_from = dinnerTime_from;
+    }
+
+    public String getDinnerTime_to() {
+        return dinnerTime_to;
+    }
+
+    public void setDinnerTime_to(String dinnerTime_to) {
+        this.dinnerTime_to = dinnerTime_to;
     }
 }
