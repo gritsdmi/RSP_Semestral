@@ -81,7 +81,8 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
-						<a th:each="destination : ${destinations}" th:href="'tours/'+${destination.getName()}">
+						<!--th:href="'destinations/' +${destination.getId()}+'/tours'"-->
+						<a th:each="destination : ${destinations}" th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/login' : 'destinations/'+${destination.getId()}+'/tours'">
 							<div class="destination item">
 								<div class="destination_image">
 									<img th:src="'../../static/styles/images/destination_'+${destination.id}+'.jpg'" alt="">
@@ -100,12 +101,8 @@
 	</div>
 </div>
 
-<<<<<<< TripGuide/src/main/resources/templates/tourist/destinations.html
+
 <script type="text/javascript"> function closeLogin() { location.replace("/guest/destination"); } </script>
-=======
-<<<<<<< TripGuide/src/main/resources/templates/tourist/destinations.html
-<script type="text/javascript"> function closeLogin() { location.replace("/guest/destination"); } </script>>
-=======
 
 <script type="text/javascript">
 	function displaylogin() {
@@ -118,14 +115,8 @@
 
 		window.addEventListener('scroll', noScroll);
 	}
-<<<<<<< TripGuide/src/main/resources/templates/tourist/destinations.html
-</script>>
-=======
 </script>
->>>>>>> TripGuide/src/main/resources/templates/tourist/destinations.html
 
->>>>>>> TripGuide/src/main/resources/templates/tourist/destinations.html
->>>>>>> TripGuide/src/main/resources/templates/tourist/destinations.html
 <script src="../../static/js/jquery-3.2.1.min.js"></script>
 <script src="../../static/styles/vendor/bootstrap4/popper.js"></script>
 <script src="../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>

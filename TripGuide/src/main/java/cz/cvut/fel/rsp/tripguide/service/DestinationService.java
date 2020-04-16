@@ -4,6 +4,7 @@ import cz.cvut.fel.rsp.tripguide.dto.SearchDto;
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
 import cz.cvut.fel.rsp.tripguide.model.Destination;
 import cz.cvut.fel.rsp.tripguide.model.Hotel;
+import cz.cvut.fel.rsp.tripguide.model.Tour;
 import cz.cvut.fel.rsp.tripguide.repository.DestinationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -94,5 +95,9 @@ public class DestinationService {
                         destination.getCountry().toUpperCase().contains(searchDto.getCountry().toUpperCase())
                 )
                 .collect(Collectors.toSet());
+    }
+
+    public Set<Tour> findAllDestinationTours(Integer destId) {
+        return findDestination(destId).getHotels().stream().map(Hotel::getTour).collect(Collectors.toSet());
     }
 }

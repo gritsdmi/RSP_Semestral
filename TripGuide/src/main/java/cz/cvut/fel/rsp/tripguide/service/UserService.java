@@ -91,4 +91,14 @@ public class UserService implements UserDetailsService {
     public Set<User> getTouristsByTour(Tour tour){
         return userRepository.findAllByTour(tour);
     }
+
+    public Destination findUsersDestination(Integer id) {
+        User user = findUser(id);
+        return user.getTour() != null ? user.getTour().getHotel() != null ? user.getTour().getHotel().getDestination() : null : null;
+    }
+
+    public Hotel findUsersHotel(Integer id) {
+        User user = findUser(id);
+        return user.getTour() != null ? user.getTour().getHotel() : null;
+    }
 }

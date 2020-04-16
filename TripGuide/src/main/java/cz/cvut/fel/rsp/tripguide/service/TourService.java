@@ -123,4 +123,5 @@ public class TourService {
     public Set<Tour> getAllTours() {
         return tourRepository.findAll();
     }
+
 }
