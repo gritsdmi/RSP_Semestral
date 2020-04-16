@@ -1,6 +1,5 @@
 package cz.cvut.fel.rsp.tripguide.web.toursit;
 
-import cz.cvut.fel.rsp.tripguide.dto.DestinationDto;
 import cz.cvut.fel.rsp.tripguide.dto.SearchDto;
 import cz.cvut.fel.rsp.tripguide.service.DestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +29,6 @@ public class TouristDestinationController {
     public String destinationPage(Model model) {
         model.addAttribute("destinations", destinationService.getAllDestinations());
         return "tourist/destinations";
-    }
-
-    @GetMapping("/{id}")
-    public String destinationInfoPage(Model model, @PathVariable Integer id) {
-        model.addAttribute("destination", destinationService.findDestination(id));
-        return "tourist/destination-detail";
     }
 
     @PostMapping

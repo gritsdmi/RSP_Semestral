@@ -36,6 +36,10 @@ public class TourService {
         return tour.get();
     }
 
+    public Set<Tour> findToursByCityName(String cityName) {
+        return tourRepository.findAllByCity(cityName);
+    }
+
     public void remove(Integer id) {
         this.tourRepository.deleteById(id);
     }
