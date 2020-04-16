@@ -85,4 +85,10 @@ public class AdminDestinationController {
         laService.addLocalAttraction(attraction, id);
         return "redirect:/admin/dest/" + id + "/allattr";
     }
+
+    @GetMapping("/{id}/hotels")
+    public String destinationHotels(@PathVariable Integer id, Model model) {
+        model.addAttribute("hotels", destinationService.findDestination(id).getHotels());
+        return "admin/desthotels";
+    }
 }
