@@ -118,28 +118,13 @@
 	</div>
 </div>
 
-<script>
-	function noScroll() {
-		window.scrollTo(0, 0);
-	}
-
-	function displaylogin() {
-		var loginform = document.getElementById("login-form");
-		loginform.classList.remove("display-none");
-
-		var x = document.getElementsByClassName('super_container')[0];
-		x.setAttribute("class", "blur-10");
-		document.getElementsByClassName("overlay")[0].classList.remove("display-none");
-
-		window.addEventListener('scroll', noScroll);
-	}
-</script>
-
+<script type="text/javascript"> function closeLogin() { location.replace("/guest/contact"); } </script>>
 <script src="../../static/js/jquery-3.2.1.min.js"></script>
 <script src="../../static/styles/vendor/bootstrap4/popper.js"></script>
 <script src="../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
 <script src="../../static/styles/fonts/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="../../static/js/contact.js"></script>
+<script src="../../static/js/login.js"></script>
 
 </body>
 </html>
