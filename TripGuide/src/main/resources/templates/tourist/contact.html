@@ -74,7 +74,7 @@
 								</li>
 								<li>
 									<div>email:</div>
-									<div>example@gmail.com</div>
+									<div>cvutfelsitrsptripguide@gmail.com</div>
 								</li>
 							</ul>
 						</div>
@@ -84,17 +84,18 @@
 				<!-- Contact Form -->
 				<div class="col-lg-6">
 					<div class="contact_form_container">
-						<form action="#" id="contact_form" class="contact_form">
-							<div style="margin-bottom: 18px"><input type="text" class="contact_input contact_input_name inpt" placeholder="Your Name" required="required"><div class="input_border"></div></div>
+						<div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
+						<form id="contact_form" class="contact_form" th:object="${contactUs}" th:method="post">
+							<div style="margin-bottom: 18px"><input type="text" class="contact_input contact_input_name inpt" placeholder="Your Name" required="required" th:field="*{name}"><div class="input_border"></div></div>
 							<div class="row">
 								<div class="col-lg-6" style="margin-bottom: 18px">
-									<div><input type="text" class="contact_input contact_input_email inpt" placeholder="Your E-mail" required="required"><div class="input_border"></div></div>
+									<div><input type="text" class="contact_input contact_input_email inpt" placeholder="Your E-mail" required="required" th:field="*{email}"><div class="input_border"></div></div>
 								</div>
 								<div class="col-lg-6" style="margin-bottom: 18px">
-									<div><input type="text" class="contact_input contact_input_subject inpt" placeholder="Subject" required="required"><div class="input_border"></div></div>
+									<div><input type="text" class="contact_input contact_input_subject inpt" placeholder="Subject" required="required" th:field="*{subject}"><div class="input_border"></div></div>
 								</div>
 							</div>
-							<div><textarea class="contact_textarea contact_input inpt" placeholder="Message" required="required"></textarea><div class="input_border" style="bottom:3px"></div></div>
+							<div><textarea class="contact_textarea contact_input inpt" placeholder="Message" required="required" th:field="*{message}"></textarea><div class="input_border" style="bottom:3px"></div></div>
 							<button class="contact_button">send</button>
 						</form>
 					</div>
