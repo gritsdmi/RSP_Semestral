@@ -46,4 +46,5 @@ public class BaseControllerTestRunner {
         final String locationHeader = result.getResponse().getHeader(HttpHeaders.LOCATION);
         assertEquals("http://localhost" + expectedPath, locationHeader);
     }
+
 }
