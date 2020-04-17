@@ -26,8 +26,8 @@ public class TouristAccountController {
     public String accountPage(Principal principal, Model model) {
         User user = userService.findUser(principal.getName());
         model.addAttribute("user", user);
-        model.addAttribute("destination", userService.findUsersDestination(user.getId()));
-        model.addAttribute("tour", user.getTour());
+        model.addAttribute("destinations", userService.findUsersDestinations(user.getId()));
+        model.addAttribute("tour", user.getTours());
         model.addAttribute("hotel", userService.findUsersHotel(user.getId()));
         return "tourist/accountpage";
     }

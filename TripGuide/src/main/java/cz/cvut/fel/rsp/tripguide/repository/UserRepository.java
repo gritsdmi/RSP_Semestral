@@ -13,7 +13,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     User findByEmail(String email);
 
-    Set<User> findAllByTour(Tour tour);
-
     Set<User> findAll();
+
+    Set<User> findAllByToursContains(Tour tour);
 }

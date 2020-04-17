@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -24,6 +25,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private TourService tourService;
 
 
     @Override
@@ -89,16 +93,29 @@ public class UserService implements UserDetailsService {
     }
 
     public Set<User> getTouristsByTour(Tour tour){
-        return userRepository.findAllByTour(tour);
+        return userRepository.findAllByToursContains(tour);
     }
 
-    public Destination findUsersDestination(Integer id) {
-        User user = findUser(id);
-        return user.getTour() != null ? user.getTour().getHotel() != null ? user.getTour().getHotel().getDestination() : null : null;
+    public Set<Destination> findUsersDestinations(Integer id) {
+        return findUser(id).getTours()
+                .stream()
+                .map(Tour::getHotel)
+                .map(Hotel::getDestination)
+                .collect(Collectors.toSet());
     }
 
-    public Hotel findUsersHotel(Integer id) {
-        User user = findUser(id);
-        return user.getTour() != null ? user.getTour().getHotel() : null;
+    public Set<Hotel> findUsersHotel(Integer id) {
+        return findUser(id).getTours()
+                .stream()
+                .map(Tour::getHotel)
+                .collect(Collectors.toSet());
+    }
+
+    public User addTour(User user, Integer tour) {
+        Tour t = tourService.findTour(tour);
+        t.addUser(user);
+        t = tourService.save(t);
+        user.addTour(t);
+        return save(user);
     }
 }

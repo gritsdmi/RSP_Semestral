@@ -81,7 +81,7 @@
 						<div class="destinations_container item_grid">
 
 							<!-- Destination -->
-							<div id="divBlock1" th:if="${destination != null ? true : false}">
+							<div id="divBlock1" th:each="destination : ${destinations}">
 								<div class="destination item">
 									<div class="destination_image">
 										<img src="../../static/styles/images/destination_1.jpg" alt="">
@@ -92,6 +92,7 @@
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>

@@ -80,9 +80,8 @@ public class AdminTourController {
     @PostMapping("/{tour}/tourists")
     public String addTouristToTour(Model model, @PathVariable Integer tour, @RequestParam String username){
         User user = userService.findUser(username);
-        user.setTour(tourService.findTour(tour));
+        user = userService.addTour(user,tour);
         model.addAttribute("tourid", tour);
-        userService.save(user);
         return "redirect:/admin/tours/"+tour+"/tourists";
     }
 
