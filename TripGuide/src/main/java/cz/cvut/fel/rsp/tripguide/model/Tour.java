@@ -44,7 +44,7 @@ public class Tour extends AbstractEntity {
     private User delegate;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "tour")
+    @ManyToMany
     private Set<User> users = new HashSet<>();
 
     @JsonIgnore
@@ -151,6 +151,10 @@ public class Tour extends AbstractEntity {
         this.users = users;
     }
 
+    public void addUser(User user) {
+        this.users.add(user);
+    }
+
     public Hotel getHotel() {
         return hotel;
     }
@@ -167,7 +171,5 @@ public class Tour extends AbstractEntity {
         this.excursions = excursions;
     }
 
-    public void addUser(User user) {
-        this.users.add(user);
-    }
+
 }

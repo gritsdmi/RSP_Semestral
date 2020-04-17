@@ -1,3 +1,7 @@
+-- noinspection SqlDialectInspectionForFile
+
+-- noinspection SqlNoDataSourceInspectionForFile
+
 INSERT INTO PUBLIC.USER(ID, USERNAME, EMAIL, PASSWORD,FULL_NAME, ACTIVE) VALUES
 (1, 'tourist', 'tourist@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','tourist tourist',  true),
 (2, 'delegate' , 'delegate@test.com' , '$2a$10$uILDk1sh5OFpXJRA6QhAkeWikwdtUomkBP1Zs4TDlZQE8Ft9qabLK','delegate delegate', true),
@@ -40,8 +44,11 @@ INSERT INTO TOUR(ID, COUNTRY, CITY, DATE_FROM, DAT_TIL, DEPARTURE_FROM, DEPARTUR
 (6, 'Indonesia', 'Bali', '2020-11-11', '2020-11-21', 'Airport', '2020-11-21', '2020-11-21', 'Tour in Bali 3', 'BEACH', 'PLANE', 2, 1),
 (7, 'Indonesia', 'Bali', '2020-12-02', '2020-12-12', 'Airport', '2020-12-12', '2020-12-12', 'Tour in Bali 4', 'BEACH', 'PLANE', 2, 1);
 
-INSERT INTO PUBLIC.USER(ID, USERNAME, EMAIL, PASSWORD, FULL_NAME, ACTIVE, TOUR_ID) VALUES
-(4, 'tourist1', 'tourist1@test.com' , '12345','tourist tourist',  true, 1);
+INSERT INTO PUBLIC.USER(ID, USERNAME, EMAIL, PASSWORD, FULL_NAME, ACTIVE) VALUES
+(4, 'tourist1', 'tourist1@test.com' , '12345','tourist tourist',  true);
+
+INSERT INTO PUBLIC.TOUR_USERS VALUES (1,4),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1);
+
 
 INSERT INTO PUBLIC.USERS_ROLES(USERID, ROLES) VALUES
 (4, 'TOURIST');
@@ -52,4 +59,4 @@ INSERT INTO EXCURSION (ID, ARRIVAL_TIME, DATE_FROM, DATE_TILL, DEPARTURE_TIME, D
 (3, null, '2020-10-10', '2020-10-10', null, 'Take a private tour of Bali''s most iconic sights that you always see on postcards and Instagram! Snap photos and experience the beauty in the North. ', 'Northern Charm: Lake Bratan, Handara Gate, Waterfall & Swing', 100, false),
 (4, null, '2020-10-10', '2020-10-10', null, 'Experience Bali according to your interests on a customizable full-day tour, and choose what you want to see and do with a licensed guide. Marvel at the rice terraces surrounding Ubud, or take part in water sports activities.', 'Best of Bali: Private Customized Full-Day Tour', 100, false);
 
-INSERT into EXCURSION_TOURS VALUES (1, 1),(2,1),(3,1),(4,1);
+INSERT INTO EXCURSION_TOURS VALUES (1, 1),(2,1),(3,1),(4,1);

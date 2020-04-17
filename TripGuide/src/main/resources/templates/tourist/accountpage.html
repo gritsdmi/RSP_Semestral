@@ -13,6 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="../../static/styles/css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="../../static/styles/css/signup.css">
 
+	<link href="../../static/styles/css/calendar/style.css" rel="stylesheet" >
+
+	<link href='../../static/calendar/core/main.css' rel='stylesheet' />
+	<link href='../../static/calendar/daygrid/main.css' rel='stylesheet' />
+	<link href='../../static/calendar/timegrid/main.css' rel='stylesheet' />
+	<link href='../../static/calendar/list/main.css' rel='stylesheet' />
+
+
 
 </head>
 <body>
@@ -73,7 +81,7 @@
 						<div class="destinations_container item_grid">
 
 							<!-- Destination -->
-							<div id="divBlock1" th:if="${destination != null ? true : false}">
+							<div id="divBlock1" th:each="destination : ${destinations}">
 								<div class="destination item">
 									<div class="destination_image">
 										<img src="../../static/styles/images/destination_1.jpg" alt="">
@@ -81,205 +89,27 @@
 									<div class="destination_content">
 										<div class="destination_title"><h3 th:text="${destination.getName()}">Bali</h3></div>
 										<div class="destination_subtitle"><p th:text="${destination.getCountry()}">Luxury vacation package. Just enjoy Your time here</p></div>
-										<!--<div class="destination_price">From $679</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
 									</div>
 								</div>
 							</div>
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock2" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_2.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>Indonesia</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $579</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock3" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_3.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>San Francisco</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $399</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock4" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_4.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>Paris</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $639</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock5" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_5.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>Phi Phi Island</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $929</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock6" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_6.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>Mykonos</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $719</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock7" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_7.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>Paris</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $515</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock8" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_8.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>Phi Phi Island</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $879</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
-
-							<!--&lt;!&ndash; Destination &ndash;&gt;-->
-							<!--<div id="divBlock9" style="display: none">-->
-								<!--<div class="destination item">-->
-									<!--<div class="destination_image">-->
-										<!--<img src="../../static/styles/images/destination_9.jpg" alt="">-->
-									<!--</div>-->
-									<!--<div class="destination_content">-->
-										<!--<div class="destination_title"><h3>Mykonos</h3></div>-->
-										<!--<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-										<!--<div class="destination_price">From $679</div>-->
-										<!--<div class="destination_list">-->
-											<!--<ul>-->
-												<!--<li>5 Stars Hotel</li>-->
-												<!--<li>All Inclusive</li>-->
-												<!--<li>Flight tickets included</li>-->
-												<!--<li>Guided visits</li>-->
-											<!--</ul>-->
-										<!--</div>-->
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
 
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-
 	</div>
+	<div style="width: 50%; height: 50%; margin-top: 200px; margin-left: 200px;" id="calendar"></div>>
 </main>
 
+
+<script src='../../static/calendar/core/main.js'></script>
+<script src='../../static/calendar/interaction/main.js'></script>
+<script src='../../static/calendar/daygrid/main.js'></script>
+<script src='../../static/calendar/timegrid/main.js'></script>
+<script src='../../static/calendar/list/main.js'></script>
+
+<script src="../../static/js/calendar/calendar.js"></script>
 
 <script src="../../static/js/jquery-3.2.1.min.js"></script>
 <script src="../../static/styles/vendor/bootstrap4/popper.js"></script>

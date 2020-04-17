@@ -79,9 +79,7 @@
 			<div class="row destinations_row">
 				<div class="col">
 					<div class="destinations_container item_grid">
-
 						<!-- Destination -->
-						<!--th:href="'destinations/' +${destination.getId()}+'/tours'"-->
 						<a th:each="destination : ${destinations}" th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/login' : 'destinations/'+${destination.getId()}+'/tours'">
 							<div class="destination item">
 								<div class="destination_image">
@@ -93,7 +91,6 @@
 								</div>
 							</div>
 						</a>
-
 					</div>
 				</div>
 			</div>

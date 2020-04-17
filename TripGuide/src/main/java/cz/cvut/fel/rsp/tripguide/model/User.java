@@ -52,8 +52,8 @@ public class User extends AbstractEntity implements UserDetails {
     private Set<Incident> incidents = new HashSet<>();
 
     @JsonIgnore
-    @ManyToOne
-    private Tour tour;
+    @ManyToMany(mappedBy = "users")
+    private Set<Tour> tours = new HashSet<>();
 
     @JsonIgnore
     @OneToOne(mappedBy = "delegate")
@@ -163,12 +163,16 @@ public class User extends AbstractEntity implements UserDetails {
         this.incidents = incidents;
     }
 
-    public Tour getTour() {
-        return tour;
+    public Set<Tour> getTours() {
+        return tours;
     }
 
-    public void setTour(Tour tour) {
-        this.tour = tour;
+    public void setTours(Set<Tour> tours) {
+        this.tours = tours;
+    }
+
+    public void addTour(Tour t) {
+        this.tours.add(t);
     }
 
     public Tour getTourToDelegate() {
@@ -201,7 +205,6 @@ public class User extends AbstractEntity implements UserDetails {
                 Objects.equals(events, user.events) &&
                 Objects.equals(messages, user.messages) &&
                 Objects.equals(incidents, user.incidents) &&
-                Objects.equals(tour, user.tour) &&
                 Objects.equals(tourToDelegate, user.tourToDelegate);
     }
 
