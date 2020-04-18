@@ -5,16 +5,17 @@ import cz.cvut.fel.rsp.tripguide.dto.UserDto;
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
 import cz.cvut.fel.rsp.tripguide.model.*;
 import cz.cvut.fel.rsp.tripguide.repository.UserRepository;
+import cz.cvut.fel.rsp.tripguide.util.CalendarEventConvertor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.sql.Time;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -121,13 +122,39 @@ public class UserService implements UserDetailsService {
     }
 
     public Set<EventDto> generateUserEvents(Integer id) {
+        CalendarEventConvertor cec = new CalendarEventConvertor();
         Set<EventDto> events = new HashSet<>();
         User user = findUser(id);
-        EventDto event = new EventDto();
-        event.setTitle("hadflkjdsajlfkasd");
-        event.setStart("2020-04-20T12:00");
-        event.setEnd("2020-04-20T13:00");
-        events.add(event);
+
+        Set<Tour> tours = user.getTours();
+
+        Set<Excursion> excs = tours.stream()
+                .map(Tour::getExcursions)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet());
+
+        events.addAll(tours.stream()
+                .map(cec::convert)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet()));
+
+        events.addAll(excs.stream()
+                .map(cec::convert)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet()));
+
+        events.addAll(tours.stream()
+                .map(Tour::getHotel)
+                .map(cec::convert)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet()));
+
+        events.addAll(user.getEvents()
+                .stream()
+                .map(cec::convert)
+                .collect(Collectors.toSet()));
+
         return events;
     }
+
 }

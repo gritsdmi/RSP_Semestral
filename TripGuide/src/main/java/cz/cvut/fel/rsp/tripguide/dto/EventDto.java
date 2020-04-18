@@ -4,6 +4,8 @@ import javax.validation.constraints.NotNull;
 
 public class EventDto {
 
+    private Integer id;
+
     private String title;
 
     private String start;
@@ -21,6 +23,14 @@ public class EventDto {
     private String endTime;
 
     private String url;
+
+    private String color;
+
+    private String textColor;
+
+    private Boolean overlap;
+
+    private ExtendedProps extendedProps;
 
     public String getTitle() {
         return title;
@@ -92,5 +102,45 @@ public class EventDto {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(String textColor) {
+        this.textColor = textColor;
+    }
+
+    public Boolean getOverlap() {
+        return overlap;
+    }
+
+    public void setOverlap(Boolean overlap) {
+        this.overlap = overlap;
+    }
+
+    public ExtendedProps getExtendedProps() {
+        return extendedProps;
+    }
+
+    public void setExtendedProps(ExtendedProps extendedProps) {
+        this.extendedProps = extendedProps;
     }
 }
