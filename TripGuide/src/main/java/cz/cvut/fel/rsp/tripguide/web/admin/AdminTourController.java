@@ -7,6 +7,7 @@ import cz.cvut.fel.rsp.tripguide.service.ExcursionService;
 import cz.cvut.fel.rsp.tripguide.service.HotelService;
 import cz.cvut.fel.rsp.tripguide.service.TourService;
 import cz.cvut.fel.rsp.tripguide.service.UserService;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Controller
@@ -48,15 +51,14 @@ public class AdminTourController {
 
     @PostMapping("/add")
     public String addTour(@ModelAttribute("tour") @Valid TourDto dto){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm");
 
         Tour tour = new Tour();
 
-//        tour.setDateFrom(LocalDateTime.parse(dto.getDateFrom(), formatter));
-//        tour.setDatTil(LocalDateTime.parse(dto.getDateTil(), formatter));
+        tour.setDateTimeFrom(LocalDateTime.parse(dto.getDateTimeFrom()));
+        tour.setDateTimeTil(LocalDateTime.parse(dto.getDateTimeTil()));
         tour.setDepartureFrom(dto.getDepartureFrom());
-//        tour.setDepartureTime_start(LocalDateTime.parse(dto.getDepartureTime_start(), formatter));
-//        tour.setDepartureTime_end(LocalDateTime.parse(dto.getDepartureTime_end(), formatter));
+        tour.setDepartureDateTime(LocalDateTime.parse(dto.getDepartureDateTime()));
+        tour.setArrivalDateTime(LocalDateTime.parse(dto.getArrivalDateTime()));
         tour.setDescription(dto.getDescription());
         tour.setDelegate(userService.findUser(dto.getDelegate()));
         tour.setHotel(hotelService.findHotel(dto.getHotel()));
@@ -113,10 +115,10 @@ public class AdminTourController {
         excursion.setPrice(Integer.parseInt(dto.getPrice()));
         if(dto.getTransfer().equals("yes")) excursion.setTransferNeeded(true);
         else excursion.setTransferNeeded(false);
-//        excursion.setDateFrom(dto.getDateFroom());
-//        excursion.setDateTill(dto.getDateTill());
-//        excursion.setDepartureTime(dto.getDepartureTime());
-//        excursion.setArrivalTime(dto.getArrivalTime());
+        excursion.setDateTimeFrom(LocalDateTime.parse(dto.getDateTimeFrom()));
+        excursion.setDateTimeTill(LocalDateTime.parse(dto.getDateTimeTill()));
+        excursion.setDepartureDateTime(LocalDateTime.parse(dto.getDepartureDateTime()));
+        excursion.setArrivalDateTime(LocalDateTime.parse(dto.getArrivalDateTime()));
         excursionService.addExcursion(excursion, id);
         return "redirect:/admin/tours/"+id+"/excursions";
     }

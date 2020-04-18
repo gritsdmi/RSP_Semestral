@@ -1,50 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     var calendarEl = document.getElementById('calendar');
+    var userId = document.getElementById('userId');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-        },
-        defaultDate: '2020-04-17',
-        navLinks: true, // can click day/week names to navigate views
-        editable: false,
-        events: [
-            {
-                title: 'test',
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
 
-                start: '2020-04-17',
-                end: '2020-04-17',
-
-                startTime: '12:30',
-                endTime: '13:30',
-
-                daysOfWeek: [1,2], // [1,2,3,4,5,6,7] on which day of week repeat
-                startRecur: '2020-04-17',
-                endRecur: '2020-04-28',
-
-                url: 'user',
-
-                color: 'lightblue',
-                textColor: 'white'
-            }
-        ]
-    });
-    calendar.render();
-
-    fetch("/api/events/1").then(function (response) {
+    fetch("/api/events/"+userId.value).then(function (response) {
         if (response.status !== 200) {
-            console.log('Looks like there was a problem. Status Code: ' + response.status);
             return;
         }
-
         response.json().then(function(data) {
-            console.log(data);
+            initCalendar(data);
         });
     }).catch(function(err) {
-        console.log('Fetch Error :-S', err);
     });
+
+    function initCalendar(events) {
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+            defaultDate: today,
+            navLinks: true,
+            editable: false,
+            events: events
+        });
+        calendar.render();
+    }
+
+
+
+
+
 
 });

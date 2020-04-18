@@ -34,23 +34,23 @@
              <label for="price">Price: </label>
              <input type="number" name="name" id="price" th:field="*{price}"/>
 
-             <label for="dateFrom">Date and time from: </label>
-             <input type="text" name="name" id="dateFrom" th:field="*{dateFrom}"/>
-
-             <label for="dateTill">Date and time till: </label>
-             <input type="text" name="name" id="dateTill" th:field="*{dateTill}"/>
-
-             <label for="free">Transfer: </label>
-             <select id="transfer" th:field="*{transfer}">
+            <label for="transfer">Transfer: </label>
+            <select id="transfer" th:field="*{transfer}">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
-             </select>
+            </select>
 
-             <label for="free">Departure date and time </label>
-             <input type="text" name="name" id="free" th:field="*{departureTime}"/>
+             <label for="dateTimeFrom">Date and time from: </label>
+             <input type="datetime-local" name="dateTimeFrom" id="dateTimeFrom" th:field="*{dateTimeFrom}" required/>
 
-             <label for="free">Arrival date and time: </label>
-             <input type="text" name="name" id="free" th:field="*{arrivalTime}"/>
+             <label for="dateTimeTill">Date and time till: </label>
+             <input type="datetime-local" name="dateTimeTill" id="dateTimeTill" th:field="*{dateTimeTill}" required/>
+
+             <label for="departureDateTime">Departure date and time </label>
+             <input type="datetime-local" name="departureDateTime" id="departureDateTime" th:field="*{departureDateTime}" required/>
+
+             <label for="arrivalDateTime">Arrival date and time: </label>
+             <input type="datetime-local" name="arrivalDateTime" id="arrivalDateTime" th:field="*{arrivalDateTime}" required/>
 
              <button type="submit" id="addEventButton">Add</button>
         </form>
@@ -64,10 +64,10 @@
                     <p th:utext="'<span class=\'destTitles\'>Description:</span> ' + ${exc.description}"></p>
                     <p th:utext="'<span class=\'destTitles\'>Price:</span> ' + ${exc.price}"></p>
                     <p th:utext="'<span class=\'destTitles\'>Transfer:</span> ' + (${exc.transferNeeded} ? 'Yes' : 'No')"></p>
-                    <p th:utext="'<span class=\'destTitles\'>Date and time from:</span> ' + ${exc.dateFrom}"></p>
-                    <p th:utext="'<span class=\'destTitles\'>Date and time till:</span> ' + ${exc.dateTill}"></p>
-                    <p th:utext="'<span class=\'destTitles\'>Departure time:</span> ' + ${exc.departureTime}"></p>
-                    <p th:utext="'<span class=\'destTitles\'>Arrival time:</span> ' + ${exc.arrivalTime}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Date and time from:</span> ' + ${exc.dateTimeFrom}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Date and time till:</span> ' + ${exc.dateTimeTill}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Departure date and time:</span> ' + ${exc.departureDateTime}"></p>
+                    <p th:utext="'<span class=\'destTitles\'>Arrival date and time:</span> ' + ${exc.arrivalDateTime}"></p>
                 </div>
             </tr>
         </div>

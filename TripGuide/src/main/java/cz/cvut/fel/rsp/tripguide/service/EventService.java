@@ -67,9 +67,6 @@ public class EventService {
 
     public Event updateEvent(Event event, Integer eventId) {
         Event eventToUpdate = findEvent(eventId);
-        if(event.getTime() != null) {
-            eventToUpdate.setTime(event.getTime());
-        }
         if(event.getType() != null) {
             eventToUpdate.setType(event.getType());
         }

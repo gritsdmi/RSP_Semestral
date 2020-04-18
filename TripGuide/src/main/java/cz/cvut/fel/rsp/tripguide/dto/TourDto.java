@@ -1,55 +1,34 @@
 package cz.cvut.fel.rsp.tripguide.dto;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 public class TourDto {
-
-    private String country;
-    private String city;
-    private String dateFrom;
-    private String dateTil;
+    @NotNull
+    @NotEmpty
     private String departureFrom;
-    private String departureTime_start;
-    private String departureTime_end;
-
+    @NotNull
+    @NotEmpty
+    private String dateTimeFrom;
+    @NotNull
+    @NotEmpty
+    private String dateTimeTil;
+    @NotNull
+    @NotEmpty
+    private String departureDateTime;
+    @NotNull
+    @NotEmpty
+    private String arrivalDateTime;
+    @NotNull
     @NotEmpty
     private String description;
+    @NotNull
     @NotEmpty
     private String hotel;
-
+    @NotNull
+    @NotEmpty
     private String delegate;
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getDateFrom() {
-        return dateFrom;
-    }
-
-    public void setDateFrom(String dateFrom) {
-        this.dateFrom = dateFrom;
-    }
-
-    public String getDateTil() {
-        return dateTil;
-    }
-
-    public void setDateTil(String dateTil) {
-        this.dateTil = dateTil;
-    }
 
     public String getDepartureFrom() {
         return departureFrom;
@@ -59,20 +38,36 @@ public class TourDto {
         this.departureFrom = departureFrom;
     }
 
-    public String getDepartureTime_start() {
-        return departureTime_start;
+    public String getDateTimeFrom() {
+        return dateTimeFrom;
     }
 
-    public void setDepartureTime_start(String departureTime_start) {
-        this.departureTime_start = departureTime_start;
+    public void setDateTimeFrom(String dateTimeFrom) {
+        this.dateTimeFrom = dateTimeFrom;
     }
 
-    public String getDepartureTime_end() {
-        return departureTime_end;
+    public String getDateTimeTil() {
+        return dateTimeTil;
     }
 
-    public void setDepartureTime_end(String departureTime_end) {
-        this.departureTime_end = departureTime_end;
+    public void setDateTimeTil(String dateTimeTil) {
+        this.dateTimeTil = dateTimeTil;
+    }
+
+    public String getDepartureDateTime() {
+        return departureDateTime;
+    }
+
+    public void setDepartureDateTime(String departureDateTime) {
+        this.departureDateTime = departureDateTime;
+    }
+
+    public String getArrivalDateTime() {
+        return arrivalDateTime;
+    }
+
+    public void setArrivalDateTime(String arrivalDateTime) {
+        this.arrivalDateTime = arrivalDateTime;
     }
 
     public String getDescription() {

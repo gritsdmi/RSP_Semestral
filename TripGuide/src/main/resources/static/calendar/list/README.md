@@ -1,7 +1,7 @@
 
 # FullCalendar List View Plugin
 
-View your events as a bulleted list
+View your eventDtos as a bulleted list
 
 [View the docs &raquo;](https://fullcalendar.io/docs/list-view)
 

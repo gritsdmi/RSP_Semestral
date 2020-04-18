@@ -1,7 +1,7 @@
 
 # FullCalendar Time Grid Plugin
 
-Display your events on a grid of time slots
+Display your eventDtos on a grid of time slots
 
 [View the docs &raquo;](https://fullcalendar.io/docs/timegrid-view)
 

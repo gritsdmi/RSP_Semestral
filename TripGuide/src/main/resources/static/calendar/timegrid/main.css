@@ -135,7 +135,7 @@
   /* top and bottom will be in by JS */
 }
 
-/* TimeGrid Event Containment
+/* TimeGrid EventDto Containment
 --------------------------------------------------------------------------------------------------*/
 .fc-ltr .fc-time-grid .fc-event-container {
   /* space on the sides of events for LTR (default) */
@@ -160,7 +160,7 @@
   right: 0;
 }
 
-/* TimeGrid Event Styling
+/* TimeGrid EventDto Styling
 ----------------------------------------------------------------------------------------------------
 We use the full "fc-time-grid-event" class instead of using descendants because the event won't
 be a descendant of the grid when it is being dragged.

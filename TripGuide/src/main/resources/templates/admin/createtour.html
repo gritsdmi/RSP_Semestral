@@ -24,28 +24,28 @@
     <form  class="addTour" th:action="@{/admin/tours/add}" th:object="${tour}" th:method="post" id="addTourForm">
 
         <label for="description">Description: </label>
-        <input type="text" name="name" id="description" th:field="*{description}"/>
+        <input type="text" name="name" id="description" th:field="*{description}" required/>
 
         <label for="hotel">Hotel: </label>
-        <input type="text" name="name" id="hotel" th:field="*{hotel}"/>
+        <input type="text" name="name" id="hotel" th:field="*{hotel}" required/>
 
         <label for="delegate">Delegate's username: </label>
-        <input type="text" name="name" id="delegate" th:field="*{delegate}"/>
+        <input type="text" name="name" id="delegate" th:field="*{delegate}" required/>
 
-        <label for="dateFrom">Date from: </label>
-        <input type="datetime-local" name="name" id="dateFrom" th:field="*{dateFrom}"/>
+        <label for="dateTimeFrom">Date from: </label>
+        <input type="datetime-local" name="dateTimeFrom" id="dateTimeFrom" th:field="*{dateTimeFrom}" required/>
 
-        <label for="dateTill">Date till: </label>
-        <input type="datetime-local" name="name" id="dateTill" th:field="*{dateTil}" placeholder="Date"/>
+        <label for="dateTimeTill">Date till: </label>
+        <input type="datetime-local" name="dateTimeTill" id="dateTimeTill" th:field="*{dateTimeTil}" required />
 
         <label for="departureFrom">Departure from: </label>
-        <input type="text" name="name" id="departureFrom" th:field="*{departureFrom}"/>
+        <input type="text" name="name" id="departureFrom" th:field="*{departureFrom}" required/>
 
-        <label for="departureTime_start">Departure time(start): </label>
-        <input type="datetime-local" name="name" id="departureTime_start" th:field="*{departureTime_start}"/>
+        <label for="departureDateTime">Departure date and time: </label>
+        <input type="datetime-local" name="departureDateTime" id="departureDateTime" th:field="*{departureDateTime}" required/>
 
-        <label for="departureTime_end">Departure time(end): </label>
-        <input type="datetime-local" name="name" id="departureTime_end" th:field="*{departureTime_end}"/>
+        <label for="arrivalDateTime">Arrival date and time: </label>
+        <input type="datetime-local" name="arrivalDateTime" id="arrivalDateTime" th:field="*{arrivalDateTime}" required/>
 
         <button type="submit" id="addEventButton">Add</button>
     </form>

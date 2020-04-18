@@ -77,23 +77,11 @@ public class TourService {
         if(tour.getCountry() != null) {
             tourToUpdate.setCountry(tour.getCountry());
         }
-        if(tour.getDateFrom() != null) {
-            tourToUpdate.setDateFrom(tour.getDateFrom());
-        }
-        if(tour.getDatTil() != null) {
-            tourToUpdate.setDatTil(tour.getDatTil());
-        }
         if(tour.getDelegate() != null) {
             tourToUpdate.setDelegate(tour.getDelegate());
         }
         if(tour.getDepartureFrom() != null) {
             tourToUpdate.setDepartureFrom(tour.getDepartureFrom());
-        }
-        if(tour.getDepartureTime_end() != null) {
-            tourToUpdate.setDepartureTime_end(tour.getDepartureTime_end());
-        }
-        if(tour.getDepartureTime_start() != null) {
-            tourToUpdate.setDepartureTime_start(tour.getDepartureTime_start());
         }
         if(tour.getDescription() != null) {
             tourToUpdate.setDescription(tour.getDescription());
@@ -104,9 +92,6 @@ public class TourService {
         if(tour.getHotel() != null) {
             tourToUpdate.setHotel(tour.getHotel());
         }
-//        if(tour.getLocalAttractions() != null) {
-//            tourToUpdate.setLocalAttractions(tour.getLocalAttractions());
-//        }
         if(tour.getTourType() != null) {
             tourToUpdate.setTourType(tour.getTourType());
         }

@@ -250,7 +250,7 @@ temporary rendered events).
   /* hack to force re-sizing this inner element when scrollbars appear/disappear */
 }
 
-/* Global Event Styles
+/* Global EventDto Styles
 --------------------------------------------------------------------------------------------------*/
 .fc-event {
   position: relative;
@@ -326,7 +326,7 @@ temporary rendered events).
   margin-top: -20px;
 }
 
-/* Event Selection (only for touch devices)
+/* EventDto Selection (only for touch devices)
 --------------------------------------------------------------------------------------------------*/
 .fc-event.fc-selected {
   z-index: 9999 !important;
@@ -349,7 +349,7 @@ temporary rendered events).
   opacity: 0.25;
 }
 
-/* Event Dragging
+/* EventDto Dragging
 --------------------------------------------------------------------------------------------------*/
 .fc-event.fc-dragging.fc-selected {
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
@@ -495,7 +495,7 @@ tr:first-child > td > .fc-day-grid-event {
   /* to the day cell's edge */
 }
 
-/* Event Limiting
+/* EventDto Limiting
 --------------------------------------------------------------------------------------------------*/
 /* "more" link that represents hidden events */
 a.fc-more {
@@ -862,7 +862,7 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
     max-width: 100% !important;
   }
 
-  /* Global Event Restyling
+  /* Global EventDto Restyling
   --------------------------------------------------------------------------------------------------*/
   .fc-event {
     background: #fff !important;
@@ -981,7 +981,7 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
     margin: 0 !important;
   }
 
-  /* TimeGrid *Event* Restyling
+  /* TimeGrid *EventDto* Restyling
   --------------------------------------------------------------------------------------------------*/
   /* naturally position events, vertically stacking them */
   .fc-time-grid .fc-event {
