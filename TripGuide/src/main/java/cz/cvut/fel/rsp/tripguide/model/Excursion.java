@@ -11,17 +11,14 @@ import java.util.Set;
 
 @Entity
 public class Excursion extends AbstractEntity {
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime arrivalTime;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dateFrom;
+    private LocalDateTime dateTimeFrom;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dateTill;
+    private LocalDateTime dateTimeTill;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime departureTime;
+    private LocalDateTime departureDateTime;
+
+    private LocalDateTime arrivalDateTime;
 
     private String description;
 
@@ -35,36 +32,36 @@ public class Excursion extends AbstractEntity {
     @ManyToMany
     private Set<Tour> tours = new HashSet<>();
 
-    public LocalDateTime getArrivalTime() {
-        return arrivalTime;
+    public LocalDateTime getDateTimeFrom() {
+        return dateTimeFrom;
     }
 
-    public void setArrivalTime(LocalDateTime arrivalTime) {
-        this.arrivalTime = arrivalTime;
+    public void setDateTimeFrom(LocalDateTime dateTimeFrom) {
+        this.dateTimeFrom = dateTimeFrom;
     }
 
-    public LocalDateTime getDateFrom() {
-        return dateFrom;
+    public LocalDateTime getDateTimeTill() {
+        return dateTimeTill;
     }
 
-    public void setDateFrom(LocalDateTime dateFrom) {
-        this.dateFrom = dateFrom;
+    public void setDateTimeTill(LocalDateTime dateTimeTill) {
+        this.dateTimeTill = dateTimeTill;
     }
 
-    public LocalDateTime getDateTill() {
-        return dateTill;
+    public LocalDateTime getDepartureDateTime() {
+        return departureDateTime;
     }
 
-    public void setDateTill(LocalDateTime dateTill) {
-        this.dateTill = dateTill;
+    public void setDepartureDateTime(LocalDateTime departureDateTime) {
+        this.departureDateTime = departureDateTime;
     }
 
-    public LocalDateTime getDepartureTime() {
-        return departureTime;
+    public LocalDateTime getArrivalDateTime() {
+        return arrivalDateTime;
     }
 
-    public void setDepartureTime(LocalDateTime departureTime) {
-        this.departureTime = departureTime;
+    public void setArrivalDateTime(LocalDateTime arrivalDateTime) {
+        this.arrivalDateTime = arrivalDateTime;
     }
 
     public String getDescription() {

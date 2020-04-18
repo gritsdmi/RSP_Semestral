@@ -2,24 +2,24 @@ package cz.cvut.fel.rsp.tripguide.dto;
 
 import javax.validation.constraints.NotNull;
 
-public class Event {
-    @NotNull
+public class EventDto {
+
     private String title;
-    @NotNull
+
     private String start;
-    @NotNull
+
     private String end;
-    @NotNull
-    private String startTime;
-    @NotNull
-    private String endTime;
-    @NotNull
+
     private int[] daysOfWeek;
-    @NotNull
+
     private String startRecur;
-    @NotNull
+
     private String endRecur;
-    @NotNull
+
+    private String startTime;
+
+    private String endTime;
+
     private String url;
 
     public String getTitle() {

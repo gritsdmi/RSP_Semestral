@@ -15,19 +15,15 @@ public class Tour extends AbstractEntity {
 
     private String country;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dateFrom;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime datTil;
-
     private String departureFrom;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime departureTime_start;
+    private LocalDateTime dateTimeFrom;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime departureTime_end;
+    private LocalDateTime dateTimeTil;
+
+    private LocalDateTime departureDateTime;
+
+    private LocalDateTime arrivalDateTime;
 
     private String description;
 
@@ -71,20 +67,38 @@ public class Tour extends AbstractEntity {
         this.country = country;
     }
 
-    public LocalDateTime getDateFrom() {
-        return dateFrom;
+
+    public LocalDateTime getDateTimeFrom() {
+        return dateTimeFrom;
     }
 
-    public void setDateFrom(LocalDateTime dateFrom) {
-        this.dateFrom = dateFrom;
+    public void setDateTimeFrom(LocalDateTime dateTimeFrom) {
+        this.dateTimeFrom = dateTimeFrom;
     }
 
-    public LocalDateTime getDatTil() {
-        return datTil;
+    public LocalDateTime getDateTimeTil() {
+        return dateTimeTil;
     }
 
-    public void setDatTil(LocalDateTime datTil) {
-        this.datTil = datTil;
+    public void setDateTimeTil(LocalDateTime dateTimeTil) {
+        this.dateTimeTil = dateTimeTil;
+    }
+
+
+    public LocalDateTime getDepartureDateTime() {
+        return departureDateTime;
+    }
+
+    public void setDepartureDateTime(LocalDateTime departureDateTime) {
+        this.departureDateTime = departureDateTime;
+    }
+
+    public LocalDateTime getArrivalDateTime() {
+        return arrivalDateTime;
+    }
+
+    public void setArrivalDateTime(LocalDateTime arrivalDateTime) {
+        this.arrivalDateTime = arrivalDateTime;
     }
 
     public String getDepartureFrom() {
@@ -93,22 +107,6 @@ public class Tour extends AbstractEntity {
 
     public void setDepartureFrom(String departureFrom) {
         this.departureFrom = departureFrom;
-    }
-
-    public LocalDateTime getDepartureTime_start() {
-        return departureTime_start;
-    }
-
-    public void setDepartureTime_start(LocalDateTime departureTime_start) {
-        this.departureTime_start = departureTime_start;
-    }
-
-    public LocalDateTime getDepartureTime_end() {
-        return departureTime_end;
-    }
-
-    public void setDepartureTime_end(LocalDateTime departureTime_end) {
-        this.departureTime_end = departureTime_end;
     }
 
     public String getDescription() {

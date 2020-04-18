@@ -1,24 +1,35 @@
 package cz.cvut.fel.rsp.tripguide.dto;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 public class ExcursionDto {
     @NotEmpty
+    @NotNull
     private String name;
     @NotEmpty
+    @NotNull
     private String description;
     @NotEmpty
+    @NotNull
     private String price;
     @NotEmpty
+    @NotNull
     private String transfer;
-//    @NotEmpty
-    private String dateFrom;
-//    @NotEmpty
-    private String dateTill;
-//    @NotEmpty
-    private String departureTime;
-//    @NotEmpty
-    private String arrivalTime;
+    @NotNull
+    @NotEmpty
+    private String dateTimeFrom;
+    @NotNull
+    @NotEmpty
+    private String dateTimeTill;
+    @NotNull
+    @NotEmpty
+    private String departureDateTime;
+    @NotNull
+    @NotEmpty
+    private String arrivalDateTime;
+
 
     public String getName() {
         return name;
@@ -52,35 +63,35 @@ public class ExcursionDto {
         this.transfer = transfer;
     }
 
-    public String getDateFrom() {
-        return dateFrom;
+    public String getDateTimeFrom() {
+        return dateTimeFrom;
     }
 
-    public void setDateFrom(String dateFrom) {
-        this.dateFrom = dateFrom;
+    public void setDateTimeFrom(String dateTimeFrom) {
+        this.dateTimeFrom = dateTimeFrom;
     }
 
-    public String getDateTill() {
-        return dateTill;
+    public String getDateTimeTill() {
+        return dateTimeTill;
     }
 
-    public void setDateTill(String dateTill) {
-        this.dateTill = dateTill;
+    public void setDateTimeTill(String dateTimeTill) {
+        this.dateTimeTill = dateTimeTill;
     }
 
-    public String getDepartureTime() {
-        return departureTime;
+    public String getDepartureDateTime() {
+        return departureDateTime;
     }
 
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
+    public void setDepartureDateTime(String departureDateTime) {
+        this.departureDateTime = departureDateTime;
     }
 
-    public String getArrivalTime() {
-        return arrivalTime;
+    public String getArrivalDateTime() {
+        return arrivalDateTime;
     }
 
-    public void setArrivalTime(String arrivalTime) {
-        this.arrivalTime = arrivalTime;
+    public void setArrivalDateTime(String arrivalDateTime) {
+        this.arrivalDateTime = arrivalDateTime;
     }
 }

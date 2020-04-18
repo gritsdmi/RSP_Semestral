@@ -1,7 +1,7 @@
 
 # FullCalendar RRule Plugin
 
-A connector to the RRule library, for recurring events
+A connector to the RRule library, for recurring eventDtos
 
 [View the docs &raquo;](https://fullcalendar.io/docs/rrule-plugin)
 

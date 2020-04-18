@@ -70,18 +70,6 @@ public class ExcursionService {
         if(excursion.getTransferNeeded() != null) {
             excursionToUpdate.setTransferNeeded(excursion.getTransferNeeded());
         }
-        if(excursion.getArrivalTime() != null) {
-            excursionToUpdate.setArrivalTime(excursion.getArrivalTime());
-        }
-        if(excursion.getDateFrom() != null) {
-            excursionToUpdate.setDateFrom(excursion.getDateFrom());
-        }
-        if(excursion.getDateTill() != null) {
-            excursionToUpdate.setDateTill(excursion.getDateTill());
-        }
-        if(excursion.getDepartureTime() != null) {
-            excursionToUpdate.setDepartureTime(excursion.getDepartureTime());
-        }
         if(excursion.getDescription() != null) {
             excursionToUpdate.setDescription(excursion.getDescription());
         }

@@ -29,8 +29,8 @@
                     <p id="tourDescr" th:text="${tour.description}"></p>
                     <p th:utext="'<span class=\'tourTitles\'>Destination:</span> ' + ${tour.hotel.destination.name} + ' ' + ${tour.hotel.destination.country} "></p>
                     <p th:utext="'<span class=\'tourTitles\'>Hotel:</span> ' +${tour.hotel.name}"></p>
-                    <p th:utext="'<span class=\'tourTitles\'>Date from:</span> ' "></p>
-                    <p th:utext="'<span class=\'tourTitles\'>Date till:</span> ' "></p>
+                    <p th:utext="'<span class=\'tourTitles\'>Date and time from:</span> '+${tour.getDateTimeFrom()} "></p>
+                    <p th:utext="'<span class=\'tourTitles\'>Date and time till:</span> '+${tour.getDateTimeTil()} "></p>
                     <a th:href="'/admin/tours/'+${tour.id}">More</a>
                 </div>
             </tr>

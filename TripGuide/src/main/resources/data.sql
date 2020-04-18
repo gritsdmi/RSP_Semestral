@@ -35,14 +35,14 @@ INSERT INTO HOTEL(ID, BREAKFAST_TIME_FROM ,BREAKFAST_TIME_TO, DINNER_TIME_FROM, 
 (2, TIME '17:30:00.0',TIME '18:30:00.0', TIME '12:30:00.0', TIME '13:30:00.0', 'Steet 2', 'email2@gmail.com', 'Hotel name 2', '111 111 111', 4, 'www.hotel2.com', 2),
 (3, TIME '17:30:00.0',TIME '18:30:00.0', TIME '12:30:00.0', TIME '13:30:00.0', 'Steet 3', 'email3@gmail.com', 'Hotel name 3', '333 333 333', 4, 'www.hotel3.com', 2);
 
-INSERT INTO TOUR(ID, COUNTRY, CITY, DATE_FROM, DAT_TIL, DEPARTURE_FROM, DEPARTURE_TIME_END, DEPARTURE_TIME_START, DESCRIPTION, TOUR_TYPE,TRANSFER_TYPE, DELEGATE_ID, HOTEL_ID) VALUES
-(1, 'Indonesia', 'Bali', '2020-10-10', '2020-10-20', 'Airport', '2020-10-20', '2020-10-20', 'Tour in Bali 1', 'BEACH', 'PLANE', 2, 1),
-(2, 'France', 'Paris', '2021-11-11', '2021-11-21', 'Airport', '2021-11-21', '2021-11-21', 'Tour in France 2', 'BEACH', 'BUS', 2, 2),
-(3, 'France', 'Paris', '2023-01-01', '2020-01-20', 'Airport', '2023-01-01', '2023-01-01', 'Tour in France 3', 'BEACH', 'PLANE', 2, 3),
-(4, 'France', 'Paris', '2023-01-01', '2020-01-20', 'Airport', '2023-01-01', '2023-01-01', 'Tour in France 1', 'BEACH', 'PLANE', 2, 3),
-(5, 'Indonesia', 'Bali', '2020-10-12', '2020-10-22', 'Airport', '2020-10-22', '2020-10-22', 'Tour in Bali 2', 'BEACH', 'PLANE', 2, 1),
-(6, 'Indonesia', 'Bali', '2020-11-11', '2020-11-21', 'Airport', '2020-11-21', '2020-11-21', 'Tour in Bali 3', 'BEACH', 'PLANE', 2, 1),
-(7, 'Indonesia', 'Bali', '2020-12-02', '2020-12-12', 'Airport', '2020-12-12', '2020-12-12', 'Tour in Bali 4', 'BEACH', 'PLANE', 2, 1);
+INSERT INTO TOUR(ID, COUNTRY, CITY, DATE_TIME_FROM, DATE_TIME_TIL, DEPARTURE_FROM, DEPARTURE_DATE_TIME,  ARRIVAL_DATE_TIME, DESCRIPTION, TOUR_TYPE,TRANSFER_TYPE, DELEGATE_ID, HOTEL_ID) VALUES
+(1, 'Indonesia', 'Bali', '2020-04-17T12:30:00', '2020-04-21T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in Bali 1', 'BEACH', 'PLANE', 2, 1),
+(2, 'France', 'Paris', '2020-04-18T12:30:00', '2020-04-22T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in France 2', 'BEACH', 'BUS', 2, 2),
+(3, 'France', 'Paris', '2020-04-17T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in France 3', 'BEACH', 'PLANE', 2, 3),
+(4, 'France', 'Paris', '2020-04-17T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in France 1', 'BEACH', 'PLANE', 2, 3),
+(5, 'Indonesia', 'Bali', '2020-04-17T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in Bali 2', 'BEACH', 'PLANE', 2, 1),
+(6, 'Indonesia', 'Bali', '2020-04-17T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00','Tour in Bali 3', 'BEACH', 'PLANE', 2, 1),
+(7, 'Indonesia', 'Bali', '2020-04-17T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in Bali 4', 'BEACH', 'PLANE', 2, 1);
 
 INSERT INTO PUBLIC.USER(ID, USERNAME, EMAIL, PASSWORD, FULL_NAME, ACTIVE) VALUES
 (4, 'tourist1', 'tourist1@test.com' , '12345','tourist tourist',  true);
@@ -53,10 +53,10 @@ INSERT INTO PUBLIC.TOUR_USERS VALUES (1,4),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1);
 INSERT INTO PUBLIC.USERS_ROLES(USERID, ROLES) VALUES
 (4, 'TOURIST');
 
-INSERT INTO EXCURSION (ID, ARRIVAL_TIME, DATE_FROM, DATE_TILL, DEPARTURE_TIME, DESCRIPTION, NAME, PRICE, TRANSFER_NEEDED) VALUES
-(1, '2020-10-10', '2020-10-10', '2020-10-10', '2020-10-10', 'Get the best views in Bali with an early-morning hike up Mount Batur volcano with breakfast included. An unforgettable sunrise awaits you at the top.','Sunrise Mount Batur Hike with Breakfast', 100, true),
-(2, null, '2020-10-10', '2020-10-10', null, 'Watch the sunrise from the top of Mount Batur on an early morning hike up Bali''s most emblematic mountain. Experience the stunning views from the active volcano near the village of Kintamani, and learn more about the region from a local private guide.', 'Mount Batur Sunrise Hike and Natural Hot Spring', 100, false),
-(3, null, '2020-10-10', '2020-10-10', null, 'Take a private tour of Bali''s most iconic sights that you always see on postcards and Instagram! Snap photos and experience the beauty in the North. ', 'Northern Charm: Lake Bratan, Handara Gate, Waterfall & Swing', 100, false),
-(4, null, '2020-10-10', '2020-10-10', null, 'Experience Bali according to your interests on a customizable full-day tour, and choose what you want to see and do with a licensed guide. Marvel at the rice terraces surrounding Ubud, or take part in water sports activities.', 'Best of Bali: Private Customized Full-Day Tour', 100, false);
+INSERT INTO EXCURSION (ID, DATE_TIME_FROM, DATE_TIME_TILL, ARRIVAL_DATE_TIME, DEPARTURE_DATE_TIME, DESCRIPTION, "NAME", PRICE, TRANSFER_NEEDED) VALUES
+(1,'2020-04-22T13:30:00','2020-04-28T13:30:00', '2020-04-01T13:00:00','2020-04-07T20:00:00',  'Get the best views in Bali with an early-morning hike up Mount Batur volcano with breakfast included. An unforgettable sunrise awaits you at the top.','Sunrise Mount Batur Hike with Breakfast', 100, true),
+(2,'2020-04-22T13:30:00','2020-04-28T13:30:00', '2020-04-01T13:00:00','2020-04-07T20:00:00', 'Watch the sunrise from the top of Mount Batur on an early morning hike up Bali''s most emblematic mountain. Experience the stunning views from the active volcano near the village of Kintamani, and learn more about the region from a local private guide.', 'Mount Batur Sunrise Hike and Natural Hot Spring', 100, false),
+(3,'2020-04-22T13:30:00','2020-04-28T13:30:00', '2020-04-01T13:00:00','2020-04-07T20:00:00', 'Take a private tour of Bali''s most iconic sights that you always see on postcards and Instagram! Snap photos and experience the beauty in the North. ', 'Northern Charm: Lake Bratan, Handara Gate, Waterfall & Swing', 100, false),
+(4,'2020-04-22T13:30:00','2020-04-28T13:30:00', '2020-04-01T13:00:00','2020-04-07T20:00:00',  'Experience Bali according to your interests on a customizable full-day tour, and choose what you want to see and do with a licensed guide. Marvel at the rice terraces surrounding Ubud, or take part in water sports activities.', 'Best of Bali: Private Customized Full-Day Tour', 100, false);
 
 INSERT INTO EXCURSION_TOURS VALUES (1, 1),(2,1),(3,1),(4,1);

@@ -1,5 +1,6 @@
 package cz.cvut.fel.rsp.tripguide.service;
 
+import cz.cvut.fel.rsp.tripguide.dto.EventDto;
 import cz.cvut.fel.rsp.tripguide.dto.UserDto;
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
 import cz.cvut.fel.rsp.tripguide.model.*;
@@ -117,5 +118,16 @@ public class UserService implements UserDetailsService {
         t = tourService.save(t);
         user.addTour(t);
         return save(user);
+    }
+
+    public Set<EventDto> generateUserEvents(Integer id) {
+        Set<EventDto> events = new HashSet<>();
+        User user = findUser(id);
+        EventDto event = new EventDto();
+        event.setTitle("hadflkjdsajlfkasd");
+        event.setStart("2020-04-20T12:00");
+        event.setEnd("2020-04-20T13:00");
+        events.add(event);
+        return events;
     }
 }
