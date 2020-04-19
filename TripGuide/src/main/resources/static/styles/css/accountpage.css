@@ -3,9 +3,23 @@
 	margin: 0;
 }
 
-
 h1{
 	margin-bottom: 30px !important ;
+}
+
+#infoAndCalendar {
+	width: 100%;
+	margin-top: 40px;
+}
+
+#userInfo {
+	width: 30%;
+	margin-left: 5%;
+	float: left;
+}
+
+.content h1 {
+	text-align: center;
 }
 
 .flex-column{
@@ -27,10 +41,34 @@ h1{
 	text-align: center;
 }
 
+.avatar {
+	width: 100%;
+}
 
 .avatar img{
-	max-width: 250px;
-	max-height: 250px;
+	width: 70%;
+	margin-left: 15%;
+}
+
+.userInfo {
+	width: 70%;
+	margin-left: 15%;
+}
+
+.userInfo span {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.userInfo div {
+	font-size: 20px;
+}
+
+#calendar {
+	width: 55%;
+	height: 50%;
+	margin-left: 5%;
+	float: left;
 }
 
 .info{
@@ -45,18 +83,20 @@ h1{
 .info span{
 	font-weight: bold;
 }
+
 .info div{
 	margin-top: 5px;
 }
 
 .destinations{
-	/*justify-content: center;*/
-	margin: 20px;
+	margin: 30px 20px 20px;
 	align-items: center;
 }
+
 .destinations.flex-column{
 	width: 100% !important;
 }
+
 .destinations h2{
 	text-align: center;
 	margin: 20px;
@@ -64,7 +104,6 @@ h1{
 }
 
 .data-tours{
-	/*max-width: 50%;*/
 	justify-content: center;
 }
 
@@ -81,20 +120,14 @@ h1{
 	margin:  0 20px !important;
 }
 
-
 .destination_title{
 	margin-top: 0 !important;
 	margin-bottom: 10px;
 }
-.destination_title h3{
-	font-size: 2em !important;
-}
-
 
 a:visited{
 	color: #333;
 }
-
 
 ul {
 	list-style: none;
@@ -104,7 +137,6 @@ ul {
 .destination{
 	padding: 0;
 	margin: 0;
-	width: auto !important;
 }
 
 /*header*/
@@ -116,3 +148,36 @@ ul {
 .content {
 	top: 150px;
 }
+
+#toursBlock {
+	width: 90%;
+	margin-left: 5%;
+}
+
+#toursBlock .destination {
+	width: 90%;
+	margin-left: 5%;
+	margin-bottom: 30px;
+}
+
+.destination_image {
+	width: 60%;
+}
+
+.destination_image img {
+	width: 100%;
+}
+
+.destination_title h3{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.tour_about p{
+	font-size: 20px;
+}
+
+.tour_price p, .tour_list li{
+	font-size: 15px;
+}
+
