@@ -7,13 +7,12 @@
 	<meta name="tour details" content="TripGuide tour details">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" type="text/css" href="../../static/styles/vendor/bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/static/styles/vendor/bootstrap4/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/static/styles/css/accountpage.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/static/styles/css/destination-detail.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/static/styles/css/signup.css}">
+	<link rel="icon" type="image/png" th:href="@{/static/styles/images/icons/favicon.ico}">
 
-	<link rel="stylesheet" type="text/css" href="../../static/styles/css/accountpage.css">
-	<link rel="stylesheet" type="text/css" href="../../static/styles/css/destination-detail.css">
-	<link rel="stylesheet" type="text/css" href="../../static/styles/css/signup.css">
-	<link rel="icon" type="image/png" href="../../static/styles/images/icons/favicon.ico"/>
-	<base href="/">
 </head>
 <body>
 <div class="overlay display-none"></div>
@@ -58,10 +57,10 @@
 									</div>
 									<div class="destination_images">
 										<h4>Images</h4>
-										<img src="../../static/styles/images/destination_5.jpg" alt="">
-										<img src="../../static/styles/images/destination_6.jpg" alt="">
-										<img src="../../static/styles/images/destination_7.jpg" alt="">
-										<img src="../../static/styles/images/destination_8.jpg" alt="">
+										<img th:src="@{/static/styles/images/destination_5.jpg}" alt="">
+										<img th:src="@{/static/styles/images/destination_6.jpg}" alt="">
+										<img th:src="@{/static/styles/images/destination_7.jpg}" alt="">
+										<img th:src="@{/static/styles/images/destination_8.jpg}" alt="">
 									</div>
 								</div>
 							</div>
@@ -73,12 +72,12 @@
 	</main>
 </div>
 
-<script type="text/javascript" src="../../static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
-<script type="text/javascript"  src="../../static/styles/vendor/bootstrap4/popper.js"></script>
-<script type="text/javascript" src="../../static/styles/vendor/bootstrap4/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/static/styles/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript"  th:src="@{/static/styles/vendor/bootstrap4/popper.js}"></script>
+<script type="text/javascript" th:src="@{/static/styles/vendor/bootstrap4/bootstrap.min.js}"></script>
 
 <script type="text/javascript"> function closeLogin() { location.replace("/guest/tour-detail"); } </script>
-<script src="../../static/js/login.js" type="text/javascript"></script>
-<script type="text/javascript" src="../../static/js/destinations.js"></script>
+<script th:src="@{/static/js/login.js}" type="text/javascript"></script>
+<script type="text/javascript" th:src="@{/static/js/destinations.js}"></script>
 </body>
 </html>
