@@ -54,7 +54,7 @@ public class GuestHomeController {
     public String getTourInfo(Model model, @PathVariable Integer destId, @PathVariable Integer tourId) {
         model.addAttribute("tour", tourService.findTour(tourId));
         model.addAttribute("attractions", destinationService.findDestination(destId).getLocalAttractions());
-        return "tourist/tours";
+        return "tourist/tour-detail";
     }
 
     @GetMapping("/contact")
