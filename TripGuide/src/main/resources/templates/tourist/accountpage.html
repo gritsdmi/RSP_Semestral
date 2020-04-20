@@ -14,14 +14,10 @@
 	<link rel="stylesheet" type="text/css" href="../../static/styles/css/signup.css">
 
 	<link href="../../static/styles/css/calendar/style.css" rel="stylesheet" >
-
 	<link href='../../static/calendar/core/main.css' rel='stylesheet' />
 	<link href='../../static/calendar/daygrid/main.css' rel='stylesheet' />
 	<link href='../../static/calendar/timegrid/main.css' rel='stylesheet' />
 	<link href='../../static/calendar/list/main.css' rel='stylesheet' />
-
-
-
 </head>
 <body>
 <input id="userId" type="hidden" th:value="${user.getId()}">
@@ -37,44 +33,40 @@
 
 <main>
 	<div class="content">
-		<div class="about-user">
-			<div class="flex-column">
-				<h1>My Account</h1>
-				<div class="flex-row">
-					<div class="avatar">
-						<img src="../../static/styles/images/admin_image.jpeg" alt="image">
+		<h1>My Account</h1>
+		<div id="infoAndCalendar">
+			<div id="userInfo">
+				<div class="avatar">
+					<img src="../../static/styles/images/admin_image.jpeg" alt="image">
+				</div>
+				<div class="userInfo">
+					<div class="username">
+						<span>Username</span>
+						<div id="data-1" th:text="${user.getUsername()}"> Admin</div>
 					</div>
-					<div class="info">
-						<div class="username">
-							<span>Username</span>
-							<div id="data-1" th:text="${user.getUsername()}"> Admin</div>
-						</div>
-						<div class="email">
-							<span>Email</span>
-							<div id="data-2" th:text="${user.getEmail()}">admin@admin.com</div>
-						</div>
-						<div class="date">
-							<span>Full name</span>
-							<div id="data-3" th:text="${user.getFullName()}">01.01.1970</div>
-						</div>
-						<div class="type">
-							<span>Account type</span>
-							<div id="data-4" th:text="${user.getAuthorities()}">god</div>
-						</div>
+					<div class="email">
+						<span>Email</span>
+						<div id="data-2" th:text="${user.getEmail()}">admin@admin.com</div>
+					</div>
+					<div class="date">
+						<span>Full name</span>
+						<div id="data-3" th:text="${user.getFullName()}">01.01.1970</div>
+					</div>
+					<div class="type">
+						<span>Account type</span>
+						<div id="data-4" th:text="${user.getAuthorities()}">god</div>
 					</div>
 				</div>
-				<!-- <div class="edit-btn">
-                    <button>Edit</button>
-                </div> -->
 			</div>
-		</div>
 
+			<div id="calendar"></div>>
+		</div>
 
 		<div class="destinations" id="destinations">
 			<div class="container">
 				<div class="row">
 					<div class="col text-center">
-						<div class="section_title"><h2>My Destinations</h2></div>
+						<div class="section_title"><h2>My Tours</h2></div>
 					</div>
 				</div>
 				<div class="row destinations_row">
@@ -82,14 +74,23 @@
 						<div class="destinations_container item_grid">
 
 							<!-- Destination -->
-							<div id="divBlock1" th:each="destination : ${destinations}">
+							<div id="toursBlock" th:each="tourItem : ${tour}">
 								<div class="destination item">
 									<div class="destination_image">
-										<img src="../../static/styles/images/destination_1.jpg" alt="">
+										<img th:src="'../../../static/styles/images/destination_'+${tourItem.getId()}+'.jpg'" alt="">
 									</div>
 									<div class="destination_content">
-										<div class="destination_title"><h3 th:text="${destination.getName()}">Bali</h3></div>
-										<div class="destination_subtitle"><p th:text="${destination.getCountry()}">Luxury vacation package. Just enjoy Your time here</p></div>
+										<div class="destination_title"><h3 th:text="${tourItem.getCity()}">Title</h3></div>
+										<div class="tour_about"><p th:text="${tourItem.getDescription()}">Subtitle</p></div>
+										<div class="tour_price"><p>From $679</p></div>
+										<div class="tour_list">
+											<ul>
+												<li th:text="'Hotel: '+${tourItem.getHotel().getName()}">Hotel</li>
+												<li th:text="'Transfer type: '+${tourItem.getTransferType()}">Transfer type</li>
+												<li th:text="'FROM: '+${tourItem.getDateTimeFrom()}">Time from</li>
+												<li th:text="'TO: '+${tourItem.getDateTimeTil()}">Time til</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -100,16 +101,13 @@
 			</div>
 		</div>
 	</div>
-	<div style="width: 50%; height: 50%; margin-top: 200px; margin-left: 200px;" id="calendar"></div>>
 </main>
-
 
 <script src='../../static/calendar/core/main.js'></script>
 <script src='../../static/calendar/interaction/main.js'></script>
 <script src='../../static/calendar/daygrid/main.js'></script>
 <script src='../../static/calendar/timegrid/main.js'></script>
 <script src='../../static/calendar/list/main.js'></script>
-
 <script src="../../static/js/calendar/calendar.js"></script>
 
 <script src="../../static/js/jquery-3.2.1.min.js"></script>
