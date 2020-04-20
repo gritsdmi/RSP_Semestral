@@ -832,3 +832,117 @@ section {
      float: left;
      margin: 3px;
  }
+
+/*********************************
+Button buy a tour
+*********************************/
+
+input[type="checkbox"] {
+    display: none;
+}
+
+p,
+button,
+.tourButton {
+    font-size: 20px;
+}
+
+/* Wraps everyting, nothing special */
+#button-wrapper {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tourButton {
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    color: #8a8a8a;
+    min-width: 3em;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #8a8a8a;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: inline-block;
+    width: 300px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.tourButton:hover {
+    color: #fafafa;
+    background-color: #8a8a8a;
+}
+.tourButton:active, .tourButton:focus {
+    color: #fafafa;
+    background-color: #a0a0a0;
+}
+
+.confirm-modal {
+    display: block;
+    pointer-events: none;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+.confirm-modal .tourButton {
+    width: auto;
+    margin: auto;
+}
+.confirm-modal::before {
+    content: "";
+    display: block;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 200px;
+    z-index: 99;
+    opacity: 1;
+    pointer-events: all;
+}
+.confirm-modal form {
+    position: absolute;
+    z-index: 99;
+    top: 50px;
+    -webkit-transition: -webkit-transform 0.75s;
+    transition: -webkit-transform 0.75s;
+    transition: transform 0.75s;
+    transition: transform 0.75s, -webkit-transform 0.75s;
+    max-width: 90%;
+    width: 450px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    box-shadow: transparent;
+    color: #080808;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+input:not(:checked) + .confirm-modal {}
+input:not(:checked) + .confirm-modal, input:not(:checked) + .confirm-modal * {
+    opacity: 0;
+}
+input:not(:checked) + .confirm-modal::before {
+    height: 0;
+    width: 0;
+}
+
+/* For that cute little fly down effect */
+input:not(:checked) + .confirm-modal form {
+    -webkit-transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
+}
+
+/* Allow buttons to be clickable. */
+.confirm-modal button {
+    pointer-events: all;
+}
