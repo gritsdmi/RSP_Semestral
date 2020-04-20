@@ -34,6 +34,8 @@
 					<div class="bali-tour" id="tour01">
 							<div class="destination item">
 								<div class="destination_content">
+									<div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
+									<div th:if="${param.error}" class="error-alert" style="margin-bottom: 1rem">Error!</div>
 									<div class="destination_title" th:text="${tour.getCity()}"><h1>Title</h1></div>
 									<div class="destination_subtitle"><p> Subtitle </p></div>
 
@@ -67,7 +69,7 @@
 											<span class="tourButton">Buy</span>
 											<input type="checkbox" />
 											<div class="confirm-modal">
-												<form action="" method="get">
+												<form th:action="${#authorization.authentication.principal.equals('anonymousUser') ? '/login' : '' }" th:method="${#authorization.authentication.principal.equals('anonymousUser') ? 'get' : 'put' }">
 													<p>Are you sure you want to buy a tour?</p>
 													<button class="tourButton">Yes</button>
 													<button class="tourButton">No</button>
