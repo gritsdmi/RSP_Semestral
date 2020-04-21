@@ -20,9 +20,9 @@
                             <div class="logo"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? @{/guest/home} : @{/tourist/home}">TripGuide</a></div>
                             <nav class="main_nav">
                                 <ul class="d-flex flex-row align-items-start justify-content-start">
-                                    <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('home')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? @{/guest/home} : @{/tourist/home}">Home</a></li>
-                                    <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('destinations')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? @{/guest/destinations} : @{/tourist/destinations}">Destinations</a></li>
-                                    <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('contact')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? @{/guest/contact} : @{/tourist/contact}">Contact</a></li>
+                                    <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('home')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/guest/home' : '/tourist/home'">Home</a></li>
+                                    <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('destinations')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/guest/destinations' : '/tourist/destinations'">Destinations</a></li>
+                                    <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('contact')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/guest/contact' : '/tourist/contact'">Contact</a></li>
                                 </ul>
                             </nav>
                             <!-- Hamburger -->
@@ -44,7 +44,7 @@
                 </a></li>
 
                 <li><a href="#" th:if="${#authorization.authentication.principal.equals('anonymousUser')}">
-                    <button type="button" class="btn btn-outline-light" onclick='displaylogin()'>Sign in</button>
+                    <button type="button" class="btn btn-outline-light" id="display-login">Sign in</button>
                 </a></li>
                 <li><a href="/registration" th:if="${#authorization.authentication.principal.equals('anonymousUser')}">
                     <button type="button" class="btn btn-outline-light">Registration</button>
@@ -62,9 +62,9 @@
         </div>
         <div class="menu_content">
             <ul>
-                <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('home')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? @{/guest/home} : @{/tourist/home}">Home</a></li>
-                <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('destinations')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? @{/guest/destinations} : @{/tourist/destinations}">Destinations</a></li>
-                <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('contact')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? @{/guest/contact} : @{/tourist/contact}">Contact</a></li>
+                <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('home')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/guest/home' : '/tourist/home'">Home</a></li>
+                <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('destinations')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/guest/destinations' : '/tourist/destinations'">Destinations</a></li>
+                <li th:classappend="${(#httpServletRequest.requestURL.toString().contains('contact')) ? 'active' : ''}"><a th:href="${#authorization.authentication.principal.equals('anonymousUser')} ? '/guest/contact' : '/tourist/contact'">Contact</a></li>
             </ul>
         </div>
         <div class="menu_social" >
@@ -76,7 +76,7 @@
                     <button type="button" class="btn btn-outline-dark">Logout</button>
                 </a></li>
                 <li><a href="#" th:if="${#authorization.authentication.principal.equals('anonymousUser')}">
-                    <button type="button" class="btn btn-outline-dark" onclick='displaylogin()'>Sign in</button>
+                    <button type="button" class="btn btn-outline-dark" id="display-login">Sign in</button>
                 </a></li>
                 <li><a href="/registration" th:if="${#authorization.authentication.principal.equals('anonymousUser')}">
                     <button type="button" class="btn btn-outline-dark">Registration</button>
