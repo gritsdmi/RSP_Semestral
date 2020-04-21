@@ -41,7 +41,6 @@ INSERT INTO TOUR(ID, COUNTRY, CITY, DATE_TIME_FROM, DATE_TIME_TIL, DEPARTURE_FRO
 (1, 'Indonesia', 'Bali', '2020-04-2T12:30:00', '2020-04-10T13:30:00', 'Airport', '2020-04-01T00:00:00','2020-04-02T11:00:00', 'Tour in Bali 1', 'BEACH', 'PLANE', 2, 1),
 (2, 'France', 'Paris', '2020-04-12T12:30:00', '2020-04-16T13:30:00', 'Airport', '2020-04-11T00:00:00','2020-04-12T11:00:00', 'Tour in France 2', 'BEACH', 'BUS', 2, 2),
 (3, 'Ukraine', 'Uzhhorod', '2020-04-15T12:30:00', '2020-04-28T13:30:00', 'Airport', '2020-04-14T00:00:00','2020-04-15T11:00:00', 'Tour in France 3', 'BEACH', 'PLANE', 2, 3),
-
 (4, 'France', 'Paris', '2020-04-4T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in France 1', 'BEACH', 'PLANE', 2, 3),
 (5, 'Indonesia', 'Bali', '2020-04-5T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00', 'Tour in Bali 2', 'BEACH', 'PLANE', 2, 1),
 (6, 'Indonesia', 'Bali', '2020-04-6T12:30:00', '2020-04-17T13:30:00', 'Airport', '2020-05-01T14:00:00','2020-05-01T14:00:00','Tour in Bali 3', 'BEACH', 'PLANE', 2, 1),
