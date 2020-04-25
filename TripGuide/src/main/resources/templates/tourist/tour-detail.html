@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/styles/vendor/bootstrap4/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/styles/css/accountpage.css">
 	<link rel="stylesheet" type="text/css" href="/static/styles/css/destination-detail.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles/css/tour-detail.css">
 	<link rel="stylesheet" type="text/css" href="/static/styles/css/signup.css">
 	<link rel="icon" type="image/png" href="/static/styles/images/icons/favicon.ico">
 
@@ -52,11 +53,16 @@
 											<img th:src="'/static/styles/images/destination_'+${att.getId()}+'.jpg'" alt="">
 											<h5 th:text="${att.getName()}">Surfing</h5>
 											<p th:text="${att.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+											<h5 th:if="${att.getFree()}" class="free_attraction">Free of charge</h5>
 										</div>
 									</div>
 									<div class="destination_excursions">
 										<h4>Excursions</h4>
-										
+										<div th:each="excur : ${tour.getExcursions()}" class="destination_excursion">
+											<img th:src="'/static/styles/images/destination_'+${excur.getId()}+'.jpg'" alt="">
+											<h5 th:text="${excur.getName()}">Surfing</h5>
+											<p th:text="${excur.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+										</div>
 									</div>
 									<div id="button-wrapper">
 										<label>
