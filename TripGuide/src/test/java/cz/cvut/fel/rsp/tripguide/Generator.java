@@ -2,6 +2,8 @@ package cz.cvut.fel.rsp.tripguide;
 
 
 import cz.cvut.fel.rsp.tripguide.dto.UserDto;
+import cz.cvut.fel.rsp.tripguide.model.Destination;
+import cz.cvut.fel.rsp.tripguide.model.Hotel;
 import cz.cvut.fel.rsp.tripguide.model.Role;
 import cz.cvut.fel.rsp.tripguide.model.User;
 
@@ -41,4 +43,20 @@ public class Generator {
         user.setFullName("fullNameTemplate" + counter);
         return user;
     }
+
+    public static Destination generateDestination() {
+        Destination destination = new Destination();
+        destination.setCountry("Country Name" + randomInt());
+        destination.setName("Destination Name" + randomInt());
+        return destination;
+    }
+
+    public static Hotel generateHotel() {
+        Hotel hotel = new Hotel();
+        hotel.setAddress("Hotel address template" + randomInt());
+        hotel.setName("Hotel name" + randomInt());
+        return hotel;
+    }
+
+
 }
