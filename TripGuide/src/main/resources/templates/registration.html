@@ -15,7 +15,7 @@
     <!--===============================================================================================-->
 </head>
 <body>
-    <div  class="overlay display-none"></div>
+    <div  class="overlay display-none" id="overlay"></div>
 
     <div class="form-container display-none" id="login-form">
         <div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
@@ -24,12 +24,14 @@
     </div>
 
 
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="login100-more" style="background-image: url('/static/styles/images/bg.jpg')"></div>
+    <div id="blur-10">
+        <div class="limiter" id="super_container">
+            <div class="container-login100">
+                <div class="login100-more" style="background-image: url('/static/styles/images/bg.jpg')"></div>
 
-            <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-                <div th:insert="~{fragments/registration_form :: registration_form}"></div>
+                <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+                    <div th:insert="~{fragments/registration_form :: registration_form}"></div>
+                </div>
             </div>
         </div>
     </div>
