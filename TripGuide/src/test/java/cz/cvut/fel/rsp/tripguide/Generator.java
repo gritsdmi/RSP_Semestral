@@ -63,5 +63,12 @@ public class Generator {
         return tour;
     }
 
+    public static Event generateEvent() {
+        Event event = new Event();
+        event.setType(EventType.EXCURTION);
+        event.setTitle("Event title" + randomInt());
+        return event;
+    }
+
 
 }
