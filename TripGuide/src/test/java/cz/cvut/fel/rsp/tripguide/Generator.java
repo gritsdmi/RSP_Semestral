@@ -70,5 +70,13 @@ public class Generator {
         return event;
     }
 
+    public static Excursion generateExcursion() {
+        Excursion excursion = new Excursion();
+        excursion.setDescription("Excursion description is here" + randomInt());
+        excursion.setName("Excursion name" + randomInt());
+
+        return excursion;
+    }
+
 
 }
