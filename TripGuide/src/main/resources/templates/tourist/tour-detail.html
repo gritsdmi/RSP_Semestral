@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/styles/vendor/bootstrap4/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/styles/css/accountpage.css">
 	<link rel="stylesheet" type="text/css" href="/static/styles/css/destination-detail.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles/css/tour-detail.css">
 	<link rel="stylesheet" type="text/css" href="/static/styles/css/signup.css">
 	<link rel="icon" type="image/png" href="/static/styles/images/icons/favicon.ico">
 
@@ -36,33 +37,32 @@
 								<div class="destination_content">
 									<div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
 									<div th:if="${param.error}" class="error-alert" style="margin-bottom: 1rem">Error!</div>
-									<div class="destination_title" th:text="${tour.getCity()}"><h1>Title</h1></div>
-									<div class="destination_subtitle"><p> Subtitle </p></div>
-
+									<img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
+									<div class="destination_title"><h1 th:text="${tour.getCity()}">Title</h1></div>
 									<div class="destination_dates">
-										<h4>Available dates</h4>
+										<h4>Details</h4>
 										<ul>
-											<li><a href="#">11. 4. 2020 - 18. 4. 2020</a></li>
-											<li><a href="#">11. 5. 2020 - 18. 5. 2020</a></li>
-											<li><a href="#">11. 6. 2020 - 18. 6. 2020</a></li>
-											<li><a href="#">11. 7. 2020 - 18. 7. 2020</a></li>
+											<li>Date: <span th:text="${tour.getDateTimeFrom().getYear()}"></span>-<span th:text="${tour.getDateTimeFrom().getMonth()}"></span>-<span th:text="${tour.getDateTimeFrom().getDayOfMonth()}"></span> →
+												<span th:text="${tour.getDateTimeTil().getYear()}"></span>-<span th:text="${tour.getDateTimeTil().getMonth()}"></span>-<span th:text="${tour.getDateTimeTil().getDayOfMonth()}"></span>
+											<li>Hotel: <span th:text="${tour.getHotel().getName()}"></span></li>
 										</ul>
 									</div>
-
 									<div class="destination_attractions">
 										<h4>Attractions</h4>
 										<div th:each="att : ${attractions}" class="destination_attraction">
 											<img th:src="'/static/styles/images/destination_'+${att.getId()}+'.jpg'" alt="">
 											<h5 th:text="${att.getName()}">Surfing</h5>
 											<p th:text="${att.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+											<h5 th:if="${att.getFree()}" class="free_attraction">Free of charge</h5>
 										</div>
 									</div>
-									<div class="destination_images">
-										<h4>Images</h4>
-										<img src="/static/styles/images/destination_5.jpg" alt="">
-										<img src="/static/styles/images/destination_6.jpg" alt="">
-										<img src="/static/styles/images/destination_7.jpg" alt="">
-										<img src="/static/styles/images/destination_8.jpg" alt="">
+									<div class="destination_excursions">
+										<h4>Excursions</h4>
+										<div th:each="excur : ${tour.getExcursions()}" class="destination_excursion">
+											<img th:src="'/static/styles/images/destination_'+${excur.getId()}+'.jpg'" alt="">
+											<h5 th:text="${excur.getName()}">Surfing</h5>
+											<p th:text="${excur.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+										</div>
 									</div>
 									<div id="button-wrapper">
 										<label>

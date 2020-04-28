@@ -1,0 +1,12 @@
+.tour-det {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 58px;
+}
+
+.free_attraction {
+    color: green;
+}
