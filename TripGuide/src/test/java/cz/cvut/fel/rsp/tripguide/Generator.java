@@ -2,10 +2,7 @@ package cz.cvut.fel.rsp.tripguide;
 
 
 import cz.cvut.fel.rsp.tripguide.dto.UserDto;
-import cz.cvut.fel.rsp.tripguide.model.Destination;
-import cz.cvut.fel.rsp.tripguide.model.Hotel;
-import cz.cvut.fel.rsp.tripguide.model.Role;
-import cz.cvut.fel.rsp.tripguide.model.User;
+import cz.cvut.fel.rsp.tripguide.model.*;
 
 import java.util.Collections;
 import java.util.Random;
@@ -30,6 +27,7 @@ public class Generator {
         user.setPassword(userDto.getPassword());
         user.setUsername(userDto.getUsername());
         user.setRoles(Collections.singleton(Role.TOURIST));
+        user.setFullName(userDto.getFullName());
         user.setId(randomInt());
 
         return user;
@@ -56,6 +54,13 @@ public class Generator {
         hotel.setAddress("Hotel address template" + randomInt());
         hotel.setName("Hotel name" + randomInt());
         return hotel;
+    }
+
+    public static Tour generateTour() {
+        Tour tour = new Tour();
+        tour.setCity("City" + randomInt());
+        tour.setCountry("Country Name" + randomInt());
+        return tour;
     }
 
 
