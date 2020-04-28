@@ -65,7 +65,8 @@ public class CalendarEventConvertor {
         extendedProps.setDescription(tour.getDescription());
         event.setExtendedProps(extendedProps);
 
-        //TODO url
+        //url
+        event.setUrl("/tourist/destinations/"+tour.getHotel().getDestination().getId()+"/tours/"+tour.getId());
         events.add(event);
 
         event = new EventDto();
@@ -79,7 +80,8 @@ public class CalendarEventConvertor {
         event.setTitle(tour.getCity()+" "+tour.getCountry() + " departure");
         event.setStart(tour.getDepartureDateTime().toString());
 
-        //TODO url
+        //url
+        event.setUrl("/tourist/destinations/"+tour.getHotel().getDestination().getId()+"/tours/"+tour.getId());
         events.add(event);
 
         event = new EventDto();
@@ -92,7 +94,8 @@ public class CalendarEventConvertor {
 
         event.setTitle(tour.getCity()+" "+tour.getCountry() + " arrival");
         event.setStart(tour.getArrivalDateTime().toString());
-        //TODO url
+        //url
+        event.setUrl("/tourist/destinations/"+tour.getHotel().getDestination().getId()+"/tours/"+tour.getId());
         events.add(event);
 
         return events;
@@ -118,7 +121,7 @@ public class CalendarEventConvertor {
         event.setStart(e.getDateTimeFrom().toString());
         event.setEnd(e.getDateTimeTill().toString());
 
-        //TODO add url
+        //TODO url
         events.add(event);
 
         //add departure event
@@ -133,7 +136,7 @@ public class CalendarEventConvertor {
         event.setTitle(e.getName() + " departure");
         event.setStart(e.getDepartureDateTime().toString());
 
-        //TODO add url
+        //TODO url
         events.add(event);
         //add arrival event
         event = new EventDto();
@@ -155,7 +158,7 @@ public class CalendarEventConvertor {
 
     public Set<EventDto> convert(Hotel hotel) {
         DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("HH:mm");
+//        DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("HH:mm");
         Set<EventDto> events = new HashSet<>();
 
         // add breakfast
@@ -171,16 +174,16 @@ public class CalendarEventConvertor {
 
         event.setTitle(hotel.getName()+" breakfast");
 
-        event.setDaysOfWeek(new int[]{1,2,3,4,5,6,7});
+        event.setDaysOfWeek(new int[]{0,1,2,3,4,5,6});
 
         event.setStartRecur(hotel.getTour().getDateTimeFrom().format(formatterDate));
-        event.setEndRecur(hotel.getTour().getDateTimeTil().format(formatterDate));
+        event.setEndRecur(hotel.getTour().getDateTimeTil().plusDays(1).format(formatterDate));
 
         event.setStartTime(hotel.getBreakfastTime_from().toString());
         event.setEndTime(hotel.getBreakfastTime_to().toString());
 
-        //TODO url
-
+        //url
+        event.setUrl("/tourist/destinations/"+hotel.getDestination().getId()+"/tours/"+hotel.getTour().getId());
         events.add(event);
         // add dinner
         event = new EventDto();
@@ -195,15 +198,16 @@ public class CalendarEventConvertor {
 
         event.setTitle(hotel.getName()+" dinner");
 
-        event.setDaysOfWeek(new int[]{1,2,3,4,5,6,7});
+        event.setDaysOfWeek(new int[]{0,1,2,3,4,5,6});
 
         event.setStartRecur(hotel.getTour().getDateTimeFrom().format(formatterDate));
-        event.setEndRecur(hotel.getTour().getDateTimeTil().format(formatterDate));
+        event.setEndRecur(hotel.getTour().getDateTimeTil().plusDays(1).format(formatterDate));
 
         event.setStartTime(hotel.getDinnerTime_from().toString());
         event.setEndTime(hotel.getDinnerTime_to().toString());
 
-        //TODO url
+        //url
+        event.setUrl("/tourist/destinations/"+hotel.getDestination().getId()+"/tours/"+hotel.getTour().getId());
         events.add(event);
 
         return events;

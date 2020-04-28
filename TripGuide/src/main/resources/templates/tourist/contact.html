@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<div class="overlay display-none"></div>
+<div class="overlay display-none" id="overlay"></div>
 
 <div class="form-container display-none" id="login-form">
 	<div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
@@ -26,99 +26,102 @@
 	</div>
 </div>
 
-<div class="super_container">
-	<!-- Header -->
+<div id="blur-10">
+    <div class="super_container" id="super_container">
+        <!-- Header -->
 
-	<div th:insert="~{fragments/header :: header}"></div>
-	
-	<!-- Home -->
-	<div class="home">
-		<div class="background_image" style="background-image:url(/static/styles/images/contact.jpg)"></div>
-	</div>
+        <div th:insert="~{fragments/header :: header}"></div>
 
-	<!-- Search -->
-	<div class="home_search">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="home_search_container">
-						<div class="home_search_title">Search for your trip</div>
-						<div class="home_search_content">
-							<div th:insert="~{fragments/search_form :: search_form}"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Home -->
+        <div class="home">
+            <div class="background_image" style="background-image:url(/static/styles/images/contact.jpg)"></div>
+        </div>
 
-	<!-- Contact -->
-	<div class="contact">
-		<div class="container">
-			<div class="row">
-				<!-- Get in touch -->
-				<div class="col-lg-6">
-					<div class="contact_content">
-						<div class="contact_title">Get in touch with us</div>
-						<div class="contact_text">
-							<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>
-						</div>
-						<div class="contact_list">
-							<ul>
-								<li>
-									<div>address:</div>
-									<div>Technická 2, 166 27, Praha 6 - Dejvice</div>
-								</li>
-								<li>
-									<div>phone:</div>
-									<div>+420 777 777 777</div>
-								</li>
-								<li>
-									<div>email:</div>
-									<div>cvutfelsitrsptripguide@gmail.com</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+        <!-- Search -->
+        <div class="home_search">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_search_container">
+                            <div class="home_search_title">Search for your trip</div>
+                            <div class="home_search_content">
+                                <div th:insert="~{fragments/search_form :: search_form}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-				<!-- Contact Form -->
-				<div class="col-lg-6">
-					<div class="contact_form_container">
-						<div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
-						<form id="contact_form" class="contact_form" th:object="${contactUs}" th:method="post">
-							<div style="margin-bottom: 18px"><input type="text" class="contact_input contact_input_name inpt" placeholder="Your Name" required="required" th:field="*{name}"><div class="input_border"></div></div>
-							<div class="row">
-								<div class="col-lg-6" style="margin-bottom: 18px">
-									<div><input type="text" class="contact_input contact_input_email inpt" placeholder="Your E-mail" required="required" th:field="*{email}"><div class="input_border"></div></div>
-								</div>
-								<div class="col-lg-6" style="margin-bottom: 18px">
-									<div><input type="text" class="contact_input contact_input_subject inpt" placeholder="Subject" required="required" th:field="*{subject}"><div class="input_border"></div></div>
-								</div>
-							</div>
-							<div><textarea class="contact_textarea contact_input inpt" placeholder="Message" required="required" th:field="*{message}"></textarea><div class="input_border" style="bottom:3px"></div></div>
-							<button class="contact_button">send</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Contact -->
+        <div class="contact">
+            <div class="container">
+                <div class="row">
+                    <!-- Get in touch -->
+                    <div class="col-lg-6">
+                        <div class="contact_content">
+                            <div class="contact_title">Get in touch with us</div>
+                            <div class="contact_text">
+                                <p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>
+                            </div>
+                            <div class="contact_list">
+                                <ul>
+                                    <li>
+                                        <div>address:</div>
+                                        <div>Technická 2, 166 27, Praha 6 - Dejvice</div>
+                                    </li>
+                                    <li>
+                                        <div>phone:</div>
+                                        <div>+420 777 777 777</div>
+                                    </li>
+                                    <li>
+                                        <div>email:</div>
+                                        <div>cvutfelsitrsptripguide@gmail.com</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-	<!-- Map -->
-	<div class="contact_map">
-		<!-- Google Map -->
-		<div class="map">
-			<div id="google_map" class="google_map">
-				<div class="map_container">
-					<div id="map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.126860017142!2d14.39083695152385!3d50.10263242014502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b953b18badba7%3A0xff08f7e48420083f!2sFakulta%20elektrotechnick%C3%A1%2C%20%C4%8CVUT%20v%20Praze!5e0!3m2!1scs!2scz!4v1585076247856!5m2!1scs!2scz" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <!-- Contact Form -->
+                    <div class="col-lg-6">
+                        <div class="contact_form_container">
+                            <div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
+                            <form id="contact_form" class="contact_form" th:object="${contactUs}" th:method="post">
+                                <div style="margin-bottom: 18px"><input type="text" class="contact_input contact_input_name inpt" placeholder="Your Name" required="required" th:field="*{name}"><div class="input_border"></div></div>
+                                <div class="row">
+                                    <div class="col-lg-6" style="margin-bottom: 18px">
+                                        <div><input type="text" class="contact_input contact_input_email inpt" placeholder="Your E-mail" required="required" th:field="*{email}"><div class="input_border"></div></div>
+                                    </div>
+                                    <div class="col-lg-6" style="margin-bottom: 18px">
+                                        <div><input type="text" class="contact_input contact_input_subject inpt" placeholder="Subject" required="required" th:field="*{subject}"><div class="input_border"></div></div>
+                                    </div>
+                                </div>
+                                <div><textarea class="contact_textarea contact_input inpt" placeholder="Message" required="required" th:field="*{message}"></textarea><div class="input_border" style="bottom:3px"></div></div>
+                                <button class="contact_button">send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="contact_map">
+            <!-- Google Map -->
+            <div class="map">
+                <div id="google_map" class="google_map">
+                    <div class="map_container">
+                        <div id="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.126860017142!2d14.39083695152385!3d50.10263242014502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b953b18badba7%3A0xff08f7e48420083f!2sFakulta%20elektrotechnick%C3%A1%2C%20%C4%8CVUT%20v%20Praze!5e0!3m2!1scs!2scz!4v1585076247856!5m2!1scs!2scz" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <script src="/static/js/jquery-3.2.1.min.js"></script>
 <script src="/static/styles/vendor/bootstrap4/popper.js"></script>

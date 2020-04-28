@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<div class="overlay display-none"></div>
+<div class="overlay display-none" id="overlay"></div>
 
 <div class="form-container display-none" id="login-form">
 	<div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
@@ -24,80 +24,81 @@
 	</div>
 </div>
 
-<div class="super_container">
-	<!-- Header -->
-	<div th:insert="~{fragments/header :: header}"></div>
-	
-	<!-- Home -->
-	<div class="home">
-		<div class="background_image" style="background-image:url(/static/styles/images/destinations.jpg)"></div>
-	</div>
+<div class="" id="blur-10">
+	<div class="super_container" id="super_container">
+		<!-- Header -->
+		<div th:insert="~{fragments/header :: header}"></div>
 
-	<!-- Search -->
-	<div class="home_search">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="home_search_container">
-						<div class="home_search_title">Search for your trip</div>
-						<div class="home_search_content">
-							<div th:insert="~{fragments/search_form :: search_form}"></div>
+		<!-- Home -->
+		<div class="home">
+			<div class="background_image" style="background-image:url(/static/styles/images/destinations.jpg)"></div>
+		</div>
+
+		<!-- Search -->
+		<div class="home_search">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_search_container">
+							<div class="home_search_title">Search for your trip</div>
+							<div class="home_search_content">
+								<div th:insert="~{fragments/search_form :: search_form}"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Destinations -->
-	<div class="destinations" id="destinations">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<div class="section_subtitle">simply amazing places</div>
-					<div class="section_title"><h2>Destinations</h2></div>
+		<!-- Destinations -->
+		<div class="destinations" id="destinations">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="section_subtitle">simply amazing places</div>
+						<div class="section_title"><h2>Destinations</h2></div>
+					</div>
 				</div>
-			</div>
-			<div class="row destination_sorting_row">
-				<div class="col">
-					<div class="destination_sorting d-flex flex-row align-items-start justify-content-start">
-						<div class="sorting">
-							<ul class="item_sorting">
-								<li>
-									<span class="sorting_text">Sort By</span>
-									<i class="fa fa-chevron-down" aria-hidden="true"></i>
-									<ul>
-										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>All</span></li>
-										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
-									</ul>
-								</li>
-							</ul>
+				<div class="row destination_sorting_row">
+					<div class="col">
+						<div class="destination_sorting d-flex flex-row align-items-start justify-content-start">
+							<div class="sorting">
+								<ul class="item_sorting">
+									<li>
+										<span class="sorting_text">Sort By</span>
+										<i class="fa fa-chevron-down" aria-hidden="true"></i>
+										<ul>
+											<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>All</span></li>
+											<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row destinations_row">
-				<div class="col">
-					<div class="destinations_container item_grid">
-						<!-- Destination -->
-						<a th:each="destination : ${destinations}" th:href="'destinations/'+${destination.getId()}+'/tours'">
-							<div class="destination item">
-								<div class="destination_image">
-									<img th:src="'/static/styles/images/destination_'+${destination.id}+'.jpg'" alt="">
+				<div class="row destinations_row">
+					<div class="col">
+						<div class="destinations_container item_grid">
+							<!-- Destination -->
+							<a th:each="destination : ${destinations}" th:href="'destinations/'+${destination.getId()}+'/tours'">
+								<div class="destination item">
+									<div class="destination_image">
+										<img th:src="'/static/styles/images/destination_'+${destination.id}+'.jpg'" alt="">
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><h3 th:text="${destination.getName()}">Title</h3></div>
+										<div class="destination_subtitle"><p th:text="${destination.getCountry()}">Subtitle</p></div>
+									</div>
 								</div>
-								<div class="destination_content">
-									<div class="destination_title"><h3 th:text="${destination.getName()}">Title</h3></div>
-									<div class="destination_subtitle"><p th:text="${destination.getCountry()}">Subtitle</p></div>
-								</div>
-							</div>
-						</a>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 <script src="/static/js/jquery-3.2.1.min.js"></script>
 <script src="/static/styles/vendor/bootstrap4/popper.js"></script>

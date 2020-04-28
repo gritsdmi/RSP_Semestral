@@ -24,15 +24,16 @@
 	</div>
 </div>
 
-<div class="super_container">
-<!---->
-	<div th:insert="~{fragments/header :: header}"></div>
+<div class="" id="blur-10">
+	<div class="super_container">
+		<!---->
+		<div th:insert="~{fragments/header :: header}"></div>
 
-	<main>
-		<div class="content">
-			<div class="destination flex-column">
-				<div class="data-tours flex-column">
-					<div class="bali-tour" id="tour01">
+		<main>
+			<div class="content">
+				<div class="destination flex-column">
+					<div class="data-tours flex-column">
+						<div class="bali-tour" id="tour01">
 							<div class="destination item">
 								<div class="destination_content">
 									<div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
@@ -79,11 +80,12 @@
 									</div>
 								</div>
 							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</main>
+		</main>
+	</div>
 </div>
 
 <script type="text/javascript">function closeCheckbox() {document.getElementById('checkbox').click();}</script>
