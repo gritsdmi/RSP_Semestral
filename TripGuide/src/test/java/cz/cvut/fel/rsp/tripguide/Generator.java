@@ -78,5 +78,19 @@ public class Generator {
         return excursion;
     }
 
+    public static Incident generateIncident() {
+        Incident incident = new Incident();
+        incident.setDescription("Incident description" + randomInt());
+//        incident.setTourist(generateUser());
+        return incident;
+    }
+
+    public static LocalAttraction generateLocalAttraction() {
+        LocalAttraction localAttraction = new LocalAttraction();
+        localAttraction.setFree(true);
+        localAttraction.setDescription("Description attraction" + randomInt());
+        return localAttraction;
+    }
+
 
 }
