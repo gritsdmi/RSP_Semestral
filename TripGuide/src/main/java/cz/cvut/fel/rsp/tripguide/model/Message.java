@@ -1,10 +1,8 @@
 package cz.cvut.fel.rsp.tripguide.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.util.Set;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 public class Message extends AbstractEntity {
@@ -12,7 +10,7 @@ public class Message extends AbstractEntity {
     private String text;
 
     @ManyToOne
-    private User user;
+    private Tour tour;
 
     public String getText() {
         return text;
@@ -22,12 +20,15 @@ public class Message extends AbstractEntity {
         this.text = text;
     }
 
-    public User getUser() {
-        return user;
+    public Tour getTour() {
+        return tour;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setTour(Tour tour) {
+        this.tour = tour;
     }
 
+    public String getCreateDate() {
+        return getCreatedat().truncatedTo(ChronoUnit.MINUTES).toString().replace('T', ' ');
+    }
 }

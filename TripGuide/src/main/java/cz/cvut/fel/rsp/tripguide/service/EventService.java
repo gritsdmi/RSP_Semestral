@@ -2,7 +2,7 @@ package cz.cvut.fel.rsp.tripguide.service;
 
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
 import cz.cvut.fel.rsp.tripguide.model.Event;
-import cz.cvut.fel.rsp.tripguide.model.Message;
+import cz.cvut.fel.rsp.tripguide.model.Tour;
 import cz.cvut.fel.rsp.tripguide.model.User;
 import cz.cvut.fel.rsp.tripguide.repository.EventRepository;
 import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
+
 @SuppressWarnings("ALL")
 @Service
 public class EventService {
@@ -30,6 +32,10 @@ public class EventService {
             throw new NotFoundException("Message not found! ID: " + id);
         }
         return event.get();
+    }
+
+    public Set<Event> findEventsByTour(Tour tour) {
+        return eventRepository.findAllByTourOrderByIdDesc(tour);
     }
 
     public Event save(Event event) {

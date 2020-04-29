@@ -1,6 +1,7 @@
 package cz.cvut.fel.rsp.tripguide.repository;
 
 
+import cz.cvut.fel.rsp.tripguide.model.Event;
 import cz.cvut.fel.rsp.tripguide.model.Tour;
 import cz.cvut.fel.rsp.tripguide.model.User;
 import org.springframework.data.repository.CrudRepository;
@@ -16,4 +17,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     Set<User> findAll();
 
     Set<User> findAllByToursContains(Tour tour);
+    Set<User> findAllByEventsContains(Event event);
 }
+

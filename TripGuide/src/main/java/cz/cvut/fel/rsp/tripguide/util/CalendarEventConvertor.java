@@ -244,7 +244,7 @@ public class CalendarEventConvertor {
         }
 
         if(e.getEndRecur() != null && !e.getEndRecur().toString().isEmpty()) {
-            event.setEndRecur(e.getEndRecur().toString());
+            event.setEndRecur(e.getEndRecur().plusDays(1).toString());
         }
 
         if(e.getStartTime() != null && !e.getStartTime().toString().isEmpty()) {

@@ -2,12 +2,78 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TripGuide delegate</title>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/delegate/main_styles.css">
 </head>
+
 <body>
-
-    <h1>DELEGATE PAGE</h1>
-    <h1 sec:authentication="principal"></h1>
-
+<div class="container">
+    <div id="header">
+        <p class="delPage" >Delegate page</p>
+        <p class="headerP">My tours</p>
+        <a style=" border: 1px solid red; padding: 10px; color: red;" href="/logout">Log out</a>
+    </div>
+    <tbody>
+    <div class="tours">
+        <tr th:each="tour: ${tours}" >
+            <div class="tour">
+                <p id="tourDescr" th:text="${tour.description}"></p>
+                <p th:utext="'<span class=\'tourTitles\'>Destination:</span> ' + ${tour.hotel.destination.name} + ' ' + ${tour.hotel.destination.country} "></p>
+                <p th:utext="'<span class=\'tourTitles\'>Hotel:</span> ' +${tour.hotel.name}"></p>
+                <p th:utext="'<span class=\'tourTitles\'>Date and time from:</span> <span class=\'tourDateFromDel\'>'+${tour.getDateTimeFrom()} +'</span>'"></p>
+                <p th:utext="'<span class=\'tourTitles\'>Date and time till:</span><span class=\'tourDateTillDel\'>'+${tour.getDateTimeTil()} +'</span>'"></p>
+                <a th:href="'/delegate/tour/'+${tour.id}">More</a>
+            </div>
+        </tr>
+    </div>
+    </tbody>
+</div>
+<!--===============================================================================================-->
+<script src="/static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script>
+    var tours = $('.tour');
+    tours.each(function() {
+        var dateFrom = getDate($(this).find(".tourDateFromDel").text());
+        var dateTill = getDate($(this).find(".tourDateTillDel").text());
+        var dateToday = getTodayDate();
+        if (firstGreaterSecond(dateToday, dateFrom) && firstGreaterSecond(dateTill, dateToday)) {
+            $(this).css('border', '4px solid green');
+            $(".tours").prepend($(this));
+        }else if(firstGreaterSecond(dateToday, dateTill)){
+            $(this).css('border', '4px solid indianred');
+            $(".tours").append($(this));
+        }
+    });
+    function getDate(stringDate) {
+        var date = new Date(stringDate);
+        var year = date.getFullYear();
+        var  month = date.getMonth()+1;
+        var dt = date.getDate();
+        if (dt < 10) {
+            dt = '0' + dt;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+        return dt +'/' + month + '/'+year;
+    }
+    function getTodayDate() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        today = dd + '/' + mm + '/' + yyyy;
+        return today;
+    }
+    function firstGreaterSecond(date1, date2) {
+        var d1 = date1.split("/");
+        var d2 = date2.split("/");
+        var first = new Date(d1[2], parseInt(d1[1])-1, d1[0]);  // -1 because months are from 0 to 11
+        var second   = new Date(d2[2], parseInt(d2[1])-1, d2[0]);
+        return first >= second;
+    }
+</script>
 </body>
 </html>

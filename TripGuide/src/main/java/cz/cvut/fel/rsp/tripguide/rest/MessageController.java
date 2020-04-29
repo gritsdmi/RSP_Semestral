@@ -39,7 +39,7 @@ public class MessageController {
 
     @PostMapping(value = "/add", consumes = "application/json", produces = "application/json")
     public Message add(@RequestBody Message message, @RequestBody User user) {
-        return messageService.addMessage(message, user);
+        return messageService.addMessage(message, user.getId());
     }
 
     @PostMapping(value = "/add/{userId}", consumes = "application/json", produces = "application/json")
