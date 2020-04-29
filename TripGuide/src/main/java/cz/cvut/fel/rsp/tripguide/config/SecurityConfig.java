@@ -28,7 +28,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/**","/resources/**/**", "/static/**", "/static/**/**", "/templates/**","templates/**/**","css/**","css/**/**","styles/**","styles/**/**", "/", "/login**", "/registration", "/h2-console/**", "/api/**", "/api/**/**").permitAll()
+                .antMatchers(
+            "/resources/**",
+                        "/resources/**/**",
+                        "/static/**",
+                        "/static/**/**",
+                        "/templates/**",
+                        "templates/**/**",
+                        "css/**",
+                        "css/**/**",
+                        "styles/**",
+                        "styles/**/**",
+                        "/",
+                        "/login**",
+                        "/registration",
+                        "/h2-console/**",
+                        "/api/**",
+                        "/api/**/**")
+                .permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/tourist/**").hasAuthority("TOURIST")
                 .antMatchers("/delegate/**").hasAuthority("DELEGATE")

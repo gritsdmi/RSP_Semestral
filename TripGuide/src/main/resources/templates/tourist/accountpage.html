@@ -21,7 +21,7 @@
 </head>
 <body>
 <input id="userId" type="hidden" th:value="${user.getId()}">
-<div class="overlay display-none"></div>
+<div class="overlay display-none" id="overlay"></div>
 
 <div class="form-container display-none" id="login-form">
 	<div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 
-			<div id="calendar"></div>>
+			<div id="calendar"></div>
 		</div>
 
 		<div class="destinations" id="destinations">
@@ -74,26 +74,28 @@
 						<div class="destinations_container item_grid">
 
 							<!-- Destination -->
-							<div id="toursBlock" th:each="tourItem : ${tour}">
-								<div class="destination item">
-									<div class="destination_image">
-										<img th:src="'/static/styles/images/destination_'+${tourItem.getId()}+'.jpg'" alt="">
-									</div>
-									<div class="destination_content">
-										<div class="destination_title"><h3 th:text="${tourItem.getCity()}">Title</h3></div>
-										<div class="tour_about"><p th:text="${tourItem.getDescription()}">Subtitle</p></div>
-										<div class="tour_price"><p>From $679</p></div>
-										<div class="tour_list">
-											<ul>
-												<li th:text="'Hotel: '+${tourItem.getHotel().getName()}">Hotel</li>
-												<li th:text="'Transfer type: '+${tourItem.getTransferType()}">Transfer type</li>
-												<li th:text="'FROM: '+${tourItem.getDateTimeFrom()}">Time from</li>
-												<li th:text="'TO: '+${tourItem.getDateTimeTil()}">Time til</li>
-											</ul>
+							<a th:each="tourItem : ${tour}" th:href="${'/tourist/destinations/'+tourItem.getHotel().getDestination().getId()+'/tours/'+tourItem.getId()}" >
+								<div id="toursBlock" >
+									<div class="destination item">
+										<div class="destination_image">
+											<img th:src="'/static/styles/images/destination_'+${tourItem.getId()}+'.jpg'" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3 th:text="${tourItem.getCity()}">Title</h3></div>
+											<div class="tour_about"><p th:text="${tourItem.getDescription()}">Subtitle</p></div>
+											<div class="tour_list">
+												<ul>
+													<li th:text="'Hotel: '+${tourItem.getHotel().getName()}">Hotel</li>
+													<li th:text="'Transfer type: '+${tourItem.getTransferType()}">Transfer type</li>
+													<li th:text="'FROM: '+${tourItem.getDateTimeFrom()}">Time from</li>
+													<li th:text="'TO: '+${tourItem.getDateTimeTil()}">Time til</li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							</a>
+
 
 						</div>
 					</div>

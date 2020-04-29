@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<div class="overlay display-none"></div>
+<div class="overlay display-none" id="overlay"></div>
 
 <div class="form-container display-none" id="login-form">
     <div class="wrap-login p-l-50 p-r-50 p-t-72 p-b-50">
@@ -25,94 +25,96 @@
     </div>
 </div>
 
-<div class="super_container">
-    <!-- Header -->
-    <div th:insert="~{fragments/header :: header}"></div>
+<div class="" id="blur-10">
+    <div class="super_container" id="super_container">
+        <!-- Header -->
+        <div th:insert="~{fragments/header :: header}"></div>
 
-    <!-- Home -->
-    <div class="home">
-        <div class="background_image" style="background-image:url(/static/styles/images/destinations.jpg)"></div>
-    </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="background_image" style="background-image:url(/static/styles/images/destinations.jpg)"></div>
+        </div>
 
-    <!-- Search -->
-    <div class="home_search">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="home_search_container">
-                        <div class="home_search_title">Search for your trip</div>
-                        <div class="home_search_content">
-                            <div th:insert="~{fragments/search_form :: search_form}"></div>
+        <!-- Search -->
+        <div class="home_search">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_search_container">
+                            <div class="home_search_title">Search for your trip</div>
+                            <div class="home_search_content">
+                                <div th:insert="~{fragments/search_form :: search_form}"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Destinations -->
-    <div class="destinations" id="destinations">
-        <div class="container">
-            <div class="row">
-                <div class="col text-center">
-                    <div class="section_subtitle">simply amazing places</div>
-                    <div class="section_title"><h2>Tours</h2></div>
+        <!-- Destinations -->
+        <div class="destinations" id="destinations">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="section_subtitle">simply amazing places</div>
+                        <div class="section_title"><h2>Tours</h2></div>
+                    </div>
                 </div>
-            </div>
-            <div class="row destination_sorting_row">
-                <div class="col">
-                    <div class="destination_sorting d-flex flex-row align-items-start justify-content-start">
-                        <div class="sorting">
-                            <ul class="item_sorting">
-                                <li>
-                                    <span class="sorting_text">Sort By</span>
-                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    <ul>
-                                        <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>All</span></li>
-                                        <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-                                        <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                <div class="row destination_sorting_row">
+                    <div class="col">
+                        <div class="destination_sorting d-flex flex-row align-items-start justify-content-start">
+                            <div class="sorting">
+                                <ul class="item_sorting">
+                                    <li>
+                                        <span class="sorting_text">Sort By</span>
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                        <ul>
+                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>All</span></li>
+                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+                                            <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row destinations_row">
-                <div class="col">
-                    <div class="destinations_container item_grid">
+                <div class="row destinations_row">
+                    <div class="col">
+                        <div class="destinations_container item_grid">
 
-                        <!-- Tour -->
-                        <!--tours/'+${tour.getId()}}-->
-                        <a th:each="tour : ${tours}"
-                           th:href="'tours/'+${tour.getId()}">
+                            <!-- Tour -->
+                            <!--tours/'+${tour.getId()}}-->
+                            <a th:each="tour : ${tours}"
+                               th:href="'tours/'+${tour.getValue().getId()}">
 
-                            <div class="destination item">
-                                <div class="destination_image">
-                                    <img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
-                                </div>
-                                <div class="destination_content">
-                                    <div class="destination_title"><h3 th:text="${tour.getCity()}">Title</h3></div>
-                                    <div class="destination_subtitle"><p th:text="${tour.getDescription()}">Subtitle</p></div>
-                                    <div class="destination_price">From $679</div>
-                                    <div class="destination_list">
-                                        <ul>
-                                            <li>5 Stars Hotel</li>
-                                            <li>All Inclusive</li>
-                                            <li>Flight tickets included</li>
-                                            <li>Guided visits</li>
-                                        </ul>
+                                <div class="destination item">
+                                    <div class="destination_image">
+                                        <img th:src="'/static/styles/images/destination_'+${tour.getValue().getId()}+'.jpg'" alt="">
+                                    </div>
+                                    <div class="destination_content">
+                                        <div class="destination_title"><h3 th:text="${tour.getValue().getCity()}">Title</h3></div>
+                                        <div class="destination_subtitle"><p th:text="${tour.getValue().getDescription()}">Subtitle</p></div>
+                                        <div class="destination_price" th:text="${tour.getKey()}"></div>
+                                        <div class="destination_list">
+                                            <ul>
+                                                <li th:text="${tour.getValue().getHotel().getStars() + ' stars'}">All Inclusive</li>
+                                                <li th:text="${tour.getValue().getHotel().getAddress()}">Flight tickets included</li>
+                                                <li th:text="${tour.getValue().getHotel().getWeb()}">Flight tickets included</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <script src="/static/js/jquery-3.2.1.min.js"></script>
 <script src="/static/styles/vendor/bootstrap4/popper.js"></script>
