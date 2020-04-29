@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TripGuide delegate</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/static/styles/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/delegate/main_styles.css">
+</head>
+<body>
+
+<div class="container">
+    <tr>
+        <div id="header">
+            <p class="delPage" >Delegate page</p>
+            <p class="headerP" th:text="'Tour #' + ${tour.id}"></p>
+        </div>
+
+        <div class="links">
+            <a href="/delegate/home">Home page</a>
+        </div>
+        <div class="tourOne">
+            <p class="tourOneDescr" th:text="${tour.description}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Destination:</span> <a href=\'/dest/'+${tour.hotel.destination.id}+'\'>'+${tour.hotel.destination.name} + ' ' + ${tour.hotel.destination.country} +'</a>'"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Tour type:</span> '+${tour.tourType}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Hotel:</span> <a href=\'/hotel/'+${tour.hotel.id}+'\'>' +${tour.hotel.name}+'</a>'"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Date and time from:</span> ' +${tour.getDateTimeFrom()}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Date and till:</span> ' +${tour.getDateTimeTil()}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Depature from:</span> ' +${tour.departureFrom}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Depature date and time:</span> '+${tour.getDepartureDateTime()}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Arrival date and time:</span> '+${tour.getArrivalDateTime()}"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Transfer type:</span> '+${tour.transferType}"></p>
+        </div>
+
+        <div class="links bottom">
+            <a class="touristsBut">Tourists</a>
+            <a class="eventsBut">Events</a>
+            <a class="messagesBut">Messages</a>
+        </div>
+        <div id="touristsSec">
+            <table id="touristsByTourTable">
+                <thead>
+                <tr>
+                    <th> Username</th>
+                    <th> Fullname</th>
+                    <th> Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tourist : *{tourists}">
+                    <td th:utext="'<a href=\'/user/'+${tourist.id}+'\'>'+${tourist.username}+'</a>'"></td>
+                    <td th:text="${tourist.fullName}"></td>
+                    <td th:text="${tourist.email}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="messagesSec">
+
+            <form class="addMessage" th:action="@{/delegate/tour/__${tour.id}__/message}" th:object="${newmessage}" th:method="post">
+                <label for="text">New message: </label>
+                <div id="textArea">
+                    <textarea id="textInput" th:field="*{text}"></textarea>
+                </div>
+                <button type="submit" id="addMesButton">Add</button>
+            </form>
+
+            <div class="messages">
+    <tr th:each="mess: ${messages}">
+        <div class="message"><p class="messageText" th:utext="${mess.text}"></p><p class="messageDate" th:utext="${mess.getCreateDate()}"></p></div>
+    </tr>
+</div>
+</div>
+
+
+<div id="eventsSec">
+    <button id="addNewEventBut">Show form for add new events</button>
+
+    <div class="addEventDel">
+        <form class="addEventDelForm" th:action="@{/delegate/tour/__${tour.id}__/event}" th:object="${newevent}" th:method="post">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" th:field="*{title}"/>
+            <label for="types">Event types: </label>
+            <select id="types" th:field="*{eventType}">
+                <option th:each="type : ${types}"
+                        th:value="${type}"
+                        th:text="${type}">
+                </option>
+            </select>
+            <label for="regularSelect">Regular: </label>
+            <select id="regularSelect" th:field="*{regular}">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <span id="onetimeForm">
+                        <label for="startTime">Start date & time: </label>
+                        <input type="datetime-local" name="startTime" id="startTime" th:field="*{start}"/>
+                        <label for="endTime">End date & time: </label>
+                        <input type="datetime-local" name="endTime" id="endTime" th:field="*{end}"/>
+                    </span>
+
+            <span id="regularForm" style="display: none">
+                        <label for="startDate">Start date: </label>
+                        <input type="date" name="startDate" id="startDate" th:field="*{startRecur}"/>
+                        <label for="title">End date: </label>
+                        <input type="date" name="endDate" id="endDate" th:field="*{endRecur}"/>
+
+                        <label for="days">Days:</label>
+                        <select id="days" name="days" size="3" multiple th:field="*{daysOfWeek}">
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                            <option value="7">Sunday</option>
+                        </select>
+                        <label for="title">Start time: </label>
+                        <input type="time" name="startTime" id="startTime" th:field="*{startTime}"/>
+                        <label for="title">End time: </label>
+                        <input type="time" name="endTime" id="endTime" th:field="*{endTime}"/>
+                    </span>
+            <!-- /*
+            <label for="url">URL: </label>
+            <input type="url" name="url" id="url" th:field="*{url}"/>
+
+            <label for="color">Color: </label>
+            <input type="text" name="color" id="color" th:field="*{color}"/>
+
+            <label for="textColor">Text color: </label>
+            <input type="text" name="textColor" id="textColor" th:field="*{textColor}"/>
+            */-->
+            <button type="submit" id="addEventButton">Add</button>
+        </form>
+    </div>
+    <div class="eventsDel">
+        <tr th:each="event: ${events}">
+            <div class="eventDel">
+                <p th:utext="'<span class=\'destTitles\'>Title:</span> ' + ${event.title}"></p>
+                <p th:utext="'<span class=\'destTitles\'>Type:</span> ' + ${event.type}"></p>
+                <p th:utext="'<span class=\'destTitles\'>Regular:</span> ' + (${event.regular}? 'Yes' : 'No')"></p>
+                <span th:style="(${event.regular}? 'display: none' : 'display: block')">
+                           <p th:utext="'<span class=\'destTitles\'>Start:</span> ' + ${event.start}"></p>
+                           <p th:utext="'<span class=\'destTitles\'>End:</span> ' + ${event.end}"></p>
+                        </span>
+                <span th:style="(${event.regular}? 'display: block' : 'display: none')">
+                            <p th:utext="'<span class=\'destTitles\'>Start date:</span> ' + ${event.startRecur}"></p>
+                            <p th:utext="'<span class=\'destTitles\'>End date:</span> ' + ${event.endRecur}"></p>
+                            <p th:utext="'<span class=\'destTitles\'>Days:</span> ' + ${event.daysString}"></p>
+                            <p th:utext="'<span class=\'destTitles\'>Time:</span> ' + ${event.startTime} + '-' + ${event.endTime}"></p>
+                        </span>
+                <form class="addTourist" th:action="@{/delegate/tour/__${tour.id}__/event/__${event.id}__/addtourist}" th:method="post">
+                    <select id="username" name="username">
+                        <option th:each="user : ${tourists}"
+                                th:value="${user.username}"
+                                th:utext="(${event.users.contains(user)})?${user.username}+'    [added]':${user.username}">
+                        </option>
+                    </select>
+                    <button type="submit" id="addEventButton">Add</button>
+                </form>
+            </div>
+        </tr>
+    </div>
+</div>
+</tr>
+</div>
+
+<!--===============================================================================================-->
+<script src="/static/styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/static/js/signup.js"></script>
+<script>
+
+    var tourists = $("#touristsSec");
+    var touristsBut = $(".touristsBut");
+    var messages = $("#messagesSec");
+    var messagesBut = $(".messagesBut");
+    var events = $("#eventsSec");
+    var eventsBut = $(".eventsBut");
+
+    touristsBut.on('click', function(){
+        tourists.css('display', 'block');
+        messages.css('display', 'none');
+        events.css('display', 'none');
+    });
+    messagesBut.on('click', function(){
+        messages.css('display', 'block');
+        tourists.css('display', 'none');
+        tourists.css('events', 'none');
+    });
+    eventsBut.on('click', function(){
+        events.css('display', 'block');
+        messages.css('display', 'none');
+        tourists.css('display', 'none');
+    });
+
+    var searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has("mess")){
+        messagesBut.click();
+        setTimeout(500);
+        $('html, body').animate({
+            scrollTop: $(".messages").offset().top
+        }, 700);
+    }else if (searchParams.has("events")){
+        eventsBut.click();
+        setTimeout(500);
+        $('html, body').animate({
+            scrollTop: $(".eventsDel").offset().top
+        }, 700);
+    }
+
+    var onetimeSpan = $("#onetimeForm");
+    var regularSpan = $("#regularForm");
+    var regSelect = $("#regularSelect");
+
+    regSelect.on('change', function(){
+        var value = $('#regularSelect option:selected').val();
+
+        if (value === 'no') {
+            onetimeSpan.css('display', 'block');
+            regularSpan.css('display', 'none');
+        } else if (value === 'yes') {
+            onetimeSpan.css('display', 'none');
+            regularSpan.css('display', 'block');
+        }
+    });
+
+    var showFormButton = $("#addNewEventBut");
+    var addEventForm = $(".addEventDel");
+
+    showFormButton.on('click', function() {
+        addEventForm.toggleClass("showed");
+    })
+</script>
+</body>
+</html>

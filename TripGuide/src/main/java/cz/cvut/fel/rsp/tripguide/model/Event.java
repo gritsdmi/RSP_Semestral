@@ -1,12 +1,11 @@
 package cz.cvut.fel.rsp.tripguide.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,9 +25,14 @@ public class Event extends AbstractEntity {
 
     private LocalDate endRecur; // date end for repeat event
 
-    private Time startTime; // time start for repeat event
+    private LocalTime startTime; // time start for repeat event
 
-    private Time endTime; // time end for repeat event
+    private LocalTime endTime; // time end for repeat event
+
+    private boolean regular;
+
+    @ManyToOne
+    private Tour tour;
 
     @JsonIgnore
     @Enumerated(EnumType.STRING)
@@ -37,6 +41,9 @@ public class Event extends AbstractEntity {
     @JsonIgnore
     @ManyToMany
     private Set<User> users = new HashSet<>();
+
+    @Transient
+    private StringBuilder daysString = new StringBuilder();
 
     public EventType getType() {
         return type;
@@ -70,24 +77,40 @@ public class Event extends AbstractEntity {
         this.end = end;
     }
 
-    public Time getStartTime() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 
     public int[] getDaysOfWeek() {
         return daysOfWeek;
+    }
+
+    public String getDaysString() {
+        if (daysOfWeek != null) {
+            for (int dayInt : daysOfWeek) {
+                if (dayInt == 1) daysString.append("Mon ");
+                if (dayInt == 2) daysString.append("Tue ");
+                if (dayInt == 3) daysString.append("Wed ");
+                if (dayInt == 4) daysString.append("Thu ");
+                if (dayInt == 5) daysString.append("Fri ");
+                if (dayInt == 6) daysString.append("Sat ");
+                if (dayInt == 7) daysString.append("Sun ");
+            }
+            return daysString.toString();
+        }
+        return "";
     }
 
     public void setDaysOfWeek(int[] daysOfWeek) {
@@ -121,4 +144,24 @@ public class Event extends AbstractEntity {
     public void addUser(User user) {
         this.users.add(user);
     }
+    public void removeUser(User user) {
+        this.users.remove(user);
+    }
+
+    public boolean isRegular() {
+        return regular;
+    }
+
+    public void setRegular(boolean regular) {
+        this.regular = regular;
+    }
+
+    public Tour getTour() {
+        return tour;
+    }
+
+    public void setTour(Tour tour) {
+        this.tour = tour;
+    }
+
 }

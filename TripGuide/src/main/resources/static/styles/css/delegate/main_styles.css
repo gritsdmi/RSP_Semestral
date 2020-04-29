@@ -1,0 +1,258 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background: #FFFFFF;
+    color: #a5a5a5;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+.container{
+    margin: auto;
+}
+
+#header{
+    text-align: center;
+}
+.headerP{
+    font-weight: bold;
+    font-size: 35px;
+    color: gray;
+}
+.delPage{
+    padding: 7px 0;
+    font-size: 20px;
+    margin: 0;
+    background: #007bff;
+    color: whitesmoke;
+}
+
+form {
+    width: 300px;
+    margin: 20px auto 0;
+}
+form label, form input, form button, form select{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 16px;
+}
+form input, form select{
+    width: 250px;
+    height: 25px;
+}
+form label {
+    margin-top: 10px;
+    color: #6c757d;
+}
+form button{
+    margin-top: 10px;
+    width: 256px;
+    height: 31px;
+    color: whitesmoke;
+    background-color: #007bff;
+    border: none;
+}
+
+.links{
+    width: 320px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+.links a{
+    width: 120px;
+    padding: 10px;
+    color: #007bff;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+    margin: 5px;
+}
+.links a:hover{
+    background-color: lightgray;
+}
+
+/*All tours*/
+.tours {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 30px auto;
+    justify-content: center;
+}
+
+.tour{
+    width: 300px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.tour p {
+    color: black;
+    margin: 7px 3px;
+}
+
+.tourTitles{
+    color: #007bff;
+}
+
+#tourDescr{
+    font-size: 20px;
+}
+
+.tour a{
+    margin: 7px 3px;
+    color: #6c757d;
+}
+
+/**Events **/
+#eventsSec{
+    display: none;
+}
+.eventsDel {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.eventDel {
+    width: 250px;
+    border: 1px solid lightgray;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.eventDel p {
+    color: black;
+    margin: 7px 3px;
+}
+
+#days{
+    height: 60px;
+}
+
+#addNewEventBut{
+    width: 294px;
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px;
+    border: 1px solid #6c757d;
+    border-radius: 3px;
+    color: #6c757d;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    background: white;
+}
+.addEventDel{
+    display: none;
+}
+.addEventDel.showed{
+    display: block;
+}
+.eventDel select{
+    width: 150px;
+}
+
+.eventDel button{
+    width: 50px;
+}
+.eventDel select, .eventDel button{
+    display: inline-block;
+    margin: auto;
+}
+
+.addUserPlus{
+    float: right;
+    display: block;
+}
+
+.tourOne, .hotelOne, .destOne{
+    text-align: center;
+    font-size: 16px;
+    color: black;
+}
+.destOne{
+    margin-top: 30px;
+}
+.tourOne a, .hotelOne a{
+    color: blue;
+}
+
+.tourOneDescr, .hotelOneName{
+    font-size: 20px;
+}
+#touristsSec{
+    display: none;
+}
+#touristsByTourTable{
+    margin: 30px auto 30px;
+}
+#touristsByTourTable th, #touristsByTourTable td {
+    text-align: center;
+    width: 200px;
+    border: 1px solid #6c757d;
+    border-collapse: collapse;
+    padding: 5px;
+    font-size: 16px;
+    color: black;
+}
+#touristsByTourTable th{
+    color: #6c757d;
+}
+
+#textArea{
+    display: flex;
+    justify-content: center;
+}
+#textInput{
+    width: 400px;
+    height: 80px;
+    font-size: 16px;
+}
+#messagesSec{
+    display: none;
+}
+.messages{
+    width: 400px;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #6c757d;
+    text-align: center;
+}
+.message + .message{
+    border-top: 1px solid #6c757d;
+}
+.messageText{
+    font-size: 16px;
+    color: black;
+    margin: 20px 10px 10px;
+}
+.messageDate{
+    font-size: 13px;
+    color: #007bff;
+    text-align: right;
+    margin: 0 7px;
+}

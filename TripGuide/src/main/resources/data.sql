@@ -55,3 +55,10 @@ INSERT INTO EXCURSION (ID, DATE_TIME_FROM, DATE_TIME_TILL, ARRIVAL_DATE_TIME, DE
 (4,'2020-04-22T13:30:00','2020-04-28T13:30:00', '2020-04-01T13:00:00','2020-04-07T20:00:00',  'Experience Bali according to your interests on a customizable full-day tour, and choose what you want to see and do with a licensed guide. Marvel at the rice terraces surrounding Ubud, or take part in water sports activities.', 'Best of Bali: Private Customized Full-Day Tour', 100, false);
 
 INSERT INTO EXCURSION_TOURS VALUES (1, 1),(2,1),(3,3),(4,2);
+
+INSERT INTO MESSAGE (ID, TEXT, TOUR_ID, CREATEDAT) VALUES
+(1, 'Hi, Im your delegate!', 2, '2020-04-22T13:30:00'),
+(2, 'asasas', 2, '2020-04-22T13:30:00');
+
+INSERT INTO EVENT (ID, REGULAR, START, END, TITLE, TYPE, TOUR_ID) VALUES
+(1, false, '2020-04-22T13:30:00','2020-04-28T13:30:00', 'Title', 'INCIDENT', 2 );

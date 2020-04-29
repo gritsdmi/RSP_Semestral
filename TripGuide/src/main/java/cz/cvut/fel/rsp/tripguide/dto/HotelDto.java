@@ -1,7 +1,6 @@
 package cz.cvut.fel.rsp.tripguide.dto;
 
 import javax.validation.constraints.NotEmpty;
-import java.sql.Time;
 
 public class HotelDto {
     @NotEmpty

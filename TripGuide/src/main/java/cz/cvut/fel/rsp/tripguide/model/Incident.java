@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Incident extends AbstractEntity {

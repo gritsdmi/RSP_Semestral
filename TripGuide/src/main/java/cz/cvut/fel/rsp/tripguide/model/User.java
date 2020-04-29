@@ -44,10 +44,6 @@ public class User extends AbstractEntity implements UserDetails {
     private Set<Event> events = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private Set<Message> messages = new HashSet<>();
-
-    @JsonIgnore
     @OneToMany(mappedBy = "tourist")
     private Set<Incident> incidents = new HashSet<>();
 
@@ -56,8 +52,8 @@ public class User extends AbstractEntity implements UserDetails {
     private Set<Tour> tours = new HashSet<>();
 
     @JsonIgnore
-    @OneToOne(mappedBy = "delegate")
-    private Tour tourToDelegate;
+    @OneToMany(mappedBy = "delegate")
+    private Set<Tour> tourToDelegate;
 
     @NotNull
     private String fullName;
@@ -147,13 +143,11 @@ public class User extends AbstractEntity implements UserDetails {
         this.events = events;
     }
 
-    public Set<Message> getMessages() {
-        return messages;
+    public void addEvent(Event e) {
+        this.events.add(e);
     }
-
-    public void setMessages(Set<Message> messages) {
-        this.messages = messages;
-    }
+    public void removeEvent(Event e) {
+        this.events.remove(e); }
 
     public Set<Incident> getIncidents() {
         return incidents;
@@ -175,11 +169,11 @@ public class User extends AbstractEntity implements UserDetails {
         this.tours.add(t);
     }
 
-    public Tour getTourToDelegate() {
+    public Set<Tour> getTourToDelegate() {
         return tourToDelegate;
     }
 
-    public void setTourToDelegate(Tour tourToDelegate) {
+    public void setTourToDelegate(Set<Tour> tourToDelegate) {
         this.tourToDelegate = tourToDelegate;
     }
 
@@ -203,7 +197,6 @@ public class User extends AbstractEntity implements UserDetails {
                 Objects.equals(phoneNumber, user.phoneNumber) &&
                 Objects.equals(roles, user.roles) &&
                 Objects.equals(events, user.events) &&
-                Objects.equals(messages, user.messages) &&
                 Objects.equals(incidents, user.incidents) &&
                 Objects.equals(tourToDelegate, user.tourToDelegate);
     }
