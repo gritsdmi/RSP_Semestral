@@ -67,4 +67,14 @@ public class HotelServiceTest {
         hotelService.findHotel(hotel.getId());
     }
 
+    @Test(expected = NotFoundException.class)
+    public void removeHotelByIdTest() {
+        Hotel hotel = Generator.generateHotel();
+        hotelService.save(hotel);
+
+        hotelService.remove(hotel.getId());
+
+        hotelService.findHotel(hotel.getId());
+    }
+
 }

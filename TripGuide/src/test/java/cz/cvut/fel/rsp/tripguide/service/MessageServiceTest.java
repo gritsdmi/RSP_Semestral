@@ -64,4 +64,15 @@ public class MessageServiceTest {
         messageService.findMessage(message.getId());
     }
 
+    @Test(expected = NotFoundException.class)
+    public void removeMessageByIdTest() {
+        Message message = Generator.generateMessage();
+        messageService.save(message);
+
+        messageService.remove(message.getId());
+
+        messageService.findMessage(message.getId());
+    }
+
+
 }

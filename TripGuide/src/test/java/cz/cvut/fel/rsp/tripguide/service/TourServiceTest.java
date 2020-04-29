@@ -48,7 +48,6 @@ public class TourServiceTest {
     }
 
     @Test(expected = NotFoundException.class)
-//    @Test
     public void removeTourTest() {
         Tour tour = Generator.generateTour();
         tourService.save(tour);
@@ -67,6 +66,17 @@ public class TourServiceTest {
         Tour receivedTour = tourService.findTour(tour.getId());
 
         assertEquals(tour, receivedTour);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void removeTourByIdTest() {
+        Tour tour = Generator.generateTour();
+        tourService.save(tour);
+
+        tourService.remove(tour.getId());
+
+        tourService.findTour(tour.getId());
+
     }
 
 }

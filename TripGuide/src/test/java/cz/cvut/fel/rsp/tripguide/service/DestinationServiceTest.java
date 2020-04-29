@@ -61,7 +61,7 @@ public class DestinationServiceTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void removeDestination() {
+    public void removeDestinationByIdTest() {
         Destination destination = Generator.generateDestination();
         assertNotNull(destinationService.save(destination));
 
@@ -69,5 +69,16 @@ public class DestinationServiceTest {
 
         destinationService.findDestination(destination.getId());
     }
+
+    @Test(expected = NotFoundException.class)
+    public void removeDestinationTest() {
+        Destination destination = Generator.generateDestination();
+        assertNotNull(destinationService.save(destination));
+
+        destinationService.remove(destination);
+
+        destinationService.findDestination(destination.getId());
+    }
+
 
 }

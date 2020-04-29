@@ -41,7 +41,7 @@ public class UserServiceTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void deleteUserTest() {
+    public void deleteUserByIdTest() {
 
         User user = userService.regUser(Generator.generateUserDto());
         int userId = user.getId();
@@ -50,5 +50,14 @@ public class UserServiceTest {
 
         userService.remove(userId);
         userService.findUser(userId);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void deleteUserTest() {
+        User user = userService.regUser(Generator.generateUserDto());
+
+        userService.remove(user);
+
+        userService.findUser(user.getId());
     }
 }

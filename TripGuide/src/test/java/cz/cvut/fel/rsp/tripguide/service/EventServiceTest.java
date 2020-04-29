@@ -54,7 +54,7 @@ public class EventServiceTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void removeEventTest() {
+    public void removeEventByIdTest() {
         Event event = Generator.generateEvent();
         eventService.save(event);
 
@@ -62,4 +62,16 @@ public class EventServiceTest {
 
         eventService.findEvent(event.getId());
     }
+
+    @Test(expected = NotFoundException.class)
+    public void removeEventTest() {
+        Event event = Generator.generateEvent();
+        eventService.save(event);
+
+        eventService.remove(event);
+
+        eventService.findEvent(event.getId());
+    }
+
+
 }

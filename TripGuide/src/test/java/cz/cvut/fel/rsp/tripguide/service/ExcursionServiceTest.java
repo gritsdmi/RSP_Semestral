@@ -63,4 +63,14 @@ public class ExcursionServiceTest {
 
         excursionService.findExcursion(excursion.getId());
     }
+
+    @Test(expected = NotFoundException.class)
+    public void removeExcursionByIdTest() {
+        Excursion excursion = Generator.generateExcursion();
+        excursionService.save(excursion);
+
+        excursionService.remove(excursion.getId());
+
+        excursionService.findExcursion(excursion.getId());
+    }
 }

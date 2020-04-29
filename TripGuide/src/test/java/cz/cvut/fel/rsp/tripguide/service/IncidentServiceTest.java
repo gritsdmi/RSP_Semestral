@@ -65,4 +65,14 @@ public class IncidentServiceTest {
 
         incidentService.findIncident(incident.getId());
     }
+
+    @Test(expected = NotFoundException.class)
+    public void removeIncidentByIdTest() {
+        Incident incident = Generator.generateIncident();
+        incidentService.save(incident);
+
+        incidentService.remove(incident.getId());
+
+        incidentService.findIncident(incident.getId());
+    }
 }

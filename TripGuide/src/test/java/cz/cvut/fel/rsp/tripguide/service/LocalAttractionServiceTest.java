@@ -59,4 +59,14 @@ public class LocalAttractionServiceTest {
 
         localAttractionService.findLocalAttraction(localAttraction.getId());
     }
+
+    @Test(expected = NotFoundException.class)
+    public void removeLocalAttractionByIdTest() {
+        LocalAttraction localAttraction = Generator.generateLocalAttraction();
+        localAttractionService.save(localAttraction);
+
+        localAttractionService.remove(localAttraction.getId());
+
+        localAttractionService.findLocalAttraction(localAttraction.getId());
+    }
 }
