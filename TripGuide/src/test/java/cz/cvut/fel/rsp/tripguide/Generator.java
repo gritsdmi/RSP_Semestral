@@ -92,5 +92,12 @@ public class Generator {
         return localAttraction;
     }
 
+    public static Message generateMessage() {
+        Message message = new Message();
+//        message.setUser(generateUser());
+        message.setText("Message text" + randomInt());
+        return message;
+    }
+
 
 }
