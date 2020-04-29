@@ -3,6 +3,7 @@ package cz.cvut.fel.rsp.tripguide.service;
 import cz.cvut.fel.rsp.tripguide.Generator;
 import cz.cvut.fel.rsp.tripguide.exception.NotFoundException;
 import cz.cvut.fel.rsp.tripguide.model.Message;
+import cz.cvut.fel.rsp.tripguide.model.Tour;
 import cz.cvut.fel.rsp.tripguide.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,20 +28,24 @@ public class MessageServiceTest {
     @Autowired
     public UserService userService;
 
+    @Autowired
+    public TourService tourService;
+
     @Test
     public void addMessageTest() {
         Message message = Generator.generateMessage();
         assertNotNull(messageService.save(message));
 
+        Tour tour = Generator.generateTour();
+        tour = tourService.save(tour);
+
         message = Generator.generateMessage();
+        assertNotNull(messageService.addMessage(message, tour));
+
+        message = Generator.generateMessage();
+        assertNotNull(messageService.addMessage(message, tour.getId()));
+
         User user = userService.save(Generator.generateUser());
-        assertNotNull(messageService.addMessage(message, user.getId()));
-
-        user = userService.save(Generator.generateUser());
-        message = Generator.generateMessage();
-        assertNotNull(messageService.addMessage(message, user));
-
-        user = userService.save(Generator.generateUser());
         message = messageService.save(Generator.generateMessage());
         assertNotNull(messageService.addMessage(message.getId(), user.getId()));
 
