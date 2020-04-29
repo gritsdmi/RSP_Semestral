@@ -109,4 +109,8 @@ public class TourService {
         return tourRepository.findAll();
     }
 
+    public Set<Tour> findToursByDelegate(Integer id){
+        return tourRepository.findAllByDelegateOrderByIdDesc(userService.findUser(id));
+    }
+
 }

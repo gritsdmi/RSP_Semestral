@@ -1,7 +1,6 @@
 package cz.cvut.fel.rsp.tripguide.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;

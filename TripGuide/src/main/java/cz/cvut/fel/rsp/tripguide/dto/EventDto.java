@@ -1,36 +1,30 @@
 package cz.cvut.fel.rsp.tripguide.dto;
 
+import cz.cvut.fel.rsp.tripguide.model.EventType;
+
 import javax.validation.constraints.NotNull;
 
 public class EventDto {
-
+    @NotNull
     private Integer id;
-
+    @NotNull
     private String title;
-
     private String start;
-
     private String end;
-
     private int[] daysOfWeek;
-
     private String startRecur;
-
     private String endRecur;
-
     private String startTime;
-
     private String endTime;
-
     private String url;
-
     private String color;
-
     private String textColor;
-
     private Boolean overlap;
-
     private ExtendedProps extendedProps;
+    @NotNull
+    private String regular;
+    @NotNull
+    private EventType eventType;
 
     public String getTitle() {
         return title;
@@ -142,5 +136,21 @@ public class EventDto {
 
     public void setExtendedProps(ExtendedProps extendedProps) {
         this.extendedProps = extendedProps;
+    }
+
+    public String getRegular() {
+        return regular;
+    }
+
+    public void setRegular(String regular) {
+        this.regular = regular;
+    }
+
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
     }
 }

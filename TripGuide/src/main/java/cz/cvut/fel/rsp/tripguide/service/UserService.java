@@ -12,10 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.sql.Time;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -31,6 +27,8 @@ public class UserService implements UserDetailsService {
     @Autowired
     private TourService tourService;
 
+    @Autowired
+    private EventService eventService;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -98,6 +96,10 @@ public class UserService implements UserDetailsService {
         return userRepository.findAllByToursContains(tour);
     }
 
+    public Set<User> getTouristsByEvent(Event event){
+        return userRepository.findAllByEventsContains(event);
+    }
+
     public Set<Destination> findUsersDestinations(Integer id) {
         return findUser(id).getTours()
                 .stream()
@@ -118,6 +120,20 @@ public class UserService implements UserDetailsService {
         t.addUser(user);
         t = tourService.save(t);
         user.addTour(t);
+        return save(user);
+    }
+
+    public User addEvent(User user, Event event) {
+        event.addUser(user);
+        event = eventService.save(event);
+        user.addEvent(event);
+        return save(user);
+    }
+
+    public User removeEvent(User user, Event event) {
+        event.removeUser(user);
+        event = eventService.save(event);
+        user.removeEvent(event);
         return save(user);
     }
 
@@ -156,5 +172,4 @@ public class UserService implements UserDetailsService {
 
         return events;
     }
-
 }

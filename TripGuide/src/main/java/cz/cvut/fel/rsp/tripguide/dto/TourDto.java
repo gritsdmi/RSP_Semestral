@@ -2,7 +2,6 @@ package cz.cvut.fel.rsp.tripguide.dto;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
 public class TourDto {
     @NotNull

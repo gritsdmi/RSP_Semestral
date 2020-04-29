@@ -1,7 +1,6 @@
 package cz.cvut.fel.rsp.tripguide.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -36,7 +35,7 @@ public class Tour extends AbstractEntity {
     private TourType tourType;
 
     @JsonIgnore
-    @OneToOne
+    @ManyToOne
     private User delegate;
 
     @JsonIgnore
@@ -50,6 +49,14 @@ public class Tour extends AbstractEntity {
     @JsonIgnore
     @ManyToMany(mappedBy = "tours")
     private Set<Excursion> excursions = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "tour")
+    private Set<Message> messages = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "tour")
+    private Set<Event> events = new HashSet<>();
 
     public String getCity() {
         return city;
@@ -66,7 +73,6 @@ public class Tour extends AbstractEntity {
     public void setCountry(String country) {
         this.country = country;
     }
-
 
     public LocalDateTime getDateTimeFrom() {
         return dateTimeFrom;
@@ -169,5 +175,19 @@ public class Tour extends AbstractEntity {
         this.excursions = excursions;
     }
 
+    public Set<Message> getMessages() {
+        return messages;
+    }
 
+    public void setMessages(Set<Message> messages) {
+        this.messages = messages;
+    }
+
+    public Set<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
 }
