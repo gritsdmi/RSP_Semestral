@@ -16,6 +16,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -62,6 +66,9 @@ public class DelegateTourController {
 
     @PostMapping("/{id}/event")
     public String addEvent(@PathVariable Integer id, @ModelAttribute("newevent") @Valid EventDto eventDto){
+
+        DateFormat formatter = new SimpleDateFormat("HH:mm");
+
         Event event = new Event();
         event.setTitle(eventDto.getTitle());
         event.setType(eventDto.getEventType());
@@ -69,8 +76,12 @@ public class DelegateTourController {
             event.setStartRecur(LocalDate.parse(eventDto.getStartRecur()));
             event.setEndRecur(LocalDate.parse(eventDto.getEndRecur()));
             event.setDaysOfWeek(eventDto.getDaysOfWeek());
-            event.setStartTime(LocalTime.parse(eventDto.getStartTime()));
-            event.setEndTime(LocalTime.parse(eventDto.getEndTime()));
+            try {
+                event.setStartTime(new Time(formatter.parse(eventDto.getStartTime()).getTime()));
+            } catch (ParseException ignored) { }
+            try {
+                event.setEndTime(new Time(formatter.parse(eventDto.getEndTime()).getTime()));
+            } catch (ParseException ignored) { }
         }else{
             event.setStart(LocalDateTime.parse(eventDto.getStart()));
             event.setEnd(LocalDateTime.parse(eventDto.getEnd()));
