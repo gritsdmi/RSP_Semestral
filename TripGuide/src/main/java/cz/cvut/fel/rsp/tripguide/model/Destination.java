@@ -58,4 +58,8 @@ public class Destination extends AbstractEntity {
         this.localAttractions = localAttractions;
     }
 
+    @Override
+    public String toString() {
+        return this.name + " " + this.country;
+    }
 }

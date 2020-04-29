@@ -12,6 +12,9 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -75,6 +78,17 @@ public class HotelServiceTest {
         hotelService.remove(hotel.getId());
 
         hotelService.findHotel(hotel.getId());
+    }
+
+    @Test
+    public void getAllHotels() {
+        Set<Hotel> hotels = new HashSet<>();
+
+        hotels.add(hotelService.save(Generator.generateHotel()));
+        hotels.add(hotelService.save(Generator.generateHotel()));
+        hotels.add(hotelService.save(Generator.generateHotel()));
+
+        assertEquals(hotels, hotelService.getAllHotels());
     }
 
 }
