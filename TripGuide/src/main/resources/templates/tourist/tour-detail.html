@@ -65,7 +65,7 @@
 											<p th:text="${excur.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
 										</div>
 									</div>
-									<div id="button-wrapper">
+									<div id="button-wrapper" th:if="${show}">
 										<label>
 											<span class="tourButton">Buy</span>
 											<input id="checkbox" type="checkbox"/>
