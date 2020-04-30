@@ -51,6 +51,7 @@ public class TouristTourController {
 
         model.addAttribute("tours", destinationService.findAllDestinationTours(destId)
                 .stream()
+                .filter(tour -> tour.getDateTimeFrom().isAfter(LocalDateTime.now()))
                 .map(tour -> {
                     String date = tour.getDateTimeFrom().format(formatterDate) + " - " + tour.getDateTimeTil().format(formatterDate);
                     return new Pair(date,tour);

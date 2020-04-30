@@ -1,5 +1,6 @@
 package cz.cvut.fel.rsp.tripguide.web.toursit;
 
+import cz.cvut.fel.rsp.tripguide.model.Tour;
 import cz.cvut.fel.rsp.tripguide.model.User;
 import cz.cvut.fel.rsp.tripguide.service.DestinationService;
 import cz.cvut.fel.rsp.tripguide.service.UserService;
@@ -10,6 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
+import java.time.chrono.ChronoLocalDateTime;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/tourist/account")
@@ -24,11 +30,26 @@ public class TouristAccountController {
 
     @GetMapping
     public String accountPage(Principal principal, Model model) {
+
         User user = userService.findUser(principal.getName());
+
+        Set<Tour> allUserTours = user.getTours();
+
+        Set<Tour> history = allUserTours
+                .stream()
+                .filter(t -> t.getDateTimeTil().isBefore(LocalDateTime.now()))
+                .collect(Collectors.toSet());
+
+        Set<Tour> current = allUserTours
+                .stream()
+                .filter(t -> t.getDateTimeTil().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toSet());
+
         model.addAttribute("user", user);
-        model.addAttribute("destinations", userService.findUsersDestinations(user.getId()));
-        model.addAttribute("tour", user.getTours());
-        model.addAttribute("hotel", userService.findUsersHotel(user.getId()));
+        model.addAttribute("current", current);
+        model.addAttribute("history", history);
+        model.addAttribute("all", user.getTours());
+
         return "tourist/accountpage";
     }
 }
