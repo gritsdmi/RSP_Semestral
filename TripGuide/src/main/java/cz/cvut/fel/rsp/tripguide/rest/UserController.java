@@ -41,11 +41,6 @@ public class UserController {
         return userService.regUser(user);
     }
 
-    @GetMapping(value = "/addMessage/{userId}/{messageId}", produces = "application/json")
-    public User addMessage(@PathVariable("userId") Integer userId, @PathVariable("messageId") Integer messageId) {
-        return userService.addMessage(userId, messageId);
-    }
-
     @PostMapping(value = "/save", consumes = "application/json", produces = "application/json")
     public User save(@RequestBody User user) {
         return userService.save(user);
