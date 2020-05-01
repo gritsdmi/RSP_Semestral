@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 
@@ -56,6 +57,7 @@ public class GuestHomeController {
 
         model.addAttribute("tours", destinationService.findAllDestinationTours(destId)
                 .stream()
+                .filter(tour -> tour.getDateTimeFrom().isAfter(LocalDateTime.now()))
                 .map(tour -> {
                     String date = tour.getDateTimeFrom().format(formatterDate) + " - " + tour.getDateTimeTil().format(formatterDate);
                     return new Pair(date,tour);
