@@ -18,6 +18,9 @@
 	<link href='/static/calendar/daygrid/main.css' rel='stylesheet' />
 	<link href='/static/calendar/timegrid/main.css' rel='stylesheet' />
 	<link href='/static/calendar/list/main.css' rel='stylesheet' />
+
+	<link rel="stylesheet" type="text/css" href="/static/styles/css/destinations.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles/css/destinations_responsive.css">
 </head>
 <body>
 <input id="userId" type="hidden" th:value="${user.getId()}">
@@ -69,35 +72,103 @@
 						<div class="section_title"><h2>My Tours</h2></div>
 					</div>
 				</div>
-				<div class="row destinations_row">
+				<div class="row destination_sorting_row">
 					<div class="col">
-						<div class="destinations_container item_grid">
+						<div class="destination_sorting d-flex flex-row align-items-start justify-content-start">
+							<div class="sorting">
+								<ul class="item_sorting">
+									<li>
+										<span class="sorting_text" id="sorting-span-text">Sort By</span>
+										<i class="fa fa-chevron-down" aria-hidden="true"></i>
+										<ul id="sorting-ul" data-current="0">
+											<li class="product_sorting_btn active" data-option='0'><span>Current</span></li>
+											<li class="product_sorting_btn" data-option='1'><span>History</span></li>
+											<li class="product_sorting_btn" data-option='2'><span>All</span></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row destinations_row">
+					<div class="col" >
 
+						<div class="destinations_container item_grid" id="0">
 							<!-- Destination -->
-							<a th:each="tourItem : ${tour}" th:href="${'/tourist/destinations/'+tourItem.getHotel().getDestination().getId()+'/tours/'+tourItem.getId()}" >
+							<a th:each="tour : ${current}" th:href="${'/tourist/destinations/'+tour.getHotel().getDestination().getId()+'/tours/'+tour.getId()}" >
 								<div id="toursBlock" >
 									<div class="destination item">
 										<div class="destination_image">
-											<img th:src="'/static/styles/images/destination_'+${tourItem.getId()}+'.jpg'" alt="">
+											<img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
 										</div>
 										<div class="destination_content">
-											<div class="destination_title"><h3 th:text="${tourItem.getCity()}">Title</h3></div>
-											<div class="tour_about"><p th:text="${tourItem.getDescription()}">Subtitle</p></div>
+											<div class="destination_title"><h3 th:text="${tour.getCity()}">Title</h3></div>
+											<div class="tour_about"><p th:text="${tour.getDescription()}">Subtitle</p></div>
 											<div class="tour_list">
 												<ul>
-													<li th:text="'Hotel: '+${tourItem.getHotel().getName()}">Hotel</li>
-													<li th:text="'Transfer type: '+${tourItem.getTransferType()}">Transfer type</li>
-													<li th:text="'FROM: '+${tourItem.getDateTimeFrom()}">Time from</li>
-													<li th:text="'TO: '+${tourItem.getDateTimeTil()}">Time til</li>
+													<li th:text="'Hotel: '+${tour.getHotel().getName()}">Hotel</li>
+													<li th:text="'Transfer type: '+${tour.getTransferType()}">Transfer type</li>
+													<li th:text="'FROM: '+${tour.getDateTimeFrom()}">Time from</li>
+													<li th:text="'TO: '+${tour.getDateTimeTil()}">Time til</li>
 												</ul>
 											</div>
 										</div>
 									</div>
 								</div>
 							</a>
-
-
 						</div>
+
+						<div class="destinations_container item_grid display-none" id="1">
+							<!-- Destination -->
+							<a th:each="tour : ${history}" th:href="${'/tourist/destinations/'+tour.getHotel().getDestination().getId()+'/tours/'+tour.getId()}" >
+								<div id="toursBlock" >
+									<div class="destination item">
+										<div class="destination_image">
+											<img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3 th:text="${tour.getCity()}">Title</h3></div>
+											<div class="tour_about"><p th:text="${tour.getDescription()}">Subtitle</p></div>
+											<div class="tour_list">
+												<ul>
+													<li th:text="'Hotel: '+${tour.getHotel().getName()}">Hotel</li>
+													<li th:text="'Transfer type: '+${tour.getTransferType()}">Transfer type</li>
+													<li th:text="'FROM: '+${tour.getDateTimeFrom()}">Time from</li>
+													<li th:text="'TO: '+${tour.getDateTimeTil()}">Time til</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="destinations_container item_grid display-none" id="2">
+							<!-- Destination -->
+							<a th:each="tour : ${all}" th:href="${'/tourist/destinations/'+tour.getHotel().getDestination().getId()+'/tours/'+tour.getId()}" >
+								<div id="toursBlock" >
+									<div class="destination item">
+										<div class="destination_image">
+											<img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
+										</div>
+										<div class="destination_content">
+											<div class="destination_title"><h3 th:text="${tour.getCity()}">Title</h3></div>
+											<div class="tour_about"><p th:text="${tour.getDescription()}">Subtitle</p></div>
+											<div class="tour_list">
+												<ul>
+													<li th:text="'Hotel: '+${tour.getHotel().getName()}">Hotel</li>
+													<li th:text="'Transfer type: '+${tour.getTransferType()}">Transfer type</li>
+													<li th:text="'FROM: '+${tour.getDateTimeFrom()}">Time from</li>
+													<li th:text="'TO: '+${tour.getDateTimeTil()}">Time til</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -106,6 +177,7 @@
 	</div>
 </main>
 
+<script src='/static/js/account-page-dropdown.js'></script>
 <script src='/static/calendar/core/main.js'></script>
 <script src='/static/calendar/interaction/main.js'></script>
 <script src='/static/calendar/daygrid/main.js'></script>

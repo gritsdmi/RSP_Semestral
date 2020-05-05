@@ -51,13 +51,6 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public User addMessage(Integer userId, Integer messageId) {
-        Optional<User> user = userRepository.findById(userId);
-        if(!user.isPresent()) {
-            return null;
-        }
-        return null;
-    }
 
     public User findUser(Integer id) {
         Optional<User> user = userRepository.findById(id);

@@ -51,6 +51,7 @@ public class TouristTourController {
 
         model.addAttribute("tours", destinationService.findAllDestinationTours(destId)
                 .stream()
+                .filter(tour -> tour.getDateTimeFrom().isAfter(LocalDateTime.now()))
                 .map(tour -> {
                     String date = tour.getDateTimeFrom().format(formatterDate) + " - " + tour.getDateTimeTil().format(formatterDate);
                     return new Pair(date,tour);
@@ -61,11 +62,19 @@ public class TouristTourController {
     }
 
     @GetMapping("/{tourId}")
-    public String tourInfoPage(Model model,@PathVariable Integer destId, @PathVariable Integer tourId) {
+    public String tourInfoPage(Model model,@PathVariable Integer destId, @PathVariable Integer tourId, Principal principal) {
+        User user = userService.findUser(principal.getName());
         Tour tour = tourService.findTour(tourId);
-        model.addAttribute("tour", tourService.findTour(tourId));
+        model.addAttribute("tour", tour);
         model.addAttribute("attractions", destinationService.findDestination(destId).getLocalAttractions());
-        // TODO add avaliable dates, but first we need to implement them in admin menu.
+        model.addAttribute("show",
+                !(tour.getDateTimeTil().isBefore(LocalDateTime.now()) ||
+                        (user != null && user.getTours()
+                                .stream()
+                                .filter(t -> t.getId() == tour.getId())
+                                .findFirst()
+                                .isPresent()))
+        );
         return "tourist/tour-detail";
     }
 
