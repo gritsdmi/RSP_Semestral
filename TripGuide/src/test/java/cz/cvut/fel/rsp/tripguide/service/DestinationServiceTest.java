@@ -12,7 +12,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -85,7 +84,7 @@ public class DestinationServiceTest {
 
     @Test
     public void getAllDestinations() {
-        Set<Destination> destinations = new HashSet<>();
+        Set<Destination> destinations = destinationService.getAllDestinations();
 
         destinations.add(destinationService.save(Generator.generateDestination()));
         destinations.add(destinationService.save(Generator.generateDestination()));
