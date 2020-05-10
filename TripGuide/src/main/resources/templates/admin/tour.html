@@ -22,9 +22,9 @@
         </div>
         <div class="tourOne">
             <p class="tourOneDescr" th:text="${tour.description}"></p>
-            <p th:utext="'<span class=\'tourTitles\'>Destination:</span> <a href=\'/dest/'+${tour.hotel.destination.id}+'\'>'+${tour.hotel.destination.name} + ' ' + ${tour.hotel.destination.country} +'</a>'"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Destination:</span> <a href=\'/admin/dest/'+${tour.hotel.destination.id}+'\'>'+${tour.hotel.destination.name} + ' ' + ${tour.hotel.destination.country} +'</a>'"></p>
             <p th:utext="'<span class=\'tourTitles\'>Tour type:</span> '+${tour.tourType}"></p>
-            <p th:utext="'<span class=\'tourTitles\'>Hotel:</span> <a href=\'/hotel/'+${tour.hotel.id}+'\'>' +${tour.hotel.name}+'</a>'"></p>
+            <p th:utext="'<span class=\'tourTitles\'>Hotel:</span> <a href=\'/admin/hotels/'+${tour.hotel.id}+'\'>' +${tour.hotel.name}+'</a>'"></p>
             <p th:utext="'<span class=\'tourTitles\'>Date and time from:</span> ' +${tour.getDateTimeFrom()}"></p>
             <p th:utext="'<span class=\'tourTitles\'>Date and till:</span> ' +${tour.getDateTimeTil()}"></p>
             <p th:utext="'<span class=\'tourTitles\'>Depature from:</span> ' +${tour.departureFrom}"></p>
