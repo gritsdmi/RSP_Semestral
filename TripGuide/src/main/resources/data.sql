@@ -77,37 +77,37 @@ INSERT INTO HOTEL(ID, BREAKFAST_TIME_FROM ,BREAKFAST_TIME_TO, DINNER_TIME_FROM, 
 
 INSERT INTO TOUR(ID, COUNTRY, CITY, DATE_TIME_FROM, DATE_TIME_TIL, DEPARTURE_FROM, DEPARTURE_DATE_TIME,  ARRIVAL_DATE_TIME, DESCRIPTION, TOUR_TYPE,TRANSFER_TYPE, DELEGATE_ID, HOTEL_ID) VALUES
 (1, 'Indonesia', 'Bali', '2020-04-1T12:30:00', '2020-04-5T13:30:00', 'Airport', '2020-04-01T01:00:00','2020-04-01T11:00:00', 'Tour in Bali', 'BEACH', 'PLANE', 3, 1),
-(2, 'Indonesia', 'Lombok', '2020-05-6T12:30:00', '2020-05-10T13:30:00', 'Airport', '2020-05-6T01:00:00','2020-05-6T11:00:00', 'Tour in Lombok', 'BEACH', 'BUS', 3, 2),
-(3, 'Turkey', 'Belek', '2020-05-25T10:30:00', '2020-05-10T13:30:00', 'Airport', '2020-05-25T01:00:00','2020-05-25T09:00:00', 'Tour in Belek', 'BEACH', 'PLANE', 3, 3),
-(4, 'Turkey', 'Istanbul', '2020-05-14T10:30:00', '2020-05-17T13:30:00', 'Airport', '2020-05-14T01:00:00','2020-05-14T09:00:00', 'Tour in Istanbul', 'BEACH', 'PLANE', 3, 4),
-(5, 'Ukraine', 'Lviv', '2020-05-1T12:30:00', '2020-05-10T13:30:00', 'Airport', '2020-05-01T07:00:00','2020-05-01T10:00:00', 'First Tour in Lviv', 'SIGHTSEEING', 'PLANE', 3, 5),
-(6, 'Ukraine', 'Lviv', '2020-05-11T12:30:00', '2020-05-20T13:30:00', 'Airport', '2020-05-11T07:00:00','2020-05-11T10:00:00','Second Tour in Lviv', 'SIGHTSEEING', 'PLANE', 3, 6),
-(7, 'Ukraine', 'Lviv', '2020-05-21T12:30:00', '2020-06-1T13:30:00', 'Airport', '2020-05-21T07:00:00','2020-05-21T10:00:00','Third Tour in Lviv', 'SIGHTSEEING', 'PLANE', 3, 7),
+(2, 'Indonesia', 'Lombok', '2020-06-6T12:30:00', '2020-06-10T13:30:00', 'Airport', '2020-06-6T01:00:00','2020-06-6T11:00:00', 'Tour in Lombok', 'BEACH', 'BUS', 3, 2),
+(3, 'Turkey', 'Belek', '2020-06-25T10:30:00', '2020-06-10T13:30:00', 'Airport', '2020-06-25T01:00:00','2020-06-25T09:00:00', 'Tour in Belek', 'BEACH', 'PLANE', 3, 3),
+(4, 'Turkey', 'Istanbul', '2020-06-14T10:30:00', '2020-06-17T13:30:00', 'Airport', '2020-06-14T01:00:00','2020-06-14T09:00:00', 'Tour in Istanbul', 'BEACH', 'PLANE', 3, 4),
+(5, 'Ukraine', 'Lviv', '2020-06-1T12:30:00', '2020-06-10T13:30:00', 'Airport', '2020-06-01T07:00:00','2020-06-01T10:00:00', 'First Tour in Lviv', 'SIGHTSEEING', 'PLANE', 3, 5),
+(6, 'Ukraine', 'Lviv', '2020-06-11T12:30:00', '2020-06-20T13:30:00', 'Airport', '2020-06-11T07:00:00','2020-06-11T10:00:00','Second Tour in Lviv', 'SIGHTSEEING', 'PLANE', 3, 6),
+(7, 'Ukraine', 'Lviv', '2020-06-21T12:30:00', '2020-06-1T13:30:00', 'Airport', '2020-06-21T07:00:00','2020-06-21T10:00:00','Third Tour in Lviv', 'SIGHTSEEING', 'PLANE', 3, 7),
 (8, 'Ukraine', 'Uzhhorod', '2020-06-2T12:30:00', '2020-06-12T13:30:00', 'Airport', '2020-06-02T10:00:00','2020-06-02T12:00:00','Tour in Uzhhorod', 'SIGHTSEEING', 'PLANE', 3, 8),
-(9, 'USA', 'San Francisco', '2020-05-20T12:30:00', '2020-05-27T13:30:00', 'Airport', '2020-05-19T12:00:00','2020-05-20T12:00:00','First Tour in San Francisco', 'BEACH', 'PLANE', 3, 9),
+(9, 'USA', 'San Francisco', '2020-06-20T12:30:00', '2020-06-27T13:30:00', 'Airport', '2020-05-19T12:00:00','2020-05-20T12:00:00','First Tour in San Francisco', 'BEACH', 'PLANE', 3, 9),
 (10, 'USA', 'San Francisco', '2020-06-2T12:30:00', '2020-06-12T13:30:00', 'Airport', '2020-06-01T12:00:00','2020-06-02T12:00:00','Second Tour in San Francisco', 'BEACH', 'PLANE', 3, 10),
 (11, 'USA', 'San Francisco', '2020-06-13T12:30:00', '2020-06-22T13:30:00', 'Airport', '2020-06-12T12:00:00','2020-06-13T12:00:00','Third Tour in San Francisco', 'BEACH', 'PLANE', 3, 11),
 (12, 'USA', 'San Francisco', '2020-06-23T12:30:00', '2020-06-30T13:30:00', 'Airport', '2020-06-22T12:00:00','2020-06-23T12:00:00','Fourth Tour in San Francisco', 'BEACH', 'PLANE', 3, 12),
 (13, 'USA', 'New York', '2020-06-6T12:30:00', '2020-06-17T13:30:00', 'Airport', '2020-06-06T00:00:00','2020-06-06T12:00:00','Tour in New York', 'SPORT', 'PLANE', 3, 13),
 (14, 'France', 'Paris', '2020-06-3T12:30:00', '2020-06-15T13:30:00', 'Airport', '2020-06-03T07:00:00','2020-06-03T10:00:00','Tour in Paris', 'SIGHTSEEING', 'PLANE', 3, 14),
 (15, 'France', 'Marseille', '2020-06-26T12:30:00', '2020-06-22T13:30:00', 'Airport', '2020-06-26T07:00:00','2020-06-26T11:00:00','Tour in Marseille', 'SIGHTSEEING', 'PLANE', 3, 15),
-(16, 'Thailand', 'Phuket', '2020-05-6T12:30:00', '2020-05-17T13:30:00', 'Airport', '2020-05-06T01:00:00','2020-05-06T12:00:00','Tour in Phuket', 'BEACH', 'PLANE', 3, 16),
-(17, 'Thailand', 'Krabi', '2020-05-6T12:30:00', '2020-05-17T13:30:00', 'Airport', '2020-05-06T00:00:00','2020-05-06T12:00:00','Tour in Krabi', 'BEACH', 'PLANE', 3, 17),
-(18, 'Greece', 'Mykonos', '2020-05-6T12:30:00', '2020-05-17T13:30:00', 'Airport', '2020-05-06T08:00:00','2020-05-06T11:00:00','Tour in Mykonos', 'FAMILY', 'PLANE', 3, 18),
-(19, 'Greece', 'Athens', '2020-05-6T12:30:00', '2020-05-17T13:30:00', 'Airport', '2020-05-06T10:00:00','2020-05-06T12:30:00','Tour in Athens', 'FAMILY', 'PLANE', 3, 19),
-(20, 'Czech Republic', 'Brno', '2020-05-7T12:30:00', '2020-05-17T13:30:00', 'Airport', '2020-05-07T09:00:00','2020-05-07T10:00:00', 'Tour in Brno', 'SIGHTSEEING', 'PLANE', 3, 20);
+(16, 'Thailand', 'Phuket', '2020-06-6T12:30:00', '2020-06-17T13:30:00', 'Airport', '2020-06-06T01:00:00','2020-06-06T12:00:00','Tour in Phuket', 'BEACH', 'PLANE', 3, 16),
+(17, 'Thailand', 'Krabi', '2020-06-6T12:30:00', '2020-06-17T13:30:00', 'Airport', '2020-06-06T00:00:00','2020-06-06T12:00:00','Tour in Krabi', 'BEACH', 'PLANE', 3, 17),
+(18, 'Greece', 'Mykonos', '2020-06-6T12:30:00', '2020-06-17T13:30:00', 'Airport', '2020-06-06T08:00:00','2020-06-06T11:00:00','Tour in Mykonos', 'FAMILY', 'PLANE', 3, 18),
+(19, 'Greece', 'Athens', '2020-06-6T12:30:00', '2020-06-17T13:30:00', 'Airport', '2020-06-06T10:00:00','2020-06-06T12:30:00','Tour in Athens', 'FAMILY', 'PLANE', 3, 19),
+(20, 'Czech Republic', 'Brno', '2020-06-7T12:30:00', '2020-06-17T13:30:00', 'Airport', '2020-06-07T09:00:00','2020-06-07T10:00:00', 'Tour in Brno', 'SIGHTSEEING', 'PLANE', 3, 20);
 
 INSERT INTO TOUR_USERS VALUES (1,1);
 
 INSERT INTO EXCURSION (ID, DATE_TIME_FROM, DATE_TIME_TILL, ARRIVAL_DATE_TIME, DEPARTURE_DATE_TIME, DESCRIPTION, "NAME", PRICE, TRANSFER_NEEDED) VALUES
-(1,'2020-04-3T13:30:00','2020-04-3T20:30:00', '2020-04-03T12:30:00','2020-04-03T22:30:00',  'Get the best views in Bali with an early-morning hike up Mount Batur volcano with breakfast included. An unforgettable sunrise awaits you at the top.','Sunrise Mount Batur Hike with Breakfast', 100, true),
-(2,'2020-04-4T7:30:00','2020-04-4T21:30:00', '2020-04-04T6:00:00','2020-04-04T23:00:00', 'Watch the sunrise from the top of Mount Batur on an early morning hike up Bali''s most emblematic mountain. Experience the stunning views from the active volcano near the village of Kintamani, and learn more about the region from a local private guide.', 'Mount Batur Sunrise Hike and Natural Hot Spring', 100, false),
-(3,'2020-04-2T13:30:00','2020-04-2T19:30:00', '2020-04-02T13:00:00','2020-04-02T22:00:00', 'Take a private tour of Bali''s most iconic sights that you always see on postcards and Instagram! Snap photos and experience the beauty in the North. ', 'Northern Charm: Lake Bratan, Handara Gate, Waterfall & Swing', 100, false),
-(4,'2020-04-2T13:30:00','2020-04-2T19:30:00', '2020-04-02T13:00:00','2020-04-02T22:00:00',  'Experience Bali according to your interests on a customizable full-day tour, and choose what you want to see and do with a licensed guide. Marvel at the rice terraces surrounding Ubud, or take part in water sports activities.', 'Best of Bali: Private Customized Full-Day Tour', 100, false),
+(1,'2020-06-3T13:30:00','2020-06-3T20:30:00', '2020-06-03T12:30:00','2020-06-03T22:30:00',  'Get the best views in Bali with an early-morning hike up Mount Batur volcano with breakfast included. An unforgettable sunrise awaits you at the top.','Sunrise Mount Batur Hike with Breakfast', 100, true),
+(2,'2020-06-4T7:30:00','2020-06-4T21:30:00', '2020-06-04T6:00:00','2020-06-04T23:00:00', 'Watch the sunrise from the top of Mount Batur on an early morning hike up Bali''s most emblematic mountain. Experience the stunning views from the active volcano near the village of Kintamani, and learn more about the region from a local private guide.', 'Mount Batur Sunrise Hike and Natural Hot Spring', 100, false),
+(3,'2020-06-2T13:30:00','2020-06-2T19:30:00', '2020-06-02T13:00:00','2020-06-02T22:00:00', 'Take a private tour of Bali''s most iconic sights that you always see on postcards and Instagram! Snap photos and experience the beauty in the North. ', 'Northern Charm: Lake Bratan, Handara Gate, Waterfall & Swing', 100, false),
+(4,'2020-06-2T13:30:00','2020-06-2T19:30:00', '2020-06-02T13:00:00','2020-06-02T22:00:00',  'Experience Bali according to your interests on a customizable full-day tour, and choose what you want to see and do with a licensed guide. Marvel at the rice terraces surrounding Ubud, or take part in water sports activities.', 'Best of Bali: Private Customized Full-Day Tour', 100, false),
 
-(5,'2020-05-7T12:30:00','2020-05-7T19:30:00', '2020-05-7T11:30:00','2020-05-07T20:00:00',  'Get the best views in Lombok', 'Lombok with Breakfast', 100, false),
-(6,'2020-05-26T10:30:00','2020-05-26T19:30:00', '2020-05-26T09:30:00','2020-05-26T20:30:00',  'Get the best views in Belek', 'Belek with Breakfast', 100, false),
-(7,'2020-05-15T10:30:00','2020-05-15T17:30:00', '2020-05-15T09:30:00','2020-05-15T18:30:00',  'Get the best views in Istanbul', 'Istanbul with Breakfast', 100, false),
-(8,'2020-05-2T12:30:00','2020-05-2T16:30:00', '2020-05-2T11:30:00','2020-05-1T17:30:00',  'Take a private tour of Lviv''s most iconic sights that you always see on postcards and Instagram!', 'Best of Lviv', 100, false);
+(5,'2020-06-7T12:30:00','2020-06-7T19:30:00', '2020-06-7T11:30:00','2020-06-07T20:00:00',  'Get the best views in Lombok', 'Lombok with Breakfast', 100, false),
+(6,'2020-06-26T10:30:00','2020-06-26T19:30:00', '2020-06-26T09:30:00','2020-06-26T20:30:00',  'Get the best views in Belek', 'Belek with Breakfast', 100, false),
+(7,'2020-06-15T10:30:00','2020-06-15T17:30:00', '2020-06-15T09:30:00','2020-06-15T18:30:00',  'Get the best views in Istanbul', 'Istanbul with Breakfast', 100, false),
+(8,'2020-06-2T12:30:00','2020-06-2T16:30:00', '2020-06-2T11:30:00','2020-06-1T17:30:00',  'Take a private tour of Lviv''s most iconic sights that you always see on postcards and Instagram!', 'Best of Lviv', 100, false);
 
 INSERT INTO EXCURSION_TOURS VALUES (1,1),(2,1),(3,1),(4,1),(5,2),(6,3),(7,4),(8,5);
