@@ -11,11 +11,13 @@
 <!--CODE FOR COPY-->
 
     <th:block th:fragment="login_form">
-        <button id="closeButton" th:classappend="${#httpServletRequest.requestURL.toString().contains('registration') || #httpServletRequest.requestURL.toString().contains('login') ? 'color-black' : ''}">X</button>
+        <!--        <button id="closeButton" th:classappend="${#httpServletRequest.requestURL.toString().contains('registration') || #httpServletRequest.requestURL.toString().contains('login') ? 'color-black' : ''}">X</button>-->
+        <button id="closeButton">X</button>
+
         <form class="login100-form" th:action="@{/login}" th:method="POST">
             <span class="login100-form-title p-b-33">Sign In</span>
             <div class="error-alert login-alert" th:if="${param.error}">
-                <div >Invalid username or password.</div>
+                <div>Invalid username or password.</div>
             </div>
             <div class="wrap-input100">
                 <span class="label-input100">Username/Email</span>
