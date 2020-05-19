@@ -21,4 +21,7 @@ function closeLogin() {
 }
 
 document.getElementById('closeButton').addEventListener('click', closeLogin);
-document.getElementById('display-login').addEventListener('click', displaylogin);
+let dis_login_class = document.getElementById('display-login')
+if (dis_login_class != null) {
+    document.getElementById('display-login').addEventListener('click', displaylogin);
+}

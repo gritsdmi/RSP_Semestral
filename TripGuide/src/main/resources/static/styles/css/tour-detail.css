@@ -10,3 +10,50 @@
 .free_attraction {
     color: green;
 }
+
+.destination_fix {
+    width: 100%;
+    /*background: #FFFFFF;*/
+    padding-top: 30px;
+    padding-bottom: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.destination_fix .fix_1 {
+    width: 70%;
+}
+
+.fix_1 .destination_title {
+    margin-top: 30px;
+}
+
+.fix_1 .destination_dates {
+    padding-left: 25px;
+}
+
+.destination_attractions h4, .destination_excursions h4 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 35px;
+    margin-top: 40px;
+}
+
+.destination_fix .fix_1 .fix_2 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.fix_2 .destination_attraction, .fix_2 .destination_excursion {
+    float: none !important;
+    padding: 20px;
+}
+
+.fix_2 .destination_attraction h5, .fix_2 .destination_excursion h5 {
+    padding: 10px 0;
+}
+
+.confirm-modal form {
+    /*left: 0 !important;*/
+}

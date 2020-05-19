@@ -907,7 +907,7 @@ button,
     pointer-events: all;
 }
 .confirm-modal form {
-    position: absolute;
+    /*position: absolute; here*/
     z-index: 99;
     top: 50px;
     -webkit-transition: -webkit-transform 0.75s;
