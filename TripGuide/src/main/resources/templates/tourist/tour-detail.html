@@ -41,8 +41,9 @@
 									</div>
 									<div th:if="${param.error}" class="error-alert" style="margin-bottom: 1rem">Error!
 									</div>
-									<img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
 									<div class="destination_title"><h1 th:text="${tour.getCity()}">Title</h1></div>
+									<img id="main_img"
+										 th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
 									<div class="destination_dates">
 										<h4>Details</h4>
 										<ul>

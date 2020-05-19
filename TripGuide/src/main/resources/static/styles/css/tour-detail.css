@@ -57,3 +57,7 @@
 .confirm-modal form {
     /*left: 0 !important;*/
 }
+
+.fix_1 .confirm-modal {
+    height: 0;
+}
