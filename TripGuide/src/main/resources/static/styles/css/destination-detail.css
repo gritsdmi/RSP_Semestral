@@ -828,7 +828,7 @@ section {
 
 .destination_attraction {
      display: block;
-     max-width: 300px;
+     width: 300px;
      float: left;
      margin: 3px;
  }

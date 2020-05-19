@@ -10,3 +10,57 @@
 .free_attraction {
     color: green;
 }
+
+#description_div h4, #destination_attractions h4, #destination_excursions h4 {
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+.w_100 {
+    width: 100% !important;
+}
+
+#header_div  {
+    width: 30%;
+    float: left;
+}
+
+#header_div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#destination_title {
+    margin-top: 30px;
+}
+
+#destination_title h1 {
+    font-size: 100px;
+}
+
+#description_div {
+    width: 70%;
+    float: left;
+}
+
+#destination_attractions {
+    width: 100%;
+    clear: both;
+}
+
+#description_div #destination_attractions .destination_attraction {
+    width: 30%;
+    margin-left: 2.5%;
+}
+
+#destination_excursions {
+    width: 100%;
+    clear: both;
+}
+
+#destination_excursions .destination_excursion {
+    width: 30%;
+    margin-left: 2.5%;
+}
