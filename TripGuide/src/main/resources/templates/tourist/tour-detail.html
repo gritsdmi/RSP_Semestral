@@ -31,52 +31,56 @@
 
 		<main>
 			<div class="content">
-				<div class="destination flex-column">
+				<div class="destination flex-column w_100">
 					<div class="data-tours flex-column">
 						<div class="bali-tour" id="tour01">
-							<div class="destination item">
-								<div class="destination_content">
-									<div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
-									<div th:if="${param.error}" class="error-alert" style="margin-bottom: 1rem">Error!</div>
-									<img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
-									<div class="destination_title"><h1 th:text="${tour.getCity()}">Title</h1></div>
-									<div class="destination_dates">
-										<h4>Details</h4>
-										<ul>
-											<li>Date: <span th:text="${tour.getDateTimeFrom().getYear()}"></span>-<span th:text="${tour.getDateTimeFrom().getMonth()}"></span>-<span th:text="${tour.getDateTimeFrom().getDayOfMonth()}"></span> →
-												<span th:text="${tour.getDateTimeTil().getYear()}"></span>-<span th:text="${tour.getDateTimeTil().getMonth()}"></span>-<span th:text="${tour.getDateTimeTil().getDayOfMonth()}"></span>
-											<li>Hotel: <span th:text="${tour.getHotel().getName()}"></span></li>
-										</ul>
-									</div>
-									<div class="destination_attractions">
-										<h4>Attractions</h4>
-										<div th:each="att : ${attractions}" class="destination_attraction">
-											<img th:src="'/static/styles/images/destination_'+${att.getId()}+'.jpg'" alt="">
-											<h5 th:text="${att.getName()}">Surfing</h5>
-											<p th:text="${att.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
-											<h5 th:if="${att.getFree()}" class="free_attraction">Free of charge</h5>
+							<div class="destination item w_100">
+								<div class="destination_content w_100">
+									<div id="header_div">
+										<div th:if="${param.success}" class="info-alert" style="margin-bottom: 1rem">Success!</div>
+										<div th:if="${param.error}" class="error-alert" style="margin-bottom: 1rem">Error!</div>
+										<img th:src="'/static/styles/images/destination_'+${tour.getId()}+'.jpg'" alt="">
+										<div id="destination_title"><h1 th:text="${tour.getCity()}">Title</h1></div>
+										<div id="button-wrapper" th:if="${show}">
+											<label>
+												<span class="tourButton">Buy</span>
+												<input id="checkbox" type="checkbox"/>
+												<div class="confirm-modal">
+													<form th:action="${#authorization.authentication.principal.equals('anonymousUser') ? '/login' : '' }" th:method="${#authorization.authentication.principal.equals('anonymousUser') ? 'get' : 'put' }">
+														<p>Are you sure you want to buy a tour?</p>
+														<button type="submit" class="tourButton">Yes</button>
+														<button type="button" class="tourButton" onclick="closeCheckbox()">No</button>
+													</form>
+												</div>
+											</label>
 										</div>
 									</div>
-									<div class="destination_excursions">
-										<h4>Excursions</h4>
-										<div th:each="excur : ${tour.getExcursions()}" class="destination_excursion">
-											<img th:src="'/static/styles/images/destination_'+${excur.getId()}+'.jpg'" alt="">
-											<h5 th:text="${excur.getName()}">Surfing</h5>
-											<p th:text="${excur.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+									<div id="description_div">
+										<div class="destination_dates">
+											<h4>Details</h4>
+											<ul>
+												<li>Date: <span th:text="${tour.getDateTimeFrom().getYear()}"></span>-<span th:text="${tour.getDateTimeFrom().getMonth()}"></span>-<span th:text="${tour.getDateTimeFrom().getDayOfMonth()}"></span> →
+													<span th:text="${tour.getDateTimeTil().getYear()}"></span>-<span th:text="${tour.getDateTimeTil().getMonth()}"></span>-<span th:text="${tour.getDateTimeTil().getDayOfMonth()}"></span>
+												<li>Hotel: <span th:text="${tour.getHotel().getName()}"></span></li>
+											</ul>
 										</div>
-									</div>
-									<div id="button-wrapper" th:if="${show}">
-										<label>
-											<span class="tourButton">Buy</span>
-											<input id="checkbox" type="checkbox"/>
-											<div class="confirm-modal">
-												<form th:action="${#authorization.authentication.principal.equals('anonymousUser') ? '/login' : '' }" th:method="${#authorization.authentication.principal.equals('anonymousUser') ? 'get' : 'put' }">
-													<p>Are you sure you want to buy a tour?</p>
-													<button type="submit" class="tourButton">Yes</button>
-													<button type="button" class="tourButton" onclick="closeCheckbox()">No</button>
-												</form>
+										<div id="destination_attractions">
+											<h4>Attractions</h4>
+											<div th:each="att : ${attractions}" class="destination_attraction">
+												<img th:src="'/static/styles/images/destination_'+${att.getId()}+'.jpg'" alt="">
+												<h5 th:text="${att.getName()}">Surfing</h5>
+												<p th:text="${att.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+												<h5 th:if="${att.getFree()}" class="free_attraction">Free of charge</h5>
 											</div>
-										</label>
+										</div>
+										<div id="destination_excursions">
+											<h4>Excursions</h4>
+											<div th:each="excur : ${tour.getExcursions()}" class="destination_excursion">
+												<img th:src="'/static/styles/images/destination_'+${excur.getId()}+'.jpg'" alt="">
+												<h5 th:text="${excur.getName()}">Surfing</h5>
+												<p th:text="${excur.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iusto nostrum, voluptatem</p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
